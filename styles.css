@@ -1,0 +1,287 @@
+html {
+	height: 100%;
+}
+body {
+	margin:0;
+	padding:0;
+	font-family: sans-serif;
+	background-color: #f1f1df;
+}
+
+/*Main layout*/
+#main_div {
+	width: 100%;
+	/*height: 100%;*/
+	height: 200vh;
+	background-color: #eaeaea;
+	position: relative;
+}
+
+#header {
+	width: 100%;
+	height: 13vh;
+	background-color: black;
+	position: fixed;
+}
+
+#footer {
+	width: 100%;
+	height: 50vh;
+	background-color: aqua;
+	position: absolute;
+	bottom: 0px;
+}
+/*End main layout*/
+
+
+/*Header section*/
+#hamburger {
+	width: 5%;
+	height: 100%;
+	background-color: #2d2d2d;
+	float: left;
+ 	display: inline-block;
+  	cursor: pointer;
+}
+
+#logo {
+	width: 10%;
+	height: 100%;
+	background-color: #2d2d2d;
+	float: left;
+}
+
+#search_bar {
+	width: 70%;
+	height: 100%;
+	background-color: #2d2d2d;
+	float: left;
+}
+
+#user {
+	width: 5%;
+	height: 100%;
+	background-color: #2d2d2d;
+	float: left;
+	background-image: url('./resource/user.png');
+	background-size:30px;
+	background-position: 15px 20px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+#shopping_cart {
+	width: 5%;
+	height: 100%;
+	background-color: #2d2d2d;
+	float: left;
+	background-image: url('./resource/shoping-cart.png');
+	background-size:30px;
+	background-position: 15px 20px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+#help {
+	width: 5%;
+	height: 100%;
+	background-color: #2d2d2d;
+	float: left;
+	background-image: url('./resource/help.png');
+	background-size:30px;
+	background-position: 15px 20px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+	/*Hamburger button*/
+	.bar1, .bar2, .bar3 {
+		width: 25px;
+		height: 3px;
+		background-color: #ffffff;
+		margin: 5px 0 0 15px;
+		transition: 0.4s;
+	}
+
+	#hamburger_container {
+		margin-top: 30px;
+	}
+
+	.change .bar1 {
+		-webkit-transform: rotate(-45deg) translate(-9px, 6px);
+		transform: rotate(-45deg) translate(-9px, 6px);
+	}
+
+	.change .bar2 {opacity: 0;}
+
+	.change .bar3 {
+		-webkit-transform: rotate(45deg) translate(-8px, -8px);
+		transform: rotate(45deg) translate(-8px, -8px);
+	}
+
+	/*Logo*/
+	#header > #logo > a > img {
+		height: 65px;
+		position: absolute;
+		top: 5px;
+	}
+
+
+	/*Search bar*/
+	input[name='query'] {
+	width: 700px;
+	height: 30px;
+	border-radius: 7px;
+	position: absolute;
+	top: 15px;
+	left: 230px;
+	background-image:url('https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-24.png');
+	border: 1px solid #000;
+	border-radius: 30px;
+	font-size: 20px;
+	background-color: white;
+	background-position: 10px 7px;
+	background-repeat: no-repeat;
+	padding: 8px 20px 8px 40px;
+	}
+
+
+/*End Header section*/
+
+/*Header hover*/
+	#hamburger:hover ,#logo:hover, #user:hover, #shopping_cart:hover, #help:hover {
+		background-color: #1a1a1a;
+	}
+
+/*End header hover*/
+
+
+/*Footer section*/
+h1 ~ ul {
+	font-size: 15px;
+	line-height: 23px;
+	list-style-type: none;
+}
+li a {
+	text-decoration: none;
+	color: gray ;
+}
+li a:hover {
+	color: #0770cf ;
+}
+#info {
+	width: 33%;
+	height: 50%;
+	background-color: #f2f2f2;
+	float: left;
+}
+
+#more {
+	width: 33%;
+	height: 50%;
+	background-color: #f2f2f2;
+	float: left;
+}
+
+#about {
+	width: 34%;
+	height: 50%;
+	background-color: #f2f2f2;
+	float: left;
+}
+#contact > h1 {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+#contact {
+	width: 100%;
+	height: 35%;
+	background-color: #f2f2f2;
+	float: left;
+	display: flex;
+	justify-content: center;
+}
+
+#bottom {
+	width: 100%;
+	height: 15%;
+	background-color: #f2f2f2;
+	position: absolute;
+	bottom: 0;
+	color: gray;
+	
+}
+
+#left {
+	padding-top: 20px;
+	width: 50%;
+	text-align: left;
+	display: inline-block;
+	float: left;
+}
+#right {
+	padding-top: 20px;
+	width: 50%;
+	text-align: right;
+	display: inline-block;
+	float: left;
+}
+/*End Footer section*/
+
+
+/*Menu section*/
+#menu {
+	width: 20%;
+	height: 90vh;
+	background-color: white;
+	float: left;
+	display: none;
+	margin-top: 13vh;
+	position: fixed;
+	z-index: 1;
+}
+
+#gender {
+	width: 100%;
+	height: 10vh;
+	background-color: blue;
+}
+
+#woman {
+	width: 50%;
+	height: 100%;
+	background-color: cyan;
+	float: left;
+}
+
+#man {
+	width: 50%;
+	height: 100%;
+	background-color: maroon;
+	float: left;
+}
+
+#category ul {
+	padding: 0;
+}
+
+#category ul li {
+	list-style-type: none;
+	width: 100%;
+	height: 8vh;
+	padding-top: 10px;
+}
+
+#menu button {
+	width: 100%;
+	height: 100%;
+	border:0;
+	cursor: pointer;
+}
+
+#menu button:hover {
+	background-color: #bcbcbc;
+}
+
+/*End Menu section*/
+
