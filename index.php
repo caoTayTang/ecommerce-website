@@ -10,12 +10,13 @@
 </head>
 <body>
     <div id="main_div">
-        <?php include './Partial/menu.php' ?>
-        <?php include './Partial/header.php' ?>
-        <div id="middle_div">
-
-        </div>
-        <?php include './Partial/footer.php' ?>
+        <?php 
+            include './Partial/menu.php';
+            include './Partial/header.php'; ?>
+            <div id="middle_div">
+                aaa
+            </div>
+        <?php include './Partial/footer.php';?>
 
        
     </div> 
