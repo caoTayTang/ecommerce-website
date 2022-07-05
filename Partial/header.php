@@ -8,7 +8,7 @@
 	</div>
 	<div id="logo">
 		<a href="#">
-			<img src="./resource/logo-white.png" >
+			<img src="/ecommerce-website/resource/logo-white.png" >
 		</a>
 	</div>
 	<div id="search_bar">

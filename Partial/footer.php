@@ -1,6 +1,8 @@
+<!-- the fixed circle -->
+<div id="float" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"> </div> 
 <div id="footer">
 	<div id="contact">
-		<img src="./resource/logo-black.png" height="90px">
+		<img src="/ecommerce-website/resource/logo-black.png" height="90px">
 	</div>
 	<div id="info">
 		<h2>Thông tin</h2>
