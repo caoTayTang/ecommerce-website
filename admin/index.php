@@ -4,24 +4,24 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Nhà sản xuất</title>
-	<link rel="stylesheet" type="text/css" href="../../styles.css">
+	<link rel="stylesheet" type="text/css" href="../styles.css">
 	<link rel="icon" href="../../resource/logo.png">
 </head>
 <body>
 	<div id="main_div">
-		<?php include '../../Partial/header.php'; ?>
+		<?php include '../Partial/header.php'; ?>
 	
 	<div id="menu">
 		<div class="dropdown">
 	        <button class="dropbtn">Quản lý sản phẩm</button>
 	        <div class="dropdown-content">
-	            <a href="./product/form_insert.php">Thêm sản phẩm</a>
+	            <a href="./products/form_insert.php">Thêm sản phẩm</a>
 	        </div>
 	    </div>
 	    <div class="dropdown">
 	        <button class="dropbtn">Quản lý  nhà sản xuất</button>
 	        <div class="dropdown-content">
-	            <a href="./manufacturer/form_insert.php">Thêm nhà sản xuất</a>
+	            <a href="./manufacturers/form_insert.php">Thêm nhà sản xuất</a>
 	        </div>
 	    </div>
 	</div>
@@ -73,10 +73,10 @@
                 <td>
                     asos
                 </td>
-                <td class="update" onclick="location.href='form_update.php'">
+                <td class="update" onclick="location.href='products/form_update.php'">
                     Sửa
                 </td>
-                <td class="delete" onclick="location.href='process_delete.php'">
+                <td class="delete" onclick="location.href='products/process_delete.php'">
                     Xoá
                 </td>
             </tr>
@@ -98,10 +98,10 @@
                 <td>
                     asos
                 </td>
-                <td class="update" onclick="location.href='form_update.php'">
+                <td class="update" onclick="location.href='products/form_update.php'">
                     Sửa
                 </td>
-                <td class="delete" onclick="location.href='process_delete.php'">
+                <td class="delete" onclick="location.href='products/process_delete.php'">
                     	Xoá
                     </a>
                 </td>
@@ -110,7 +110,7 @@
     </p>
 </div>
 		</div>
-		<?php include '../../Partial/footer.php';?>
+		<?php include '../Partial/footer.php';?>
 	</div>
 	
 </body>
