@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Nhà sản xuất</title>
 	<link rel="stylesheet" type="text/css" href="../styles.css">
-	<link rel="icon" href="../../resource/logo.png">
+	<link rel="icon" href="../resource/logo.png">
 </head>
 <body>
 	<div id="main_div">

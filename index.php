@@ -14,7 +14,7 @@
             include './Partial/menu.php';
             include './Partial/header.php'; ?>
             <div id="middle_div">
-                aaa
+                
             </div>
         <?php include './Partial/footer.php';?>
 
