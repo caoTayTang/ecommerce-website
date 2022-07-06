@@ -2,8 +2,21 @@
 <div id="float" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"> </div> 
 <div id="footer">
 	<div id="contact">
-		<img src="/ecommerce-website/resource/logo-black.png" height="90px">
-	</div>
+        <div id="pagination">
+            <?php 
+                $concatChar = '?';
+                if ( isset($_GET['query']) ) {
+                    $concatChar = "?query=$search&";
+                }
+             ?>
+            <?php for($i = 1; $i <= $page; $i++) { ?>
+                <a href="index.php<?php echo $concatChar ?>page=<?php echo $i ?>"> 
+                    <?php echo $i ?>
+                </a> 
+            <?php } ?>
+        </div>
+	    <img src="/ecommerce-website/resource/logo-black.png" height="90px">
+    </div>  
 	<div id="info">
 		<h2>Thông tin</h2>
 		<ul>
