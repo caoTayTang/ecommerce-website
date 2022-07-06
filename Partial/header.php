@@ -25,9 +25,15 @@
 	  x.classList.toggle("change");
 	  let logo = document.getElementById('menu');
 	  let display = window.getComputedStyle(logo).display;
+
+	  let menu = document.getElementById('hamburger_container');
 	  if (display == "none") {
 		  	logo.style.display = "block";
-		  }else if (display == "block") 
-		  	{logo.style.display = "none";}
+		  	menu.style.position = "fixed";
+		  }else if (display == "block") {
+		  		logo.style.display = "none";
+		  		menu.style.position = "relative";
+		  }
+
 	}
 </script>
