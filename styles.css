@@ -162,14 +162,6 @@ body {
 
 /*End Header section*/
 
-/*Header hover*/
-	#hamburger:hover ,#logo:hover, #user:hover, #shopping_cart:hover, #help:hover {
-		background-color: #1a1a1a;
-	}
-
-/*End header hover*/
-
-
 /*Footer section*/
 #float {
 	width: 50px;
