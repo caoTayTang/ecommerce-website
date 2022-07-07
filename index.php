@@ -48,11 +48,12 @@
     $return = mysqli_query($connect,$sql);
     ?>
     <div id="main_div">
-        <?php 
+            <?php 
             include './Partial/menu.php';
             include './Partial/header.php'; ?>
             <div id="middle_div">
                 <div id="products_container">
+
                     <?php foreach($return as $each) { ?>
                         <div class="each_product">
                             <!-- <img class="product_image" src="">
@@ -74,15 +75,9 @@
                             </div>
                         </div>
                     <?php } ?>  
-                       
-                    
                 </div>
             </div>
-        
-
-        <?php include './Partial/footer.php';?>
-
-       
+            <?php include './Partial/footer.php';?>
     </div> 
     <?php mysqli_close($connect) ?>
 </body>
