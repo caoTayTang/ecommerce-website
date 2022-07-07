@@ -14,10 +14,48 @@
 	<link rel="icon" href="../resource/logo.png">
 </head>
 <body>
+    <?php
+    require '../database/connect.php';
+    // Searching
+    $search = "";
+    if ( isset($_GET['query']) ) {
+        $search = $_GET['query'];
+    }
+
+    // Pagination
+    $currentPage = 1;
+
+    if( isset($_GET['page']) )
+    {
+        $currentPage = $_GET['page'];
+    }
+
+    // get total products are there on DB
+    $query = "select count(*) from products
+              where name like '%$search%'";
+
+    $total_products = mysqli_query($connect,$query);
+    $total_products = mysqli_fetch_array($total_products);
+    $total_products = $total_products['count(*)'];
+
+    //3 rows, 3 products each row
+    $products_per_page = 15;
+
+    // calculate how many pages we need
+    $page = ceil($total_products/$products_per_page);
+    // find offset
+    $offset = $products_per_page*($currentPage-1);
+
+     // Query the data that fits the ?query
+    $sql =  "select * from products
+            where name like '%$search%'
+            limit $offset,$products_per_page";
+    $return = mysqli_query($connect,$sql);
+    $num_rows = $return->num_rows;
+    ?>
 	<div id="main_div">
         
 		<?php include '../Partial/header.php'; ?>
-	
         <?php include './menu.php'?>
 
   
@@ -50,62 +88,44 @@
                         </tr>
 
                         <!-- This is test because didnt have database yet -->
-                        <tr style="background-color: #ffffff;">
-                            <td>
-                                1
-                            </td>
-                            <td>
-                                Set đồ mùa hè
-                            </td>
-                            <td>
-                                240.000
-                            </td>
-                            <td>
-                                <img src="https://images.asos-media.com/groups/sister-jane-cropped-jacket-and-mini-skirt-in-baby-blue-tweed-co-ord/91430-group-1?$n_640w$&wid=513&fit=constrain%20513w,https://images.asos-media.com/groups/sister-jane-cropped-jacket-and-mini-skirt-in-baby-blue-tweed-co-ord/91430-group-1?$n_750w$&wid=750&fit=constrain%20750w,https://images.asos-media.com/groups/sister-jane-cropped-jacket-and-mini-skirt-in-baby-blue-tweed-co-ord/91430-group-1?$n_960w$&wid=952&fit=constrain%20952w,https://images.asos-media.com/groups/sister-jane-cropped-jacket-and-mini-skirt-in-baby-blue-tweed-co-ord/91430-group-1?$n_1280w$&wid=1125&fit=constrain%201125w,https://images.asos-media.com/groups/sister-jane-cropped-jacket-and-mini-skirt-in-baby-blue-tweed-co-ord/91430-group-1?$n_1920w$&wid=1926&fit=constrain%201926w" 
-                                height="100px">
-                            </td>
-                            <td>
-                                asos
-                            </td>
-                            <td class="update" onclick="location.href='products/form_update.php'">
-                                Sửa
-                            </td>
-                            <td class="delete" onclick="location.href='products/process_delete.php'">
-                                Xoá
-                            </td>
-                        </tr>
-                        
-                        <tr style="background-color:#f1f3fa">
-                            <td>
-                                2
-                            </td>
-                            <td>
-                                Phụ kiện nóng bỏng
-                            </td>
-                            <td>
-                                200.000
-                            </td>
-                            <td>
-                                <img src="https://images.asos-media.com/products/topshop-bag-sadie-mirrored-shoulder-in-silver/202494756-1-sivler?$n_640w$&wid=513&fit=constrain%20513w,https://images.asos-media.com/products/topshop-bag-sadie-mirrored-shoulder-in-silver/202494756-1-sivler?$n_750w$&wid=750&fit=constrain%20750w,https://images.asos-media.com/products/topshop-bag-sadie-mirrored-shoulder-in-silver/202494756-1-sivler?$n_960w$&wid=952&fit=constrain%20952w,https://images.asos-media.com/products/topshop-bag-sadie-mirrored-shoulder-in-silver/202494756-1-sivler?$n_1280w$&wid=1125&fit=constrain%201125w,https://images.asos-media.com/products/topshop-bag-sadie-mirrored-shoulder-in-silver/202494756-1-sivler?$n_1920w$&wid=1926&fit=constrain%201926w" 
-                                height="100px">
-                            </td>
-                            <td>
-                                asos
-                            </td>
-                            <td class="update" onclick="location.href='products/form_update.php'">
-                                Sửa
-                            </td>
-                            <td class="delete" onclick="location.href='products/process_delete.php'">
-                                	Xoá
-                                </a>
-                            </td>
-                        </tr>
+
+                            <?php foreach($return as $each) { ?>
+                                <?php 
+                                // the rows color is alternating bewtween #ffffff and #f3f3f3 
+                                if ($num_rows % 2 == 0) $row_color = "#f1f3fa";
+                                else if ($num_rows % 2 == 1) $row_color = "#ffffff";
+                                $num_rows--;
+                                ?>
+                            <tr style="background-color: <?php echo $row_color ?>;">
+                                <td>
+                                    <?php echo $each['id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $each['name'] ?>
+                                </td>
+                                <td>
+                                    <?php echo $each['price']; ?>
+                                </td>
+                                <td>
+                                    <img src="<?php echo $each['image'] ?>" height="100px" />
+                                </td>
+                                <td>
+                                    <?php echo $each['manufacturer_id']; ?>
+                                </td>
+                                <td class="update" onclick="location.href='products/form_update.php'">
+                                    Sửa
+                                </td>
+                                <td class="delete" onclick="location.href='products/process_delete.php'">
+                                    Xoá
+                                </td>   
+                            </tr>
+                            <?php } ?>
                     </table>
                 </p>
             </div>
 		</div>
 		<?php include '../Partial/footer.php';?>
 	</div>
-	
+<?php mysqli_close($connect); ?>
 </body>
 </html>
