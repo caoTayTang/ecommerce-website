@@ -4,14 +4,16 @@
 	<div id="contact">
         <?php 
         // admin dont need pagination
-        $path = getcwd();
-        if (!strpos($path, "admin"))
-        {
-       		include './Partial/pagination.php';
-        }else {
-       		include '../Partial/pagination.php';
-        }
+        $url = getcwd();
+        $contains = strpos($url,"products") || strpos($url,"manufacturers");
+        
+        if(strpos($url, "admin") && !$contains) {
+       		        include "../Partial/pagination.php";
+        }else if (!$contains) {
+        		include "./Partial/pagination.php";
+    	}
         ?>
+
 	    <img src="/ecommerce-website/resource/logo-black.png" height="90px">
     </div>  
 	<div id="info">
