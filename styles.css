@@ -187,9 +187,10 @@ h1 ~ ul {
 li a {
 	text-decoration: none;
 	color: gray ;
+	;
 }
 li a:hover {
-	color: #0770cf ;
+	color: #0770cf;
 }
 #info {
 	width: 33%;
@@ -379,6 +380,7 @@ li a:hover {
 	background-color: #f1f3fa;
 	border-radius: 7px;
 	color: #6c757d;
+	box-shadow: 2px 8px 8px 2px rgba(0,0,0,0.15);
 }
 
 th {
@@ -388,7 +390,7 @@ th {
 }
 
 td[class='update']:hover{
-	background-color: #4ca4ff;
+	background-color: #a9e5ff;
 }
 
 td[class='delete']:hover{
@@ -417,14 +419,14 @@ h2 {
 
 .each_product {
 	width: 32%;
-	height: 570px;
+	height: 530px;
 	background-color: #ffffff;
 	float: left;
 	margin: 25px 0px 13px 13px;
 	border-radius: 1px solid black;
 	border-radius: 10px;
 	background-blend-mode: lighten;
-
+	box-shadow: 0px 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 
