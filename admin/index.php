@@ -5,6 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Nhà sản xuất</title>
 	<link rel="stylesheet" type="text/css" href="../styles.css">
+    <style type="text/css">
+        /*Override styles.css*/
+        #main_div {
+            min-height: auto
+        }
+    </style>
 	<link rel="icon" href="../resource/logo.png">
 </head>
 <body>

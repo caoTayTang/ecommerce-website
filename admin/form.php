@@ -1,12 +1,25 @@
 <link rel="stylesheet" type="text/css" href="../../styles.css">
 <link rel="icon" href="../../resource/logo.png">
 <style>
+	/*Override value from styles.css*/
+	#main_div {
+		height: 150vh;
+	}
+
+	#header	{
+		height: 8%;
+	}
+	#footer {
+		height: 30%;
+	}
+	/*End override*/
 	.login-box {
 			position: absolute;
 			top: 35%;
 			left: 50%;
 			width: 400px;
 			padding: 40px;
+			margin-top: 27px;
 			transform: translate(-50%, -50%);
 			background: rgba(0,0,0,.5);
 			box-sizing: border-box;
