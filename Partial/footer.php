@@ -8,6 +8,8 @@
         if (!strpos($path, "admin"))
         {
        		include './Partial/pagination.php';
+        }else {
+       		include '../Partial/pagination.php';
         }
         ?>
 	    <img src="/ecommerce-website/resource/logo-black.png" height="90px">
