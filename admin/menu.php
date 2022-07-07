@@ -1,4 +1,5 @@
 <div id="menu">
+    <div id="cancel_button"></div>
 	<div class="dropdown">
         <button class="dropbtn">Quản lý sản phẩm</button>
         <div class="dropdown-content">

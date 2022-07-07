@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Meslo;
+  src: url(./resource/fonts/Meslo_NF.ttf);
+}
+
 html {
 	height: 100%;
 }
@@ -9,6 +14,19 @@ body {
 }
 
 /*Main layout*/
+#overlay {
+  position: fixed; 
+  display: none; 
+  height: 100%; 
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); 
+  z-index: 2; 
+}
+
 #main_div {
 	width: 100%;
 	/*height: 100%;*/
@@ -113,18 +131,6 @@ body {
 
 	#hamburger_container {
 		margin-top: 30px;
-	}
-
-	.change .bar1 {
-		transform: rotate(-45deg) translate(-5px, 9px);
-		background-color: #df2d2d;
-	}
-
-	.change .bar2 {opacity: 0;}
-
-	.change .bar3 {
-		transform: rotate(45deg) translate(-2px, -6px);
-		background-color: #df2d2d;
 	}
 
 	/*Logo*/
@@ -268,32 +274,32 @@ li a:hover {
 /*Menu section*/
 #menu {
 	width: 20%;
-	height: 90vh;
+	height: 100%;
 	background-color: white;
 	float: left;
 	display: none;
-	margin-top: 13vh;
 	position: fixed;
-	z-index: 1;
+	z-index: 3;
 }
 
-#gender {
+#cancel_button {
 	width: 100%;
-	height: 10vh;
-	background-color: blue;
-}
-
-#woman {
-	width: 50%;
-	height: 100%;
-	background-color: cyan;
+	height: 14%;
+	background-color: #2d2d2d;
 	float: left;
+	/*position: fixed;*/
+	/*left: 10px;*/
+
+	background-image: url(./resource/X.png);
+	background-size: 50px;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	cursor: pointer;
 }
 
-#man {
-	width: 50%;
-	height: 100%;
-	background-color: maroon;
+#category {
+	width: 100%;
+	height: 90%;
 	float: left;
 }
 
@@ -309,14 +315,20 @@ li a:hover {
 }
 
 #menu button {
+	background: #2d2d2d;
+	color: white;
+	padding: 16px 0px 16px 16px;
+	font-size: 16px;
+	border: 1px solid gray;
 	width: 100%;
-	height: 100%;
-	border:0;
 	cursor: pointer;
+	border-radius: 3px 3px 0 0;
+	margin-top: 10px;
 }
 
 #menu button:hover {
-	background-color: #bcbcbc;
+	background-color: #cfcfcf;
+	color: black;
 }
 
 /*End Menu section*/
@@ -333,7 +345,7 @@ li a:hover {
 	border: 1px solid gray;
 	width: 100%;
 	cursor: pointer;
-	border-radius: 5px;
+	border-radius: 3px 3px 0 0;
 	margin-top: 10px;
   }
   
@@ -364,7 +376,7 @@ li a:hover {
 	border-radius: 5px;
   }
   
-  .dropdown-content a:hover {background-color: #ddd;}
+  .dropdown-content a:hover {background-color: #cfcfcf;}
   
   .dropdown:hover .dropdown-content {display: block;border-radius: 5px;}
 /*end admin menu*/

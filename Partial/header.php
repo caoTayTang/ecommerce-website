@@ -1,3 +1,4 @@
+<div id="overlay"></div>
 <div id="header">
 	<div id="hamburger" onclick="logo(this)">
 		<div id="hamburger_container">
@@ -25,19 +26,31 @@
 	<div id="help" onclick="location.href='/ecommerce-website/help.php'"></div>
 </div>
 <script>
-	function logo(x) {
-	  x.classList.toggle("change");
-	  let logo = document.getElementById('menu');
-	  let display = window.getComputedStyle(logo).display;
 
-	  let menu = document.getElementById('hamburger_container');
-	  if (display == "none") {
-		  	logo.style.display = "block";
-		  	menu.style.position = "fixed";
-		  }else if (display == "block") {
-		  		logo.style.display = "none";
-		  		menu.style.position = "relative";
-		  }
+	function logo(x) {
+		let toggleBar = document.getElementById('menu');
+ 		let menu = document.getElementById('hamburger_container');
+		let overlay = document.getElementById('overlay');
+		let cancel = document.getElementById('cancel_button')
+	  	
+	  	toggleBar.style.display = "block";
+	  	menu.style.position = "fixed";
+	  	overlay.style.display = "block";
+
+// If cancle div or the gray overlay be clicked
+		cancel.addEventListener("click",() => {
+			toggleBar.style.display = "none";
+			menu.style.position = "relative";
+	  		overlay.style.display = "none";
+		})
+	
+		overlay.addEventListener("click", () => {
+			toggleBar.style.display = "none";
+			menu.style.position = "relative";
+	  		overlay.style.display = "none";
+		});
+
 
 	}
+
 </script>

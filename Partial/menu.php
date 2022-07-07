@@ -1,4 +1,5 @@
 <div id="menu">
+    <div id="cancel_button"></div>
 	<div id="category">
 		<ul>
 			<li>
@@ -21,5 +22,4 @@
 			</li>
 		</ul>
 	</div>
-
 </div>
