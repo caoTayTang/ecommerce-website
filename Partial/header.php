@@ -7,18 +7,22 @@
 		</div>
 	</div>
 	<div id="logo">
-		<a href="#">
+		<a href="/ecommerce-website/index.php">
 			<img src="/ecommerce-website/resource/logo-white.png" >
 		</a>
 	</div>
 	<div id="search_bar">
 		<form>
-			<input type="text" placeholder="Search" name="query">
+			<?php if (!isset($search)) 
+					$search = "";
+				// Prevent undefine when include header file in other index.php
+			?>
+			<input type="text" placeholder="Search" name="query" value="<?php echo $search ?>">
 		</form>
 	</div>
-	<div id="user" onclick="location.href='login.php'"></div>
-	<div id="shopping_cart" onclick="location.href='shopping_cart.php'"></div>
-	<div id="help" onclick="location.href='help.php'"></div>
+	<div id="user" onclick="location.href='/ecommerce-website/login.php'"></div>
+	<div id="shopping_cart" onclick="location.href='/ecommerce-website/shopping_cart.php'"></div>
+	<div id="help" onclick="location.href='/ecommerce-website/help.php'"></div>
 </div>
 <script>
 	function logo(x) {
