@@ -16,14 +16,14 @@
 			<form action="process_insert.php" method="post" id="my_form">
 				<div class="user-box">
 					<input type="text" name="name" required="">
-					<label>Tên sản phẩm</label>
+					<label>Tên nhà sản xuất</label>
 				</div>
 				<div class="user-box">
 					<input type="number" name="price" required="">
-					<label>Giá tiền</label>
+					<label>Địa chỉ</label>
 				</div>
 				<div class="user-box">
-	                <label>Ảnh</label>
+	                <label>Số điện thoại</label>
 	                <br>
 	                <br>
 					<input type="file" name="image" required="">

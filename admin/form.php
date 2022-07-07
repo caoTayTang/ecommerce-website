@@ -15,22 +15,23 @@
 	/*End override*/
 	.login-box {
 			position: absolute;
-			top: 35%;
+			top: 36%;
 			left: 50%;
-			width: 400px;
+			width: 50%;
 			padding: 40px;
-			margin-top: 27px;
+			margin-top: 10px;
 			transform: translate(-50%, -50%);
-			background: rgba(0,0,0,.5);
+			background: white;
 			box-sizing: border-box;
 			box-shadow: 0 15px 25px rgba(0,0,0,.6);
 			border-radius: 10px;
+			padding-bottom: 10px;
 		}
 
 		.login-box h2 {
 			margin: 0 0 30px;
 			padding: 0;
-			color: #fff;
+			color: black;
 			text-align: center;
 		}
 
@@ -42,20 +43,21 @@
 			width: 100%;
 			padding: 10px 0;
 			font-size: 16px;
-			color: #fff;
+			color: black;
 			margin-bottom: 30px;
 			border: none;
-			border-bottom: 1px solid #fff;
+			border-bottom: 1px solid black;
 			outline: none;
 			background: transparent;
 		}
+
 		.login-box .user-box label {
 			position: absolute;
 			top:0;
 			left: 0;
 			padding: 10px 0;
 			font-size: 16px;
-			color: #fff;
+			color: black;
 			pointer-events: none;
 			transition: .5s;
 		}
@@ -64,7 +66,8 @@
 		.login-box .user-box input:valid ~ label {
 			top: -20px;
 			left: 0;
-			color: #f1f3fa;
+			/*color: #f1f3fa;*/
+			color: gray;
 			font-size: 12px;
 		}
 
@@ -72,19 +75,21 @@
 			position: relative;
 			display: inline-block;
 			padding: 10px 20px;
-			color: #f1f3fa;
+			color: black;
 			font-size: 16px;
 			text-decoration: none;
 			text-transform: uppercase;
 			overflow: hidden;
 			transition: .5s;
-			margin-top: 40px;
-			margin-left: 37%;
+			margin-top: 5px;
+			margin-left: 43%;
+			background-color: #0f4fe6;
+			border-radius: 5px;
+
 		}
 
 		.login-box a:hover {
-			background: #2d8619;
-			color: #fff;
-			border-radius: 5px;
+			background: #46d227;
+			color: black;
 		}
 </style>
