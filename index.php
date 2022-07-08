@@ -34,7 +34,7 @@
     $total_products = $total_products['count(*)'];
 
     //3 rows, 3 products each row
-    $products_per_page = 9;
+    $products_per_page = 12;
 
     // calculate how many pages we need
     $page = ceil($total_products/$products_per_page);
@@ -53,12 +53,8 @@
             include './Partial/header.php'; ?>
             <div id="middle_div">
                 <div id="products_container">
-
                     <?php foreach($return as $each) { ?>
-                        <div class="each_product">
-                            <!-- <img class="product_image" src="">
-                            </img> -->
-
+                        <div class="each_product" onclick="location.href='/ecommerce-website/show.php?id=<?php echo $each['id'] ?>'">
                             <div class="product_image" style="background-image: url(<?php echo $each['image'] ?>);">
                                 
                             </div>

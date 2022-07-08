@@ -6,10 +6,6 @@
 	<title>Nhà sản xuất</title>
 	<link rel="stylesheet" type="text/css" href="../styles.css">
     <style type="text/css">
-        /*Override styles.css*/
-        #main_div {
-            min-height: auto
-        }
     </style>
 	<link rel="icon" href="../resource/logo.png">
 </head>
@@ -63,7 +59,7 @@
 			<div id="content">
                 <p>
                     <table id="main_table">
-                        <tr>
+                        <tr style="background-color: #95c5ff;">
                             <th>
                                 Mã
                             </th>
@@ -96,7 +92,7 @@
                                 else if ($num_rows % 2 == 1) $row_color = "#ffffff";
                                 $num_rows--;
                                 ?>
-                            <tr style="background-color: <?php echo $row_color ?>;">
+                            <tr name="each_row"style="background-color: <?php echo $row_color ?>;">
                                 <td>
                                     <?php echo $each['id']; ?>
                                 </td>

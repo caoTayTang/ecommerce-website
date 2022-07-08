@@ -30,14 +30,14 @@ body {
 #main_div {
 	width: 100%;
 	/*height: 100%;*/
-	height: 350vh;
+	height: auto;
 	background-color: #eaeaea;
 	position: relative;
 }
 
 #header {
 	width: 100%;
-	height: 4%;
+	height: 85px;
 	background-color: black;
 	/*position: fixed;*/
 	float: left;
@@ -45,10 +45,8 @@ body {
 
 #footer {
 	width: 100%;
-	height: 16%;
+	height: 280px;
 	background-color: aqua;
-	position: absolute;
-	bottom: 0px;
 }
 
 #middle_div{
@@ -177,27 +175,22 @@ body {
 	cursor: pointer;
 }
 
-h1 ~ ul {
+h2 ~ ul {
 	font-size: 15px;
 	line-height: 23px;
 	list-style-type: none;
+	padding-inline-start: 140px;
 }
+
 li a {
 	text-decoration: none;
 	color: gray ;
-	;
 }
+
 li a:hover {
 	color: #0770cf;
 }
 #info {
-	width: 33%;
-	height: 50%;
-	background-color: #f2f2f2;
-	float: left;
-}
-
-#more {
 	width: 33%;
 	height: 50%;
 	background-color: #f2f2f2;
@@ -210,6 +203,18 @@ li a:hover {
 	background-color: #f2f2f2;
 	float: left;
 }
+
+#more {
+	width: 33%;
+	height: 50%;
+	background-color: #f2f2f2;
+	float: left;
+}
+
+#footer h2 {
+	text-align: center;
+}
+
 #contact > h1 {
 	padding: 0;
 	margin: 0;
@@ -240,10 +245,8 @@ li a:hover {
 	width: 100%;
 	height: 15%;
 	background-color: #f2f2f2;
-	position: absolute;
-	bottom: 0;
 	color: gray;
-	
+	float: left;
 }
 
 #left {
@@ -416,28 +419,30 @@ h2 {
 	padding: 0;
 	margin: 0;
 }
+
 #products_container {
 	width: 100%;
 	height: 100%;
 }
 
 .each_product {
-	width: 32%;
-	height: 530px;
+	width: 23%;
+	height: 440px;
 	background-color: #ffffff;
 	float: left;
-	margin: 25px 0px 13px 13px;
+	margin: 40px 0px 13px 20px;
 	border-radius: 1px solid black;
-	border-radius: 10px;
+	border-radius: 4px;
 	background-blend-mode: lighten;
-	box-shadow: 0px 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	box-shadow: 0px 1px 2px rgba(0,0,0,0.1), 0 1px 6px rgba(0,0,0,0.23);
+	cursor: pointer;
 }
 
 
 .product_image {
 	height: 70%;
 	width: 100%;
-	border-radius: 10px 10px 0 0;
+	border-radius: 4px 4px 0 0;
 	background-size:100%;
 	background-repeat: no-repeat;
 }
@@ -481,3 +486,82 @@ h2 {
 		
 	/*End pagination*/
 /*End user product showing*/
+
+/*Start show.php*/
+
+	#show {
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#product_detail {
+		width: 95%;
+		height: 90%;
+		background-color: #fafafa;
+		border-radius: 3px;
+	}
+
+	#show_left{
+		width: 45%;
+		height: 100%;
+		float: left;
+		border-top-left-radius: inherit;
+		border-bottom-left-radius: inherit;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#show_img {
+		width: 95%;
+		height: 95%;
+		background-repeat: no-repeat;
+		background-size: 100%;
+	}
+
+	#show_right {
+		width: 47%;
+		height: 100%;
+		float: left;
+		border-top-right-radius: inherit;
+		border-bottom-right-radius: inherit;
+		padding-left: 80px;
+		margin-top: 15px;
+	}
+
+	#show_right h2 {
+		font-weight: normal;
+	}
+	p[name='price'] {
+		color: #555555;
+		font-size: 30px;
+	}
+
+	button[name="add_to_cart"] {
+		border: 0;
+		width: 200px;
+		height: 50px;
+		background-color: #018849;
+		font-size: 20px;
+		color: white;
+		cursor: pointer;
+	}
+
+	button[name="buy_now"] {
+		border: 0;
+		width: 100px;
+		height: 50px;
+		background-color: #018849;
+		font-size: 20px;
+		color: white;
+		cursor: pointer;
+	}
+
+	#show button:hover{
+		background-color: #006637;
+	}
+	
+/*End show.php*/
