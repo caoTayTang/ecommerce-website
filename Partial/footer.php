@@ -4,15 +4,17 @@
 	<div id="contact">
         <?php 
         // admin dont need pagination
-        $url = getcwd();
+        $url = $_SERVER['REQUEST_URI'];
         $contains = strpos($url,"products") || strpos($url,"manufacturers");
-        
-        if(strpos($url, "admin") && !$contains) {
-       		        include "../Partial/pagination.php";
+
+        if (strpos($url, "show.php")) {
+        	//show.php dont need pagination
+        } else if(strpos($url, "admin") && !$contains) {
+			include "../Partial/pagination.php";
         }else if (!$contains) {
-        		include "./Partial/pagination.php";
+			include "./Partial/pagination.php";
     	}
-        ?>
+		?>
 
 	    <img src="/ecommerce-website/resource/logo-black.png" height="90px">
     </div>  
@@ -55,7 +57,6 @@
 			</li>
 		</ul>
 	</div>
-
 	<div id="bottom">
 		<div id="left">&nbsp&nbsp© 2022 Kaios</div>
 		<div id="right">Vietnam, Ho Chi Minh city &nbsp&nbsp</div>
