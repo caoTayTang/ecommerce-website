@@ -1,31 +1,19 @@
 <link rel="stylesheet" type="text/css" href="../../styles.css">
 <link rel="icon" href="../../resource/logo.png">
 <style>
-	/*Override value from styles.css*/
-	#main_div {
-		height: 150vh;
-	}
-
-	#header	{
-		height: 8%;
-	}
-	#footer {
-		height: 30%;
-	}
-	/*End override*/
 	.login-box {
-			position: absolute;
-			top: 36%;
-			left: 50%;
+			height: auto;
 			width: 50%;
+			left: 100px;
 			padding: 40px;
-			margin-top: 10px;
-			transform: translate(-50%, -50%);
 			background: white;
 			box-sizing: border-box;
 			box-shadow: 0 15px 25px rgba(0,0,0,.6);
-			border-radius: 10px;
+			border-radius: 5px;
 			padding-bottom: 10px;
+			margin: auto;
+			margin-top: 20px;
+			margin-bottom: 25px;
 		}
 
 		.login-box h2 {
@@ -75,17 +63,15 @@
 			position: relative;
 			display: inline-block;
 			padding: 10px 20px;
-			color: black;
+			color: white;
 			font-size: 16px;
 			text-decoration: none;
-			text-transform: uppercase;
 			overflow: hidden;
 			transition: .5s;
 			margin-top: 5px;
 			margin-left: 43%;
 			background-color: #0f4fe6;
 			border-radius: 5px;
-
 		}
 
 		.login-box a:hover {
