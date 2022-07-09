@@ -20,4 +20,8 @@
     $total_products = mysqli_query($connect,$query);
     $total_products = mysqli_fetch_array($total_products)['count(*)'];
 
+    if ($total_products == 0) {
+        echo "<script>alert('Không có kết quả phù hợp!')</script>";
+    }
+
     // If the count(*) is 0
