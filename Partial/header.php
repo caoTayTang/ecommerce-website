@@ -18,7 +18,7 @@
 					$search = "";
 				// Prevent undefine when include header file in other index.php
 			?>
-			<input type="text" placeholder="Search" name="query" value="<?php echo $search ?>">
+			<input type="text" placeholder="Tìm kiếm" name="query" value="<?php echo stripslashes($search) ?>">
 		</form>
 	</div>
 	<div id="user" onclick="location.href='/ecommerce-website/login.php'"></div>
