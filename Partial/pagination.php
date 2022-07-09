@@ -6,16 +6,16 @@
         }
      ?>
 
-    <a href="index.php<?php echo $concatChar ?>1" name='quotation'> 
-        &laquo;
-    </a>  
     <!-- $currentPage is from process_search.php -->
-    <?php if ($currentPage == 1) {
-        $pointer_event = "style='pointer-events: none;'";
-    }else $pointer_event = ""; ?>
-    <a href="index.php<?php echo $concatChar; echo $currentPage-1 ?>" <?php echo $pointer_event ?>> 
-        &lt;
-    </a>    
+    <?php if ($currentPage != 1) { ?>
+        <a href="index.php<?php echo $concatChar ?>1" name='quotation'> 
+            &laquo;
+        </a>  
+        <a href="index.php<?php echo $concatChar; echo $currentPage-1 ?>"> 
+            &lt;
+        </a>    
+    <?php } ?>    
+
 
 <!-- Calculate the begin and end for the loop to show the correct page each case -->
    <?php 
@@ -42,14 +42,14 @@
     <?php } ?>
 
 
-    <?php if ($currentPage == $page) {
-        $pointer_event = "style='pointer-events: none;'";
-    }else $pointer_event = ""; ?>
-    <a href="index.php<?php echo $concatChar; echo $currentPage+1 ?>" <?php echo $pointer_event ?>> 
-        &gt;
-    </a>
-    <a href="index.php<?php echo $concatChar; echo $page?>"> 
-        &raquo;
-    </a> 
+    <?php if ($currentPage != $page) { ?>
+        <a href="index.php<?php echo $concatChar; echo $currentPage+1 ?>"> 
+            &gt;
+        </a>
+        <a href="index.php<?php echo $concatChar; echo $page?>"> 
+            &raquo;
+        </a> 
+    <?php } ?>
+    
 
 </div>  
