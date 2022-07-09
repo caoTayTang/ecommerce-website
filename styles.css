@@ -152,7 +152,7 @@ body {
 	border-radius: 30px;
 	font-size: 20px;
 	background-color: white;
-	background-position: 10px 7px;
+	background-position: 8px 10px;
 	background-repeat: no-repeat;
 	padding: 8px 20px 8px 40px;
 	}
@@ -396,6 +396,14 @@ th {
 	padding: 10px;
 }
 
+tr[name=each_row]{
+	cursor: pointer;
+}
+
+tr[name=each_row]:hover {
+	background-color: #bcbcbc !important;
+}
+
 td[class='update']:hover{
 	background-color: #a9e5ff;
 }
@@ -436,6 +444,10 @@ h2 {
 	background-blend-mode: lighten;
 	box-shadow: 0px 1px 2px rgba(0,0,0,0.1), 0 1px 6px rgba(0,0,0,0.23);
 	cursor: pointer;
+}
+
+.each_product:hover {
+	box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.19), 0 1px 6px rgba(0,0,0,0.23);
 }
 
 
@@ -502,6 +514,7 @@ h2 {
 		height: 90%;
 		background-color: #fafafa;
 		border-radius: 3px;
+		word-wrap: break-word;
 	}
 
 	#show_left{
