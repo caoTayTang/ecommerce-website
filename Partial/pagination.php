@@ -7,14 +7,18 @@
      ?>
 
     <!-- $currentPage is from process_search.php -->
-    <?php if ($currentPage != 1) { ?>
-        <a href="index.php<?php echo $concatChar ?>1" name='quotation'> 
+
+    <?php 
+    
+    if ($currentPage == 1) { 
+        $special_style = "style='pointer-events: none; color: gray;'";
+    }else $special_style = ""; ?>
+        <a href="index.php<?php echo $concatChar ?>1" name='quotation' <?php echo $special_style ?>> 
             &laquo;
         </a>  
-        <a href="index.php<?php echo $concatChar; echo $currentPage-1 ?>"> 
+        <a href="index.php<?php echo $concatChar; echo $currentPage-1 ?>" <?php echo $special_style ?>> 
             &lt;
         </a>    
-    <?php } ?>    
 
 
 <!-- Calculate the begin and end for the loop to show the correct page each case -->
@@ -42,14 +46,15 @@
     <?php } ?>
 
 
-    <?php if ($currentPage != $page) { ?>
-        <a href="index.php<?php echo $concatChar; echo $currentPage+1 ?>"> 
+    <?php if ($currentPage == $page) { 
+         $special_style = "style='pointer-events: none; color: gray;'";
+    }else $special_style=""; ?>
+        <a href="index.php<?php echo $concatChar; echo $currentPage+1 ?>" <?php echo $special_style ?>> 
             &gt;
         </a>
-        <a href="index.php<?php echo $concatChar; echo $page?>"> 
+        <a href="index.php<?php echo $concatChar; echo $page?>" <?php echo $special_style ?>> 
             &raquo;
         </a> 
-    <?php } ?>
     
 
 </div>  
