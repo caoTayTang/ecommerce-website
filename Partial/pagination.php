@@ -11,7 +11,7 @@
     <?php 
     
     if ($currentPage == 1) { 
-        $special_style = "style='pointer-events: none; color: gray;'";
+        $special_style = "style='pointer-events: none; color: #caccd0;'";
     }else $special_style = ""; ?>
         <a href="index.php<?php echo $concatChar ?>1" name='quotation' <?php echo $special_style ?>> 
             &laquo;
