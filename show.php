@@ -14,9 +14,9 @@
 	    require './database/connect.php';
 		// Searching
 		$products_per_page = 1; 
-		require './Partial/process_pagination.php'; //still include process_pagination for the variable (otherwise undeclared variable)
+		require './partial/process_pagination.php'; //still include process_pagination for the variable (otherwise undeclared variable)
 
-		require './Partial/process_search.php';
+		require './partial/process_search.php';
 
 		$id = $_GET['id'];
 		if (!isset($id)) 
@@ -30,7 +30,7 @@
 		$return = mysqli_query($connect,$sql);
 	?>
 	<div id="main_div">
-		<?php include './Partial/header.php'; ?>
+		<?php include './partial/header.php'; ?>
         <?php include './admin/menu.php'?>
         <div id="middle_div">  
         	<div id="show">
@@ -68,7 +68,7 @@
         		</div>
         	</div>
     	</div>
-		<?php include './Partial/footer.php';?>
+		<?php include './partial/footer.php';?>
 	</div>
 	<?php mysqli_close($connect) ?>
 </body>

@@ -14,15 +14,15 @@
 
     //3 rows, 4 products each row
     $products_per_page = 12;
-    require './Partial/process_pagination.php';
+    require './partial/process_pagination.php';
     // Searching
-    require './Partial/process_search.php';
+    require './partial/process_search.php';
 
     ?>
     <div id="main_div">
             <?php 
-            include './Partial/menu.php';
-            include './Partial/header.php'; ?>
+            include './partial/menu.php';
+            include './partial/header.php'; ?>
             <div id="middle_div">
                 <div id="products_container">
                     <?php foreach($return as $each) { ?>
@@ -45,7 +45,7 @@
                     <?php } ?>  
                 </div>
             </div>
-            <?php include './Partial/footer.php';?>
+            <?php include './partial/footer.php';?>
     </div> 
     <?php mysqli_close($connect) ?>
 </body>

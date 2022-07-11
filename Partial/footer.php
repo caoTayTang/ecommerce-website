@@ -10,9 +10,9 @@
         if (strpos($url, "show.php")) {
         	//show.php dont need pagination
         } else if(strpos($url, "admin") && !$contains) {
-			include "../Partial/pagination.php";
+			include "../partial/pagination.php";
         }else if (!$contains) {
-			include "./Partial/pagination.php";
+			include "./partial/pagination.php";
     	}
 		?>
 

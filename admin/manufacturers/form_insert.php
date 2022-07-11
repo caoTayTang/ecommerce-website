@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="main_div">
-		<?php include '../../Partial/header.php'; ?>
+		<?php include '../../partial/header.php'; ?>
 	 	<?php include '../menu.php' ?>
 	 	<div id="middle_div">
 			<div class="login-box">
@@ -38,7 +38,7 @@
 				</form>
 			</div>
 	 	</div>
-	<?php include '../../Partial/footer.php'; ?>
+	<?php include '../../partial/footer.php'; ?>
 	</div>
 </body>
 </html>
