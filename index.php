@@ -12,10 +12,11 @@
     <?php
     require './database/connect.php';
 
-    require './Partial/process_search.php';
     //3 rows, 4 products each row
     $products_per_page = 12;
     require './Partial/process_pagination.php';
+    // Searching
+    require './Partial/process_search.php';
 
     ?>
     <div id="main_div">

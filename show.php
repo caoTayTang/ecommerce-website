@@ -11,21 +11,21 @@
 </head>
 <body>
 	<?php 
+	    require './database/connect.php';
+		// Searching
+		$products_per_page = 1; 
+		require './Partial/process_pagination.php'; //still include process_pagination for the variable (otherwise undeclared variable)
+
+		require './Partial/process_search.php';
+
 		$id = $_GET['id'];
 		if (!isset($id)) 
 		{
-			echo "Truyền id đi chứ hả vị huynh đài";
+			die("Truyền id đi chứ hả vị huynh đài");
 			// header('Location: /ecommerce-website');
 		}
 
-	    require './database/connect.php';
-		// // Searching
-	 //    $search = "";
-	 //    if ( isset($_GET['query']) ) {
-	 //        $search = $_GET['query'];
-	 //    }
-
-		$sql =  "select * from products 
+		$sql =  "select * from products
 				where id = '$id'";
 		$return = mysqli_query($connect,$sql);
 	?>

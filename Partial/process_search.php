@@ -1,27 +1,17 @@
 <?php 
     // Searching
-    $search = "";
+    
     if ( isset($_GET['query']) ) {
         $search = addslashes($_GET['query']);
-    }
+    }else $search = "";
 
-    // Pagination
-    $currentPage = 1;
-
-    if( isset($_GET['page']) )
-    {
-        $currentPage = $_GET['page'];
-    }
-
-    // get total products are there on DB
-    $query = "select count(*) from products
-              where name like '%$search%'";
-
-    $total_products = mysqli_query($connect,$query);
-    $total_products = mysqli_fetch_array($total_products)['count(*)'];
-
-    if ($total_products == 0) {
-        echo "<script>alert('Không có kết quả phù hợp!')</script>";
+    $url = $_SERVER['REQUEST_URI'];
+    if (strpos($url,"show.php") && strpos($url,"query") ) {
+        header("Location: .?query=$search");
+        exit;
     }
 
     // If the count(*) is 0
+    if ($total_products == 0) {
+        echo "<script>alert('Không có kết quả phù hợp!')</script>";
+    }

@@ -13,13 +13,14 @@
     <?php
     require '../database/connect.php';
 
-    require '../Partial/process_search.php';
     //3 rows, 4 products each row
     $products_per_page = 15;
     require '../Partial/process_pagination.php';
-    //3 rows, 3 products each row
     $num_rows = $return->num_rows;
-    
+
+    // Searching
+    require '../Partial/process_search.php';
+
     ?>
 	<div id="main_div">
         
