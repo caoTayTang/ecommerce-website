@@ -21,7 +21,7 @@
 			<input type="text" placeholder="Tìm kiếm" name="query" value="<?php echo stripslashes($search) ?>">
 		</form>
 	</div>
-	<div id="user" onclick="location.href='/ecommerce-website/login.php'"></div>
+	<div id="user" onclick="location.href='/ecommerce-website/signing/form_sign_up.php'"></div>
 	<div id="shopping_cart" onclick="location.href='/ecommerce-website/shopping_cart.php'"></div>
 	<div id="help" onclick="location.href='/ecommerce-website/help.php'"></div>
 </div>
