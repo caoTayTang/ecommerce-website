@@ -33,8 +33,8 @@
 			font-size: 16px;
 			color: black;
 			margin-bottom: 30px;
-			border: none;
-			border-bottom: 1px solid black;
+			border: 1px solid black;
+			border-radius: 3px;
 			outline: none;
 			background: transparent;
 		}
@@ -59,7 +59,7 @@
 			font-size: 12px;
 		}
 
-		.login-box form a {
+		.login-box form a[href='javascript:{}'] {
 			position: relative;
 			display: inline-block;
 			padding: 10px 20px;
@@ -69,13 +69,21 @@
 			overflow: hidden;
 			transition: .5s;
 			margin-top: 5px;
-			margin-left: 43%;
+			margin-left: 25%;
 			background-color: #0f4fe6;
 			border-radius: 5px;
 		}
 
-		.login-box a:hover {
+		.login-box a[href='javascript:{}']:hover {
 			background: #46d227;
 			color: black;
 		}
+
+		.login-box form a[href='form_sign_in.php'] {
+			float: left;
+			font-size: 16px;
+			text-decoration: none;
+		}
+
+
 </style>

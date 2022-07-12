@@ -1,0 +1,25 @@
+<?php 
+	include '../database/connect.php';
+	$email = $_POST['email'];
+	$mat_khau = $_POST['mat_khau'];
+
+	$query = "select * from khach_hang 
+				where email = '$email' AND mat_khau = '$mat_khau'";
+	$return = mysqli_query($connect,$query);
+	$number_rows = mysqli_num_rows($return);
+
+
+	if ($number_rows == 1) {
+		session_start();
+		$each = mysqli_fetch_array($return);
+		$_SESSION['ma'] = $each['ma'];
+		$_SESSION['ten'] = $each['ten'];
+		$_SESSION['anh_dai_dien'] = $each['anh_dai_dien'];
+		header('location: ../index.php');
+		exit;
+	}else {
+		echo "<script>alert('Thất bại')</script>";
+	}
+	
+	
+	mysqli_close($connect);
