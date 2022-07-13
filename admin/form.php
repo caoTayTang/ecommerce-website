@@ -39,6 +39,30 @@
 			background: transparent;
 		}
 
+		.login-box .user-box textarea {
+			width: 100%;
+			padding: 10px 0;
+			font-size: 16px;
+			color: black;
+			margin-bottom: 30px;
+			border: 1px solid black;
+			border-radius: 3px;
+			outline: none;
+			background: transparent;
+		}
+
+		.login-box .user-box selec{
+			width: 100%;
+			padding: 10px 0;
+			font-size: 16px;
+			color: black;
+			margin-bottom: 30px;
+			border: 1px solid black;
+			border-radius: 3px;
+			outline: none;
+			background: transparent;
+		}
+
 		.login-box .user-box label {
 			position: absolute;
 			top:0;
@@ -76,7 +100,6 @@
 
 		.login-box a[href='javascript:{}']:hover {
 			background: #46d227;
-			color: black;
 		}
 
 		.login-box form a[href='form_sign_in.php'] {

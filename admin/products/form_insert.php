@@ -7,8 +7,20 @@
 	<link rel="stylesheet" type="text/css" href="../../styles.css">
 	<link rel="icon" href="../../resource/logo.png">
 	<?php include '../form.php'?>
+	<style type="text/css">
+		/*Override Thêm button styles*/
+		.login-box form a[href='javascript:{}'] {
+			margin-left: 40%;
+		}
+	</style>
 </head>
 <body>
+
+	<?php 
+		require '../../database/connect.php';
+		$query = "select * from nha_san_xuat";
+		$result = mysqli_query($connect,$query);
+	 ?>
 	<div id="main_div">
 		<?php include '../../Partial/header.php'; ?>
 	 	<?php include '../menu.php' ?>
@@ -16,27 +28,31 @@
 	 	<div id="middle_div">
 	 		<div class="login-box">
 				<h2>Thêm sản phẩm</h2>
-				<form action="process_insert.php" method="post" id="my_form">
+				<form action="process_insert.php" method="post" id="my_form" enctype="multipart/form-data">
 					<div class="user-box">
-						<input type="text" name="name" required="">
-						<label>Tên sản phẩm</label>
+						Tên sản phẩm<input type="text" name="ten" required>
+					</div>	
+					<div class="user-box">
+						Giá tiền<input type="number" name="gia" required>
 					</div>
 					<div class="user-box">
-						<input type="number" name="price" required="">
-						<label>Giá tiền</label>
+		                Ảnh<input type="file" name="anh" required>
 					</div>
 					<div class="user-box">
-		                <label>Ảnh</label>
-		                <br>
-		                <br>
-						<input type="file" name="image" required="">
+		                Mô tả<textarea name="mo_ta" required></textarea>
 					</div>
 		            <div class="user-box">
-						<input type="text" name="manufacturer" required="">
-						<label>Tên nhà sản xuất</label>
+						Tên nhà sản xuất
+						<select name="ma_nha_san_xuat">
+							<?php foreach ($result as $each) { ?>
+								<option value="<?php echo $each['ma'] ?>">
+									<?php echo $each['ten']; ?>
+								</option>
+							<?php } ?>
+						</select>
 					</div>
 					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
-						Sửa
+						Thêm 
 					</a>
 				</form>
 			</div>
@@ -44,5 +60,6 @@
 	 	
 	<?php include '../../Partial/footer.php'; ?>
 	</div>
+	<?php mysqli_close($connect); ?>
 </body>
 </html>

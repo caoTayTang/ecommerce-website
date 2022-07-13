@@ -450,6 +450,9 @@ h2 {
 	box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.19), 0 1px 6px rgba(0,0,0,0.23);
 }
 
+.each_product div {
+	padding: 10px;
+}
 
 .product_image {
 	height: 70%;
