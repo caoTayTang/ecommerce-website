@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./styles.css">
     <link rel="icon" href="./resource/logo.png">
 </head>
-<body>
+<body>  
     <?php
     require './database/connect.php';
 
