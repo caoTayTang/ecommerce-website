@@ -1,5 +1,10 @@
 <?php 
-require './database/connect.php';
+$url = $_SERVER['REQUEST_URI'];
+if (strpos($url,"signing")) {
+require '../database/connect.php';
+}else require './database/connect.php';
+
+
 $query = "select * from the_loai";
 $result = mysqli_query($connect,$query);
  ?>

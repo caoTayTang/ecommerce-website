@@ -33,7 +33,7 @@
 					nha_san_xuat.ten as ten_nha_san_xuat,
 				    the_loai.ten as ten_the_loai
 				from san_pham
-				
+
 				left join nha_san_xuat
 				on san_pham.ma_nha_san_xuat = nha_san_xuat.ma
 
@@ -45,6 +45,18 @@
 
 				where san_pham.ma = '$id'";
 		$return = mysqli_query($connect,$sql);
+
+
+		// Increase so_luot_truy_cap 
+
+	    $query_view = "select so_luot_truy_cap from san_pham where ma = '$id'";
+    	$view = mysqli_query($connect,$query_view);
+    	$view = mysqli_fetch_array($view)['so_luot_truy_cap']+1;
+	    $query_view= "update san_pham
+	             set so_luot_truy_cap = '$view'
+	             where ma = '$id' ";
+         mysqli_query($connect,$query_view);
+         
 	?>
 	<div id="main_div">
 		<?php include './partial/header.php'; ?>

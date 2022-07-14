@@ -31,7 +31,8 @@
                 san_pham.ten as ten,
                 san_pham.anh as anh,
                 san_pham.gia as gia,
-                the_loai.ten as the_loai
+                the_loai.ten as the_loai,
+                san_pham.so_luot_truy_cap as so_luot_truy_cap
             from san_pham
             inner join the_loai_chi_tiet on san_pham.ma = the_loai_chi_tiet.ma_san_pham
             inner join the_loai on the_loai_chi_tiet.ma_the_loai = the_loai.ma
