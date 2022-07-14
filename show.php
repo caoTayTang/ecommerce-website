@@ -15,18 +15,35 @@
 		// Searching
 		$products_per_page = 1; 
 		require './partial/process_pagination.php'; //still include process_pagination for the variable (otherwise undeclared variable)
-
 		require './partial/process_search.php';
 
 		$id = $_GET['id'];
 		if (!isset($id)) 
 		{
-			die("Truyền id đi chứ hả vị huynh đài");
+			echo("<script>alert('Đã có lỗi vui lòng về trang chủ!')</script>");
 			// header('Location: /ecommerce-website');
 		}
 
-		$sql =  "select * from products
-				where id = '$id'";
+		$sql =  "select 
+					san_pham.ma as ma ,
+					san_pham.ten as ten,
+					san_pham.mo_ta as mo_ta,
+					san_pham.anh as anh,
+					san_pham.gia as gia,
+					nha_san_xuat.ten as ten_nha_san_xuat,
+				    the_loai.ten as ten_the_loai
+				from san_pham
+				
+				left join nha_san_xuat
+				on san_pham.ma_nha_san_xuat = nha_san_xuat.ma
+
+				left join the_loai_chi_tiet 
+				on the_loai_chi_tiet.ma_san_pham = san_pham.ma
+
+				inner join the_loai 
+				on the_loai_chi_tiet.ma_the_loai = the_loai.ma
+
+				where san_pham.ma = '$id'";
 		$return = mysqli_query($connect,$sql);
 	?>
 	<div id="main_div">
@@ -37,25 +54,22 @@
         		<div id="product_detail">
     				<?php foreach($return as $each) { ?>
     					<div id="show_left">
-    					<div id="show_img" style="background-image: url(<?php echo $each['image'] ?>);"></div>
+    					<div id="show_img" style="background-image: url(./admin/products/photos/<?php echo $each['anh'] ?>);"></div>
     			 	</div>
 
     				<div id="show_right">
-	    				 <h2><?php echo $each['name'] ?></h2>
+	    				 <h2><?php echo $each['ten'] ?></h2>
 	    				 <p name="price">
-	    				 	Giá: <?php echo $each['price'] ?>₫
+	    				 	Giá: <?php echo $each['gia'] ?>₫
 	    				 </p>
 	    				 <p>
-	    				 	Mô tả: <?php echo $each['description'] ?>
+	    				 	Mô tả: <?php echo $each['mo_ta'] ?>
 	    				 </p>
 	    				 <p>
-	    				 	Nhà sản xuất: <?php echo $each['manufacturer_id'] ?>
-	    				 </p>
-	    				 <p>
-	    				 	Địa chỉ nhà sản xuất: 
+	    				 	Nhà sản xuất: <?php echo $each['ten_nha_san_xuat'] ?>
 	    				 </p>
 					 	 <p>
-					 	 	Tag: <?php echo $each['tag'] ?>
+					 	 	Thể loại: <?php echo $each['ten_the_loai'] ?>
 					 	 </p>
 					 	 <button name="add_to_cart">
 					 	 	Thêm vào giỏ hàng
