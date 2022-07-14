@@ -26,7 +26,7 @@
             <div id="middle_div">
                 <div id="products_container">
                     <?php foreach($return as $each) { ?>
-                        <div class="each_product" onclick="location.href='/ecommerce-website/show.php?id=<?php echo $each['ma'] ?>'">
+                        <div class="each_product" onclick="location.href='/ecommerce-website/show.php?id=<?php echo $each['ma'] ?>';">
                             <div class="product_image" style="background-image: url(./admin/products/photos/<?php echo $each['anh'] ?>);">
                                 
                             </div>
@@ -39,7 +39,12 @@
                                 <?php echo $each['gia'] ?>
                             </div>
                             <div class="product_tag">
-                                <?php echo $each['the_loai'] ?>
+                                <a class="tag" href="https://example.com">
+                                    <?php echo $each['the_loai'] ?>
+                                </a>
+                                <a class="view" href="https://example.com">
+                                     👁<?php echo $each['so_luot_truy_cap'] ?>
+                                </a>
                             </div>
                         </div>
                     <?php } ?>  

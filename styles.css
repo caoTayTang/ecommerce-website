@@ -147,7 +147,8 @@ body {
 	position: absolute;
 	top: 15px;
 	left: 230px;
-	background-image:url('https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-24.png');
+	background-image:
+	url('https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-24.png');
 	border: 1px solid #000;
 	border-radius: 30px;
 	font-size: 20px;
@@ -475,8 +476,44 @@ h2 {
 }
 
 .product_tag {
-	width: 100%;
+	width: auto;
 	height: 10%;
+}
+
+.product_tag .tag {
+	width: fit-content;
+	height: fit-content;
+	background-color: gray;
+	float: left;
+	padding: 5px;
+	text-align: center;
+	border-radius: 5px;
+	color: white;
+	z-index: 99;
+	text-decoration: none;
+}
+
+.product_tag .tag:hover {
+	background-color: black;
+}
+
+.product_tag .view {
+	width: fit-content;
+	height: fit-content;
+	background-color: gray;
+	float: right;
+	padding: 5px;
+	margin-right: 10px;
+	text-align: center;
+	border-radius: 5px;
+	color: white;
+	z-index: 99;
+	text-decoration: none;
+
+}
+
+.product_tag .view:hover {
+	background-color: black;
 }
 
 
