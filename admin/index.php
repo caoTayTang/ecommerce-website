@@ -67,19 +67,19 @@
                                 ?>
                             <tr name="each_row" style="background-color: <?php echo $row_color ?>;">
                                 <td>
-                                    <?php echo $each['id']; ?>
+                                    <?php echo $each['ma']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $each['name'] ?>
+                                    <?php echo $each['ten'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $each['price']; ?>
+                                    <?php echo $each['gia']; ?>
                                 </td>
                                 <td>
-                                    <img src="<?php echo $each['image'] ?>" height="100px" />
+                                    <img src="./products/photos/<?php echo $each['anh'] ?>" height="100px" />
                                 </td>
                                 <td>
-                                    <?php echo $each['manufacturer_id']; ?>
+                                    <?php echo $each['ten_nha_san_xuat']; ?>
                                 </td>
                                 <td class="update" onclick="location.href='products/form_update.php'">
                                     Sửa

@@ -32,10 +32,19 @@
                 san_pham.anh as anh,
                 san_pham.gia as gia,
                 the_loai.ten as the_loai,
-                san_pham.so_luot_truy_cap as so_luot_truy_cap
+                san_pham.so_luot_truy_cap as so_luot_truy_cap,
+                nha_san_xuat.ten as ten_nha_san_xuat 
             from san_pham
-            inner join the_loai_chi_tiet on san_pham.ma = the_loai_chi_tiet.ma_san_pham
-            inner join the_loai on the_loai_chi_tiet.ma_the_loai = the_loai.ma
+
+            inner join the_loai_chi_tiet 
+            on san_pham.ma = the_loai_chi_tiet.ma_san_pham
+
+            inner join the_loai 
+            on the_loai_chi_tiet.ma_the_loai = the_loai.ma
+
+            inner join nha_san_xuat 
+            on san_pham.ma_nha_san_xuat = nha_san_xuat.ma
+
             where san_pham.ten like '%$search%'
             limit $offset,$products_per_page";
 
