@@ -23,7 +23,10 @@
 
 <!-- Calculate the begin and end for the loop to show the correct page each case -->
    <?php 
-   if ($currentPage == 1) {
+   if ($currentPage == 1 && $currentPage == $page) {
+        $begin = 1;
+        $end = 1;
+   } else if ($currentPage == 1) {
         $begin = $currentPage;
         $end = $currentPage+2;
    } else if ($currentPage == $page) {
@@ -46,13 +49,15 @@
     <?php } ?>
 
 
-    <?php if ($currentPage == $page) { 
-         $special_style = "style='pointer-events: none; color: gray;'";
-    }else $special_style=""; ?>
-        <a href="index.php<?php echo $concatChar; echo $currentPage+1 ?>" <?php echo $special_style ?>> 
+    <?php if ($currentPage == $page)
+         $special_style = "style='pointer-events: none; color: #caccd0;'";
+          else 
+         $special_style="";?>
+
+        <a href="index.php<?php echo $concatChar; echo $currentPage+1 ?>" <?php echo "$special_style" ?>> 
             &gt;
         </a>
-        <a href="index.php<?php echo $concatChar; echo $page?>" <?php echo $special_style ?>> 
+        <a href="index.php<?php echo $concatChar; echo $page?>" <?php echo "$special_style" ?>> 
             &raquo;
         </a> 
     
