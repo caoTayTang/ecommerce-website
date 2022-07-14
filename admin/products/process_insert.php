@@ -8,6 +8,7 @@
 	$anh = $_FILES['anh'];
 	$gia = $_POST['gia'];
 	$ma_nha_san_xuat = $_POST['ma_nha_san_xuat'];
+	$ma_the_loai = $_POST['ma_the_loai'];
 
 	//move image from temp to photos folder so that my local sever can select that later on
 	$folder = 'photos/'; 
@@ -24,4 +25,12 @@
 	$query = "insert into san_pham(ten,mo_ta,anh,gia,ma_nha_san_xuat)
 		values('$ten','$mo_ta','$file_name','$gia','$ma_nha_san_xuat')";
 	mysqli_query($connect,$query);
+
+	$ma_san_pham = mysqli_insert_id($connect);
+
+
+	$query_the_loai = "insert into the_loai_chi_tiet(ma_san_pham, ma_the_loai)
+						values('$ma_san_pham','$ma_the_loai')";
+	mysqli_query($connect,$query_the_loai);
+
 	mysqli_close($connect);

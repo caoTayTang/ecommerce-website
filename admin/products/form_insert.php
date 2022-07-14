@@ -18,8 +18,12 @@
 
 	<?php 
 		require '../../database/connect.php';
-		$query = "select * from nha_san_xuat";
-		$result = mysqli_query($connect,$query);
+		$query1 = "select * from nha_san_xuat";
+		$result1 = mysqli_query($connect,$query1);
+
+		$query2 = "select * from the_loai";
+		$result2 = mysqli_query($connect,$query2);
+
 	 ?>
 	<div id="main_div">
 		<?php include '../../Partial/header.php'; ?>
@@ -44,7 +48,17 @@
 		            <div class="user-box">
 						Tên nhà sản xuất
 						<select name="ma_nha_san_xuat">
-							<?php foreach ($result as $each) { ?>
+							<?php foreach ($result1 as $each) { ?>
+								<option value="<?php echo $each['ma'] ?>">
+									<?php echo $each['ten']; ?>
+								</option>
+							<?php } ?>
+						</select>
+					</div>
+		            <div class="user-box">
+						Thể loại
+						<select name="ma_the_loai">
+							<?php foreach ($result2 as $each) { ?>
 								<option value="<?php echo $each['ma'] ?>">
 									<?php echo $each['ten']; ?>
 								</option>
