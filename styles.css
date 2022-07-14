@@ -338,8 +338,8 @@ li a:hover {
 	color: white;
 	padding: 16px 0px 16px 16px;
 	font-size: 16px;
-	border: 1px solid gray;
 	width: 100%;
+	border: 0px !important;
 	cursor: pointer;
 	border-radius: 3px 3px 0 0;
 	margin-top: 10px;
