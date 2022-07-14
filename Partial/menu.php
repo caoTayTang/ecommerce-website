@@ -1,3 +1,8 @@
+<?php 
+require './database/connect.php';
+$query = "select * from the_loai";
+$result = mysqli_query($connect,$query);
+ ?>
 <div id="menu">
     <div id="cancel_button"></div>
 	<div id="category">
@@ -5,21 +10,12 @@
 			<li>
 				<button>Hot</button>
 			</li>
+			<?php foreach ($result as $each) { ?>
 			<li>
-				<button>Đồ bình thường</button>
+				<button><?php echo $each['ten'] ?></button>
 			</li>
-			<li>
-				<button>Đầm</button>
-			</li>
-			<li>
-				<button>Giày dép</button>
-			</li>
-			<li>
-				<button>Đồ thể thao</button>
-			</li>
-			<li>
-				<button>Phụ kiện</button>
-			</li>
+			<?php } ?>
 		</ul>
 	</div>
 </div>
+<?php mysqli_close($connect); ?>
