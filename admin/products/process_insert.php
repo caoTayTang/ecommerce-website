@@ -17,7 +17,7 @@
 	$arrayLength = count($splitNameToArray);
 	$file_extension = $splitNameToArray[$arrayLength-1];
 	$file_name = time() . '.' . $file_extension;
-	$path_file = $folder . time() . '.' . $file_extension;
+	$path_file = $folder . $file_name;
 	move_uploaded_file($anh["tmp_name"],$path_file);
 
 	require '../../database/connect.php';
