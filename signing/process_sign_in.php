@@ -2,9 +2,9 @@
 	include '../database/connect.php';
 	$email = $_POST['email'];
 	$mat_khau = $_POST['mat_khau'];
-
+	
 	$query = "select * from khach_hang 
-				where email = '$email' AND mat_khau = '$mat_khau'";
+			  where email = '$email' AND mat_khau = '$mat_khau'";
 	$return = mysqli_query($connect,$query);
 	$number_rows = mysqli_num_rows($return);
 
