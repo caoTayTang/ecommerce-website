@@ -13,11 +13,11 @@ $result = mysqli_query($connect,$query);
 	<div id="category">
 		<ul>
 			<li>
-				<button>Hot</button>
+				<button onclick="location.href='?sort=0'">Hot</button>
 			</li>
 			<?php foreach ($result as $each) { ?>
 			<li>
-				<button><?php echo $each['ten'] ?></button>
+				<button onclick="location.href='?sort=<?php echo $each['ma'] ?>'"><?php echo $each['ten'] ?></button>
 			</li>
 			<?php } ?>
 		</ul>

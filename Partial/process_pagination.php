@@ -10,9 +10,22 @@
     }
 
     // get total products are there on DB
-    if ( isset($_GET['query']) ) {
+    if (isset($_GET['query'])) {
         $search = addslashes($_GET['query']);
     }else $search = "";
+
+    // the toggled menu sorting
+    // 1 - hot
+    // 2 - 
+    $order = "";
+    if(isset($_GET['sort'])) {
+        $sort = $_GET['sort'];
+        if ($sort == 0) {
+            $order = "order by so_luot_truy_cap desc";
+        }else {
+            $order = "and the_loai.ma = $sort";
+        }
+    }
     
     $query = "select count(*) from san_pham
               where ten like '%$search%'";
@@ -46,7 +59,7 @@
             on san_pham.ma_nha_san_xuat = nha_san_xuat.ma
 
             where san_pham.ten like '%$search%'
+            $order
             limit $offset,$products_per_page";
-
     $return = mysqli_query($connect,$sql);
 
