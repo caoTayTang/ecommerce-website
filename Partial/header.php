@@ -1,3 +1,8 @@
+<?php session_start();
+	if (!isset($_SESSION['anh_dai_dien'])) {
+		$anh_dai_dien = 'default.png';
+	}else $anh_dai_dien = $_SESSION['anh_dai_dien'];
+ ?>
 <div id="overlay"></div>
 <div id="header">
 	<div id="hamburger" onclick="logo(this)">
@@ -21,7 +26,12 @@
 			<input type="text" placeholder="Tìm kiếm" name="query" value="<?php echo stripslashes($search) ?>">
 		</form>
 	</div>
-	<div id="user" onclick="location.href='/ecommerce-website/signing/form_sign_up.php'"></div>
+	<div id="user" onclick="location.href='/ecommerce-website/signing/form_sign_in.php'" style="
+	background-image: url('/ecommerce-website/signing/photos/<?php echo $anh_dai_dien ?>');
+	background-size:30px;
+	background-position: 15px 20px;
+	background-repeat: no-repeat;">
+	</div>
 	<div id="shopping_cart" onclick="location.href='/ecommerce-website/shopping_cart.php'"></div>
 	<div id="help" onclick="location.href='/ecommerce-website/help.php'"></div>
 </div>
@@ -49,8 +59,6 @@
 			menu.style.position = "relative";
 	  		overlay.style.display = "none";
 		});
-
-
 	}
 
 </script>

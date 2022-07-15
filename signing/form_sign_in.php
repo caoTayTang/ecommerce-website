@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 	<style type="text/css">
 		/*Overriding some style*/
 		a[href='form_sign_up.php'] {
-			float: left;
+			float: right;
 			font-size: 16px;
 			text-decoration: none;
 		}
@@ -20,11 +21,19 @@
 	<div id="main_div">
 		<?php 
 		include '../partial/menu.php';
-        include '../partial/header.php'; ?>
+        include '../partial/header.php';
+
+		if (isset($_SESSION['ten']) && !empty($_SESSION['ten'])) {
+			echo("<script>window.location.href='user.php'</script>");
+			exit;
+		}
+        ?>
+
+
         <div id="middle_div">
         	<div class="login-box">
 				<h2>Đăng nhập</h2>
-				<form action="process_sign_in.php" method="post" id="my_form">
+				<form action="process_sign_in.php" method="post" id="my_form" enctype="multipart/form-data">
 		            <div class="user-box">
 						Email<input type="email" name="email" required="">
 					</div>
@@ -34,11 +43,8 @@
 					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
 						Đăng nhập
 					</a>
-					<a href="form_sign_up.php">
-						Đăng kí
-					</a>
-					<a href="process_sign_out.php" style="float: right;">
-						Đăng xuất
+					<a href="form_sign_up.php" style="margin-top: 15px;">
+						Đăng ký
 					</a>
 				</form>
 			</div>

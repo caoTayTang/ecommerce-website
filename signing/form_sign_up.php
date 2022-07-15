@@ -7,16 +7,30 @@
 	<?php include '../admin/form.php'?>
 	<link rel="stylesheet" type="text/css" href="../styles.css">
 	<link rel="icon" href="../resource/logo.png">
+	<style type="text/css">
+		/*Overwriting some styles*/
+		.login-box form a[href='form_sign_in.php'] {
+			float: right;
+			font-size: 16px;
+			text-decoration: none;
+		}
+	</style>
 </head>
 <body>
+	<?php 
+	if (isset($_SESSION['ten']) && !empty($_SESSION['ten'])) {
+		header('location: user.php');
+		exit;
+	}
+	?>
 	<div id="main_div">
 		<?php 
 		include '../partial/menu.php';
         include '../partial/header.php'; ?>
         <div id="middle_div">
         	<div class="login-box">
-				<h2>Đăng kí</h2>
-				<form action="process_sign_up.php" method="post" id="my_form">
+				<h2>Đăng ký</h2>
+				<form action="process_sign_up.php" method="post" id="my_form" enctype="multipart/form-data">
 		            <div class="user-box">
 						Email<input type="email" name="email" required="">
 						
@@ -35,14 +49,11 @@
 					<div class="user-box">
 		                Ảnh đại diện<input type="file" name="anh_dai_dien">
 					</div>
-					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
-						Đăng kí
+					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();" style="margin-left: 40%;">
+						Đăng ký
 					</a>
-					<a href="form_sign_in.php">
+					<a href="form_sign_in.php" style="margin-top: 15px;">
 						Đăng nhập
-					</a>
-					<a href="process_sign_out.php" style="float: right;">
-						Đăng xuất
 					</a>
 				</form>
 			</div>
