@@ -93,19 +93,13 @@
 			overflow: hidden;
 			transition: .5s;
 			margin-top: 5px;
-			margin-left: 25%;
+			margin-left: 38%;
 			background-color: #0f4fe6;
 			border-radius: 5px;
 		}
 
 		.login-box a[href='javascript:{}']:hover {
 			background: #46d227;
-		}
-
-		.login-box form a[href='form_sign_in.php'] {
-			float: left;
-			font-size: 16px;
-			text-decoration: none;
 		}
 
 
