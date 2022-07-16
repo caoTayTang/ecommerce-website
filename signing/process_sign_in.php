@@ -20,6 +20,5 @@
 	}else {
 		echo "<script>alert('Thất bại')</script>";
 	}
-	
-	
+
 	mysqli_close($connect);

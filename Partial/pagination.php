@@ -1,15 +1,15 @@
 <div id="pagination">
     <?php 
-        $concatChar = "?page=";
         if (isset($_GET['sort'])) {
-            $sort = $_GET['sort'];
-            $concatChar = "?sort=$sort&page=";
+            $sort = $_GET['sort']; 
             if (isset($_GET['query'])) {
                 $concatChar = "?sort=$sort&query=$search&page=";
-            }
+            } else {       
+                $concatChar = "?sort=$sort&page=";
+            }      
         }else if (isset($_GET['query'])) {
             $concatChar = "?query=$search&page=";
-        }
+        }else $concatChar = "?page=";
      ?>
 
     <!-- $currentPage is from process_search.php -->
