@@ -15,6 +15,14 @@
 			font-size: 16px;
 			text-decoration: none;
 		}
+		input[name='remember'] {
+			margin-bottom: 10px;
+			/*font-size: 16px;*/
+			/*text-decoration: none;*/
+		}
+		a[href="javascript:{}"] {
+			margin-left: 6% !important;
+		}
 	</style>
 </head>
 <body>
@@ -40,6 +48,7 @@
 		            <div class="user-box">
 						Mật khẩu<input type="password" name="mat_khau" required>
 					</div>
+					Ghi nhớ đăng nhập?<input type="checkbox" name="remember">
 					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
 						Đăng nhập
 					</a>

@@ -20,8 +20,8 @@
 		$id = $_GET['id'];
 		if (!isset($id)) 
 		{
+			//header('Location: /ecommerce-website');
 			echo("<script>alert('Đã có lỗi vui lòng về trang chủ!')</script>");
-			// header('Location: /ecommerce-website');
 		}
 
 		$sql =  "select 
@@ -56,7 +56,13 @@
 	             set so_luot_truy_cap = '$view'
 	             where ma = '$id' ";
          mysqli_query($connect,$query_view);
-         
+            
+        	
+        if (isset($_GET['error'])) {
+        $error = $_GET['error'];
+        echo("<script>alert('Lỗi: sản phẩm này đã được lưu')</script>");
+        }
+        
 	?>
 	<div id="main_div">
 		<?php include './partial/header.php'; ?>
@@ -89,6 +95,10 @@
 					 	 <button name="buy_now"> 
 					 	 	Mua ngay
 					 	 </button>
+                         <button name="save" onclick="location.href='partial/process_save.php?id=<?php echo $id ?>'"> 
+                            Lưu
+					 	 </button>
+                          
 					</div>
     				<?php } ?>
         		</div>
