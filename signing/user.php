@@ -28,6 +28,11 @@
 				<a href="process_sign_out.php" style="margin-left: 40%;text-decoration: none;">
 						Đăng xuất
 				</a>
+                <br>
+				<a href="show_saved_products.php" style="margin-left: 35%;text-decoration: none;">
+						Sản phẩm đã lưu
+				</a>
+	
 			</div>
         </div>
     	<?php include '../partial/footer.php'; ?>
