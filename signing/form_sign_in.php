@@ -35,6 +35,23 @@
 			echo("<script>window.location.href='user.php'</script>");
 			exit;
 		}
+        
+        if (isset($_COOKIE['remember'])) {
+            require '../database/connect.php';
+            $token = $_COOKIE['remember'];
+            $sql = "select * from khach_hang 
+                    where token = '$token'";
+            $result = mysqli_query($connect,$sql);
+            $num_rows = $result->num_rows;
+            if ($num_rows == 1) {
+                $each = mysqli_fetch_array($result);
+                $checked = "checked";
+                mysqli_close($connect);
+            }else {
+                $each = array( 'email' => "", 'mat_khau' => "" );
+                $checked = "";
+            }        
+        }
         ?>
 
 
@@ -43,12 +60,12 @@
 				<h2>Đăng nhập</h2>
 				<form action="process_sign_in.php" method="post" id="my_form" enctype="multipart/form-data">
 		            <div class="user-box">
-						Email<input type="email" name="email" required="">
+                    Email<input type="email" name="email" required="" value="<?php echo $each['email'] ?>">
 					</div>
 		            <div class="user-box">
-						Mật khẩu<input type="password" name="mat_khau" required>
+						Mật khẩu<input type="password" name="mat_khau" required value="<?php echo $each['mat_khau'] ?>">
 					</div>
-					Ghi nhớ đăng nhập?<input type="checkbox" name="remember">
+                    Ghi nhớ đăng nhập?<input type="checkbox" name="remember" <?php echo $checked ?>>
 					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
 						Đăng nhập
 					</a>

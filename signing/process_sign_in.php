@@ -2,6 +2,9 @@
 	include '../database/connect.php';
 	$email = $_POST['email'];
 	$mat_khau = $_POST['mat_khau'];
+    if (isset($_POST['remember'])) {
+        $remember = true;
+    }else $remember = false;
 	
 	$query = "select * from khach_hang 
 			  where email = '$email' AND mat_khau = '$mat_khau'";
@@ -15,6 +18,19 @@
 		$_SESSION['ma'] = $each['ma'];
 		$_SESSION['ten'] = $each['ten'];
 		$_SESSION['anh_dai_dien'] = $each['anh_dai_dien'];
+        
+        if($remember) {
+            $id = $each['ma'];
+            do {
+                $token = uniqid('user_',true);    
+                $sql = "update khach_hang
+                        set token = '$token'
+                        where ma = '$id'";
+                mysqli_query($connect,$sql);
+            } while(mysqli_error($connect));
+            setcookie('remember',$token,time() + 60*60*24*30); // set cookies if user checked remember me, expired after 1 month
+        }
+
 		header('location: ../index.php');
 		exit;
 	}else {
