@@ -58,7 +58,7 @@
             inner join nha_san_xuat 
            on san_pham.ma_nha_san_xuat = nha_san_xuat.ma
 
-            where san_pham.ten like '%$search%' or mo_ta like '%$search%'
+            where (san_pham.ten like '%$search%' or mo_ta like '%$search%')
             $order
             limit $offset,$products_per_page";
     $return = mysqli_query($connect,$sql);
