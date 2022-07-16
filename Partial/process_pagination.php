@@ -28,7 +28,7 @@
     }
     
     $query = "select count(*) from san_pham
-              where ten like '%$search%'";
+              where ten like '%$search%' or mo_ta like '%$search%'";
 
     $total_products = mysqli_query($connect,$query);
     $total_products = mysqli_fetch_array($total_products)['count(*)'];
@@ -56,9 +56,9 @@
             on the_loai_chi_tiet.ma_the_loai = the_loai.ma
 
             inner join nha_san_xuat 
-            on san_pham.ma_nha_san_xuat = nha_san_xuat.ma
+           on san_pham.ma_nha_san_xuat = nha_san_xuat.ma
 
-            where san_pham.ten like '%$search%'
+            where san_pham.ten like '%$search%' or mo_ta like '%$search%'
             $order
             limit $offset,$products_per_page";
     $return = mysqli_query($connect,$sql);
