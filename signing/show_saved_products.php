@@ -31,11 +31,13 @@
     
     if (isset($_GET['saved_sort'])) {
         $saved_sort = $_GET['saved_sort'];
-        $sort = "order by thoi_gian " . $saved_sort;
+        $sort = "order by san_pham_da_luu.thoi_gian " . $saved_sort;
     }else {
         $saved_sort = '';
         $sort = '';
     } 
+    session_start();
+    $ma_khach_hang = $_SESSION['ma'];
     $query = "SELECT	
             san_pham_da_luu.ma_san_pham as ma,
             san_pham.ten,
@@ -53,6 +55,8 @@
 
             join the_loai 
             on the_loai_chi_tiet.ma_the_loai = the_loai.ma
+
+            where san_pham_da_luu.ma_khach_hang = $ma_khach_hang  
             $sort";
     $return = mysqli_query($connect,$query);
     ?>
