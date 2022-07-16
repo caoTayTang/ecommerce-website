@@ -1,4 +1,11 @@
-<?php session_start();
+<?php
+    $url = $_SERVER['REQUEST_URI'];
+    $contains = strpos($url,"show_saved_products.php");
+
+    if (!$contains) {
+        session_start();
+    }
+    
 	if (!isset($_SESSION['anh_dai_dien'])) {
 		$anh_dai_dien = 'default.png';
 	}else $anh_dai_dien = $_SESSION['anh_dai_dien'];
