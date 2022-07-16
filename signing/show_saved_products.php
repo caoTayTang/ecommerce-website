@@ -83,9 +83,10 @@
                                 <a class="tag" href="https://example.com">
                                     <?php echo $each['the_loai'] ?>
                                 </a>
-                                <a class="view" href="https://example.com">
-                                     👁<?php echo $each['so_luot_truy_cap'] ?>
-                                </a>
+                               <a class="view" href="https://example.com">
+                                    <?php echo $each['so_luot_truy_cap'] ?>
+                                    <span style="font-family:Hack, monospace;"> </span>
+                               </a>
                             </div>
                         </div>
                     <?php } ?>  

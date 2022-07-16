@@ -5,6 +5,7 @@
     <title>
         Kaios
     </title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
     <link rel="stylesheet" type="text/css" href="./styles.css">
     <link rel="icon" href="./resource/logo.png">
 </head>
@@ -43,7 +44,8 @@
                                     <?php echo $each['the_loai'] ?>
                                 </a>
                                 <a class="view" href="https://example.com">
-                                     👁<?php echo $each['so_luot_truy_cap'] ?>
+                                    <?php echo $each['so_luot_truy_cap'] ?>
+                                    <span style="font-family:Hack, monospace;"> </span>
                                 </a>
                             </div>
                         </div>
