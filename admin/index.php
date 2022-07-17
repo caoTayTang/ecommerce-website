@@ -56,8 +56,6 @@
                             </th>
                         </tr>
 
-                        <!-- This is test because didnt have database yet -->
-
                             <?php foreach($return as $each) { ?>
                                 <?php 
                                 // the rows color is alternating bewtween #ffffff and #f3f3f3 
