@@ -1,3 +1,10 @@
+<?php 
+session_start(); 
+if (!isset($_SESSION['ma']) || empty($_SESSION['ma'])) {
+    header('location:./form_sign_in.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
