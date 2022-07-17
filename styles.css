@@ -400,7 +400,7 @@ tr[name=each_row]{
 }
 
 tr[name=each_row]:hover {
-	background-color: #bcbcbc !important;
+	background-color: #bcbcbc;
 }
 
 td[class='update']:hover{
