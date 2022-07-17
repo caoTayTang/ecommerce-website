@@ -1,6 +1,6 @@
 <?php
     $url = $_SERVER['REQUEST_URI'];
-    $contains = strpos($url,"show_saved_products.php");
+    $contains = strpos($url,"show_saved_products.php") || strpos($url,"user.php");
 
     if (!$contains) {
         session_start();
