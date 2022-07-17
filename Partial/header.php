@@ -39,7 +39,7 @@
 	background-position: 15px 20px;
 	background-repeat: no-repeat;">
 	</div>
-	<div id="shopping_cart" onclick="location.href='/ecommerce-website/shopping_cart.php'"></div>
+	<div id="shopping_cart" onclick="location.href='/ecommerce-website/cart/view_cart.php'"></div>
 	<div id="help" onclick="location.href='/ecommerce-website/help.php'"></div>
 </div>
 <script>
