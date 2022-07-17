@@ -77,8 +77,13 @@
 			<div id="content">
                 <p>
                     <?php 
-                    $cart = $_SESSION['cart']; 
-                    $num_rows = count($cart);
+                    if(!isset($_SESSION['cart'])) {
+                        $cart = NULL;
+                        $num_rows = 0;
+                    } else {
+                        $cart = $_SESSION['cart']; 
+                        $num_rows = count($cart);
+                    }
                     if ($num_rows > 0) {
                     ?>
                     <table id="main_table">

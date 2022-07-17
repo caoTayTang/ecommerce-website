@@ -89,7 +89,7 @@
 					 	 <p>
 					 	 	Thể loại: <?php echo $each['ten_the_loai'] ?>
 					 	 </p>
-                         <button name="add_to_cart" onclick="location.href='cart/add_to_cart.php?id=<?php echo $each['ma'] ?>'">
+                         <button name="add_to_cart" onclick="add_to_cart()"> 
 					 	 	Thêm vào giỏ hàng
 					 	 </button>
 					 	 <button name="buy_now"> 
@@ -104,14 +104,15 @@
         		</div>
         	</div>
     	</div>
-		<?php include './partial/footer.php';?>
+		<?php unset($_SESSION['cart']);include './partial/footer.php';?>
 	</div>
 	<?php mysqli_close($connect) ?>
 </body>
 </html>
 <script>
+    function add_to_cart() {
     let cart_btn = document.querySelector('[name="add_to_cart"]');
-    cart_btn.onclick = funtion() {
-        alert('Đã thêm vào giỏ hàng thành công');
-    };
+    alert('Đã thêm vào giỏ hàng thành công');
+    window.location.href ='cart/add_to_cart.php?id=<?php echo $each['ma'] ?>';
+    }
 </script>
