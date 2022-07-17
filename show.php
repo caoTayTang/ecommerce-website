@@ -111,7 +111,7 @@
 </html>
 <script>
     let cart_btn = document.querySelector('[name="add_to_cart"]');
-    cart_btn.onclick = function() {
+    cart_btn.onclick = funtion() {
         alert('Đã thêm vào giỏ hàng thành công');
     };
 </script>
