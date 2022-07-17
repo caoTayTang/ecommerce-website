@@ -5,7 +5,7 @@
         <?php 
         // admin dont need pagination
         $url = $_SERVER['REQUEST_URI'];
-        $contains = strpos($url,"products") || strpos($url,"manufacturers") || strpos($url,"signing");
+        $contains = strpos($url,"products") || strpos($url,"manufacturers") || strpos($url,"signing") || strpos($url,"cart");
 
         if (strpos($url, "show.php")) {
         	//show.php dont need pagination
