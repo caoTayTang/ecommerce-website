@@ -104,7 +104,7 @@
         		</div>
         	</div>
     	</div>
-		<?php unset($_SESSION['cart']);include './partial/footer.php';?>
+		<?php include './partial/footer.php';?>
 	</div>
 	<?php mysqli_close($connect) ?>
 </body>

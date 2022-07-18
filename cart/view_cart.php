@@ -77,6 +77,7 @@
 			<div id="content">
                 <p>
                     <?php 
+                    $sum = 0;
                     if(!isset($_SESSION['cart'])) {
                         $cart = NULL;
                         $num_rows = 0;
@@ -115,20 +116,29 @@
                                     <?php echo $each['ten'] ?>
                                 </td>
                                 <td onclick='location.href="../show.php?id=<?php echo $key ?>"'>
-                                    <?php echo $each['gia']; ?>
+                                    <?php 
+                                    $result = $each['gia'] * $each['so_luong'];
+                                    echo $result . ' ₫'; 
+                                    $sum += $result;
+                                    ?>
                                 </td>
                                 <td onclick='location.href="../show.php?id=<?php echo $key ?>"'>
                                     <img src="../admin/products/photos/<?php echo $each['anh'] ?>" height="100px" />
                                 </td>
                                 <td class="so_luong">
-                                    <div class="sub_so_luong"> 
-                                    <a name='remove' href="update_quantity.php?type=remove&id=<?php echo $key ?>">-</a>
+                                <div class="sub_so_luong"> 
+                                        <a name='remove' href="update_quantity.php?type=remove&id=<?php echo $key ?>" >-</a>
                                         <?php echo $each['so_luong'] ?>
                                         <a name='add' href="update_quantity.php?type=add&id=<?php echo $key ?>">+</a>
                                     </div>
                                 </td>   
                             </tr>
                             <?php } ?>
+                            <tr>
+                                <th colspan = "4" style="text-align: center">
+                                    Tổng tiền: <?php echo $sum ?> ₫
+                                </th>
+                            </tr>
                     </table>
                 <?php } else if ($num_rows === 0){ ?>
                     <div id="alert">
