@@ -92,7 +92,7 @@
                          <button name="add_to_cart" onclick="add_to_cart()"> 
 					 	 	Thêm vào giỏ hàng
 					 	 </button>
-					 	 <button name="buy_now"> 
+                         <button name="buy_now" onclick='location.href="./buy/redirect.php?id=<?php echo $each['ma'] ?>"'> 
 					 	 	Mua ngay
 					 	 </button>
                          <button name="save" onclick="location.href='partial/process_save.php?id=<?php echo $id ?>'"> 
