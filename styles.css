@@ -447,7 +447,11 @@ h2 {
 }
 
 .each_product:hover {
-	box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.19), 0 1px 6px rgba(0,0,0,0.23);
+	/* box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.19), 0 1px 6px rgba(0,0,0,0.23) */
+    border: 3px solid black;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;    
 }
 
 .each_product div {
@@ -594,12 +598,12 @@ h2 {
 	}
 
 	button[name="add_to_cart"] {
-		border: 0;
-		width: 200px;
+		border: 1px solid #018849;
+		width: 250px;
 		height: 50px;
-		background-color: #018849;
+		background-color: rgba(1, 136, 73,0.1);
 		font-size: 20px;
-		color: white;
+		color: #006637;
 		cursor: pointer;
 	}
 
@@ -607,6 +611,7 @@ h2 {
 		border: 0;
 		width: 100px;
 		height: 50px;
+        margin-left: 2%;
 		background-color: #018849;
 		font-size: 20px;
 		color: white;
@@ -626,5 +631,9 @@ h2 {
 	#show button:hover{
 		background-color: #006637;
 	}
+
+    #show button[name='add_to_cart']:hover {
+        background-color:  rgba(1, 136, 73,0.5);
+    }
 	
 /*End show.php*/
