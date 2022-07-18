@@ -1,6 +1,6 @@
 <?php 
 $url = $_SERVER['REQUEST_URI'];
-if (strpos($url,"signing") || strpos($url,"cart")) {
+if (strpos($url,"signing") || strpos($url,"cart") || strpos($url,"buy")) {
 require '../database/connect.php';
 }else require './database/connect.php';
 
