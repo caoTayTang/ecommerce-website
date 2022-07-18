@@ -93,10 +93,10 @@
                                 Tên
                             </th>
                             <th>
-                                Giá
+                                Ảnh
                             </th>
                             <th>
-                                Ảnh
+                                Giá
                             </th>
                            <th>
                                 Số lượng
@@ -112,18 +112,18 @@
                                 $num_rows--;
                                 ?>
                             <tr name="each_row" style="background-color: <?php echo $row_color ?>;">
-                            <td onclick='location.href="../show.php?id=<?php echo $key ?>"'>
+                                <td onclick='location.href="../show.php?id=<?php echo $key ?>"'>
                                     <?php echo $each['ten'] ?>
                                 </td>
                                 <td onclick='location.href="../show.php?id=<?php echo $key ?>"'>
+                                    <img src="../admin/products/photos/<?php echo $each['anh'] ?>" height="100px" />
+                                </td>
+                                <td onclick='location.href="../show.php?id=<?php echo $key ?>"' style="color: #0770cf">
                                     <?php 
                                     $result = $each['gia'] * $each['so_luong'];
                                     echo $result . ' ₫'; 
                                     $sum += $result;
                                     ?>
-                                </td>
-                                <td onclick='location.href="../show.php?id=<?php echo $key ?>"'>
-                                    <img src="../admin/products/photos/<?php echo $each['anh'] ?>" height="100px" />
                                 </td>
                                 <td class="so_luong">
                                 <div class="sub_so_luong"> 
@@ -135,11 +135,16 @@
                             </tr>
                             <?php } ?>
                             <tr>
-                                <th colspan = "4" style="text-align: center">
+                                <th colspan = "4" style="text-align: center;color:#0770cf">
                                     Tổng tiền: <?php echo $sum ?> ₫
                                 </th>
                             </tr>
                     </table>
+                    <div style="display:flex;justify-content:center;align-items:center">
+                    <button name="buy_now" onclick="location.href='../buy/form_buy.php'" style="margin-top: 20px"> 
+                        Mua hàng
+                    </button>
+                    </div>
                 <?php } else if ($num_rows === 0){ ?>
                     <div id="alert">
                         <span style="font-size:20px;">Giỏ hàng của bạn trống!<span>
