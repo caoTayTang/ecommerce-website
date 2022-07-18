@@ -40,10 +40,10 @@
                                 <?php echo $each['gia'] ?>
                             </div>
                             <div class="product_tag">
-                                <a class="tag" href="https://example.com">
+                            <a class="tag" href="?sort=<?php echo $each['ma_the_loai'] ?>">
                                     <?php echo $each['the_loai'] ?>
                                 </a>
-                                <a class="view" href="https://example.com">
+                                <a class="view" href="?sort=0">
                                     <?php echo $each['so_luot_truy_cap'] ?>
                                     <span style="font-family:Hack, monospace;"> </span>
                                 </a>
