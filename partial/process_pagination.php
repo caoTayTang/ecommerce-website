@@ -15,8 +15,9 @@
     }else $search = "";
 
     // the toggled menu sorting
-    // 1 - hot
-    // 2 - 
+    // 0 - hot
+    // ma_the_loai - ten_the_loai
+    // ...
     $order = "";
     if(isset($_GET['sort'])) {
         $sort = $_GET['sort'];
@@ -45,6 +46,7 @@
                 san_pham.anh as anh,
                 san_pham.gia as gia,
                 the_loai.ten as the_loai,
+                the_loai.ma as ma_the_loai,
                 san_pham.so_luot_truy_cap as so_luot_truy_cap,
                 nha_san_xuat.ten as ten_nha_san_xuat 
             from san_pham
