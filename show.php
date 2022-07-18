@@ -4,8 +4,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Nhà sản xuất</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
 	<link rel="stylesheet" type="text/css" href="./styles.css">
     <style type="text/css">
+    .need_to_bold {
+        font-weight: bold;
+        margin-bottom: 7px;
+        margin-top: 7px;
+    }
     </style>
     <link rel="icon" href="./resource/logo.png">
 </head>
@@ -43,7 +49,8 @@
 				inner join the_loai 
 				on the_loai_chi_tiet.ma_the_loai = the_loai.ma
 
-				where san_pham.ma = '$id'";
+                where san_pham.ma = '$id'
+                limit 1";
 		$return = mysqli_query($connect,$sql);
 
 
@@ -76,21 +83,31 @@
     			 	</div>
 
     				<div id="show_right">
-	    				 <h2><?php echo $each['ten'] ?></h2>
-	    				 <p name="price">
+	    				 <h1 style="font-size:45px"><?php echo $each['ten'] ?></h1>
+	    				 <p name="price" style="font-weight: bold">
 	    				 	Giá: <?php echo $each['gia'] ?>₫
 	    				 </p>
-	    				 <p>
-	    				 	Mô tả: <?php echo $each['mo_ta'] ?>
+	    				 <p class="need_to_bold">
+	    				 	Mô tả: 
 	    				 </p>
-	    				 <p>
-	    				 	Nhà sản xuất: <?php echo $each['ten_nha_san_xuat'] ?>
-	    				 </p>
-					 	 <p>
-					 	 	Thể loại: <?php echo $each['ten_the_loai'] ?>
+                         <span>
+                            <?php echo $each['mo_ta'] ?>                        
+                         </span>
+	    				 <p class="need_to_bold">
+	    				 	Nhà sản xuất: 	    				 </p>
+                         <span>
+                            <?php echo $each['ten_nha_san_xuat'] ?>
+                         </span>
+					 	 <p class="need_to_bold">
+					 	 	Thể loại: 
 					 	 </p>
+                         <span>
+                            <?php echo $each['ten_the_loai'] ?> 
+                         </span>
+                         <br>
+                         <br>
                          <button name="add_to_cart" onclick="add_to_cart()"> 
-					 	 	Thêm vào giỏ hàng
+					 	 	<span style="font-family:Hack, monospace;font-size: 25px"></span> Thêm vào giỏ hàng
 					 	 </button>
                          <button name="buy_now" onclick='location.href="./buy/redirect.php?id=<?php echo $each['ma'] ?>"'> 
 					 	 	Mua ngay
