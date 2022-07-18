@@ -1,6 +1,7 @@
 <?php 
-	if (empty($_POST['ten']) ||empty($_POST['mo_ta']) ||empty($_FILES['anh']) ||empty($_POST['gia'])||empty($_POST['ma_nha_san_xuat'])) {
+	if (empty($_POST['ten']) ||empty($_POST['mo_ta']) ||empty($_FILES['anh']) ||empty($_POST['gia'])||empty($_POST['ma_nha_san_xuat']) || empty($_POST['ma_the_loai'])) {
 		echo "<script>alert('Xin điền đầy đủ thông tin!')</script>";
+        die();
 	}
 
 	$ten = $_POST['ten'];
@@ -29,8 +30,17 @@
 	$ma_san_pham = mysqli_insert_id($connect);
 
 
-	$query_the_loai = "insert into the_loai_chi_tiet(ma_san_pham, ma_the_loai)
-						values('$ma_san_pham','$ma_the_loai')";
+    
+	$query_the_loai = "insert into the_loai_chi_tiet(ma_san_pham, ma_the_loai) values";
+    $temp_array = array();
+    $index = 0;
+
+    foreach($ma_the_loai as $each) {
+        $temp_array[$index] = "('$ma_san_pham','$each')";
+        $index++;
+    }
+    
+    $query_the_loai .= join(",",$temp_array);
 	mysqli_query($connect,$query_the_loai);
 
 	mysqli_close($connect);
