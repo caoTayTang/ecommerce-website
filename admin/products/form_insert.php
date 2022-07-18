@@ -12,6 +12,18 @@
 		.login-box form a[href='javascript:{}'] {
 			margin-left: 40%;
 		}
+        
+        .login-box .user-box select {
+			width: 100%;
+			padding: 10px 0;
+			font-size: 16px;
+			color: black;
+			margin-bottom: 30px;
+			border: 1px solid black;
+			border-radius: 3px;
+			outline: none;
+			background: transparent;
+		} 
 	</style>
 </head>
 <body>
@@ -49,16 +61,18 @@
 						Tên nhà sản xuất
 						<select name="ma_nha_san_xuat">
 							<?php foreach ($result1 as $each) { ?>
+                                <option value="" selected disabled hidden>--Chọn nhà sản xuất--</option>
 								<option value="<?php echo $each['ma'] ?>">
 									<?php echo $each['ten']; ?>
 								</option>
 							<?php } ?>
 						</select>
 					</div>
-		            <div class="user-box">
+		            <div class="user-box" name="the_loai">
 						Thể loại
-						<select name="ma_the_loai">
+                        <select name="ma_the_loai" onchange='appendSelect()'>
 							<?php foreach ($result2 as $each) { ?>
+                                <option value="" selected disabled hidden>--Chọn thể loại--</option>
 								<option value="<?php echo $each['ma'] ?>">
 									<?php echo $each['ten']; ?>
 								</option>
@@ -77,3 +91,10 @@
 	<?php mysqli_close($connect); ?>
 </body>
 </html>
+<script>
+function appendSelect() {
+    let container = document.querySelector("[name='the_loai']");
+    let section = document.querySelector("[name='ma_the_loai']");
+    container.appendChild(section.cloneNode(true));
+}
+</script>
