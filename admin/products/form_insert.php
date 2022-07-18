@@ -70,8 +70,13 @@
 					</div>
 		            <div class="user-box" name="the_loai">
 						Thể loại
-                        <select name="ma_the_loai" onchange='appendSelect()'>
+                        <select name="ma_the_loai[]" onchange='appendSelect()'>
 							<?php foreach ($result2 as $each) { ?>
+                                <option>
+                                    <a>
+                                        <span> <span>Thêm thể loại
+                                    </a>
+                                </option>
                                 <option value="" selected disabled hidden>--Chọn thể loại--</option>
 								<option value="<?php echo $each['ma'] ?>">
 									<?php echo $each['ten']; ?>
@@ -94,7 +99,7 @@
 <script>
 function appendSelect() {
     let container = document.querySelector("[name='the_loai']");
-    let section = document.querySelector("[name='ma_the_loai']");
+    let section = document.querySelector("[name='ma_the_loai[]']");
     container.appendChild(section.cloneNode(true));
 }
 </script>
