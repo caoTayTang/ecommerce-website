@@ -29,13 +29,15 @@
 
     $ma_hoa_don = mysqli_insert_id($connect);
 
-    $query2 = "insert into hoa_don_chi_tiet(ma_hoa_don,ma_san_pham,so_luong) values";
+    $query2 = "insert into hoa_don_chi_tiet(ma_hoa_don,ma_san_pham,so_luong,gia) values";
     
     $temp_array = array();  // temp array to concatenate query later on
     $index = 0; 
     foreach ($cart as $product => $each) {
         $so_luong = $each['so_luong'];
-        $temp_array[$index] = "('$ma_hoa_don','$product','$so_luong')";
+        $gia = $each['gia'];
+        $gia_hoa_don_chi_tiet = $gia * $so_luong;
+        $temp_array[$index] = "('$ma_hoa_don','$product','$so_luong','$gia_hoa_don_chi_tiet')";
         $index++;
     }
     $query2 = $query2 . join(",",$temp_array);
