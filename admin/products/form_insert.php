@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
 	<link rel="stylesheet" type="text/css" href="../../styles.css">
 	<link rel="icon" href="../../resource/logo.png">
 	<?php include '../form.php'?>
@@ -72,11 +73,6 @@
 						Thể loại
                         <select name="ma_the_loai[]" onchange='appendSelect()'>
 							<?php foreach ($result2 as $each) { ?>
-                                <option>
-                                    <a>
-                                        <span> <span>Thêm thể loại
-                                    </a>
-                                </option>
                                 <option value="" selected disabled hidden>--Chọn thể loại--</option>
 								<option value="<?php echo $each['ma'] ?>">
 									<?php echo $each['ten']; ?>
