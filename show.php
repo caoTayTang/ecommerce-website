@@ -31,14 +31,15 @@
 		}
 
 		$sql =  "select 
-					san_pham.ma as ma ,
-					san_pham.ten as ten,
-					san_pham.mo_ta as mo_ta,
-					san_pham.anh as anh,
-					san_pham.gia as gia,
-					nha_san_xuat.ten as ten_nha_san_xuat,
-				    the_loai.ten as ten_the_loai
-				from san_pham
+                    san_pham.ma as ma,
+                    san_pham.ten as ten,
+                    san_pham.anh as anh,
+                    san_pham.gia as gia,
+                    san_pham.mo_ta as mo_ta,
+                    nha_san_xuat.ten as ten_nha_san_xuat,
+                    group_concat(the_loai.ma) as ma_the_loai,
+                    group_concat(the_loai.ten) as ten_the_loai
+                from san_pham
 
 				left join nha_san_xuat
 				on san_pham.ma_nha_san_xuat = nha_san_xuat.ma
@@ -46,7 +47,7 @@
 				left join the_loai_chi_tiet 
                 on the_loai_chi_tiet.ma_san_pham = san_pham.ma
 
-				inner join the_loai 
+				left join the_loai 
 				on the_loai_chi_tiet.ma_the_loai = the_loai.ma
 
                 where san_pham.ma = '$id'
