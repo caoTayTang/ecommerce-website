@@ -435,7 +435,7 @@ h2 {
 
 .each_product {
 	width: 23%;
-	height: 440px;
+	height: 530px;
 	background-color: #ffffff;
 	float: left;
 	margin: 40px 0px 13px 20px;
@@ -474,6 +474,8 @@ h2 {
 }
 
 .product_price{
+    font-size:20px;
+    margin-top: 5%;
 	width: 100%;
 	height: 10%;
 }
