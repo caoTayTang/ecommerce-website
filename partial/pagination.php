@@ -33,15 +33,25 @@
         $begin = 1;
         $end = 1;
    } else if ($currentPage == 1) {
-        $begin = $currentPage;
-        $end = $currentPage+2;
+        if ($page == 2) {
+            $begin = $currentPage;
+            $end = $currentPage+1;
+        } else {
+            $begin = $currentPage;
+            $end = $currentPage+2;
+        }
    } else if ($currentPage == $page) {
+       if ($page == 2 ) {
+           $begin = $currentPage-1;
+           $end = $currentPage;
+       } else {
         $begin = $currentPage-2;
         $end = $currentPage;
+       }
    } else {
         $begin = $currentPage-1;
         $end = $currentPage+1;
-   }    
+   }
     ?>
 
     <?php 
