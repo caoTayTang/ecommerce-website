@@ -26,12 +26,11 @@
         include '../partial/header.php';
 
 
-		if (isset($_SESSION['ten']) && !empty($_SESSION['ten'])) {
-			echo("<script>window.location.href='user.php'</script>");
+		if (isset($_SESSION['cap_do'])) {
+			echo("<script>window.location.href='./main_menu.php'</script>");
 			exit;
 		}
         ?>
-
 
         <div id="middle_div">
         	<div class="login-box">
