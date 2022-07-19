@@ -6,7 +6,8 @@
         session_start();
     }
     
-    if(isset($_SESSION['cap_do'])) {
+
+    if(isset($_SESSION['cap_do']) ) {
         $anh_dai_dien = '../../admin/default.png';
     } else if (!isset($_SESSION['anh_dai_dien'])) {
 		$anh_dai_dien = 'default.png';

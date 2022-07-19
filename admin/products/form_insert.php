@@ -39,7 +39,7 @@
 
 	 ?>
 	<div id="main_div">
-		<?php include '../../Partial/header.php'; ?>
+		<?php include '../../partial/header.php'; ?>
 	 	<?php include '../menu.php' ?>
         <?php 
                if (!isset($_SESSION['cap_do'])) {

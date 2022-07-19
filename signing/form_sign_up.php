@@ -33,7 +33,6 @@
 				<form action="process_sign_up.php" method="post" id="my_form" enctype="multipart/form-data">
 		            <div class="user-box">
 						Email<input type="email" name="email" required="">
-						
 					</div>
 					<div class="user-box">
 						Tên<input type="text" name="ten" required>
