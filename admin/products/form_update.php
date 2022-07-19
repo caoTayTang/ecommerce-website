@@ -11,6 +11,13 @@
 	<div id="main_div">
 		<?php include '../../Partial/header.php'; ?>
 	 	<?php include '../menu.php' ?>
+        <?php 
+               if (!isset($_SESSION['cap_do'])) {
+                echo('<script>location.href="../index.php"</script>');
+                exit;
+            } 
+        ?>
+
 	 	<div id="middle_div">
 	 		<div class="login-box">
 				<h2>Sửa sản phẩm</h2>

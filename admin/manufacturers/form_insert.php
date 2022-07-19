@@ -10,6 +10,12 @@
 	<div id="main_div">
 		<?php include '../../partial/header.php'; ?>
 	 	<?php include '../menu.php' ?>
+        <?php 
+               if (empty($_SESSION['cap_do'])) { //empty = !isset + !0
+                echo('<script>location.href="../index.php"</script>');
+                exit;
+            } 
+        ?>
 	 	<div id="middle_div">
 			<div class="login-box">
 				<h2>Thêm nhà sản xuất</h2>
