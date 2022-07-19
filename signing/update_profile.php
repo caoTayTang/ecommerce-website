@@ -36,7 +36,7 @@
         	<div class="login-box">
 				<h2>Cập nhật hồ sơ</h2>
 				<form action="process_update_profile.php" method="post" id="my_form" enctype="multipart/form-data">
-                <input type="number" hidden name='ma' value="<?php echo $ma ?>">
+                    <input type="text" hidden name='ma' value="<?php echo $ma ?>">
 		            <div class="user-box">
                     Email<input type="email" name="email" required="" value="<?php echo $result['email'] ?>">
 					</div>

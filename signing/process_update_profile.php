@@ -34,9 +34,10 @@
 	if ($error) {
 		echo "<script>alert('Lỗi khi đăng kí, vui lòng làm lại!')</script>";
 	}else {
-		$_SESSION['ma'] = mysqli_insert_id($connect);
+		$_SESSION['ma'] = $ma;
 		$_SESSION['ten'] = $ten;
 		$_SESSION['anh_dai_dien'] = $file_name; 
 	}
 	
 	mysqli_close($connect);
+    header('location: user.php');
