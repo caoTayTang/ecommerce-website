@@ -6,6 +6,16 @@
 	<title>Nhà sản xuất</title>
 	<link rel="stylesheet" type="text/css" href="../styles.css">
     <style type="text/css">
+        
+        select[name='sort_div'] {
+			padding: 3px 0;
+			color: black;
+            background-color: white;
+			margin-top: 20px;
+			border: 1px solid black;
+			border-radius: 3px;
+			outline: none;
+		}
     </style>
 	<link rel="icon" href="../resource/logo.png">
 </head>
@@ -21,6 +31,8 @@
     // Searching
     require '../partial/process_search.php';
 
+    $query_the_loai = "select * from the_loai";
+    $the_loai = mysqli_query($connect,$query_the_loai);
     ?>
 	<div id="main_div">
         
@@ -28,7 +40,38 @@
         <?php include './menu.php'?>
 
   
-	 	<div id="middle_div" style="z-index: 9999;color: red;">
+	 	<div id="middle_div" style="z-index: 9999">
+            <div id="sort_div">
+                <form id="my_form" method="get" action="process_sort.php">
+                    <span style="color:black">Sắp xếp theo:</span>
+                    <select name="sort_div" onchange="document.getElementById('my_form').submit();">
+                    <option value="" selected disabled hidden>
+                        <?php
+                            if(isset($_GET['sort']) || !empty($_GET['sort'])) {
+                                 $sort = $_GET['sort'];
+                                 foreach($the_loai as $each) {
+                                     if($each['ma'] == $sort) {
+                                         echo $each['ten'];
+                                     } else if($sort == 0){
+                                         echo 'Lượt xem';
+                                         break;
+                                     } 
+                                 }
+                            }
+                        ?>
+
+                    </option>
+                        <option value="0">
+                            Lượt xem
+                        </option>
+                        <?php foreach($the_loai as $each) {  ?>
+                        <option value="<?php echo $each['ma'] ?>">
+                            <?php echo $each['ten'] ?>  
+                        </option> 
+                        <?php } ?>
+                    </select> 
+                </form>
+            </div>
 			<div id="content">
                 <p>
                     <table id="main_table">

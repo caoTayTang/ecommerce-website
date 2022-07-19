@@ -46,6 +46,7 @@
     $offset = $products_per_page*($currentPage-1);
 
      // Query the data that fits the ?query and ?page
+    // Join nha san xuat for admin index.php can reuse this query
     $sql =  "select 
                 san_pham.ma as ma,
                 san_pham.ten as ten,
@@ -53,13 +54,16 @@
                 san_pham.gia as gia,
                 san_pham.so_luot_truy_cap as so_luot_truy_cap,
                 group_concat(the_loai.ma) as ma_the_loai,
-                group_concat(the_loai.ten) as the_loai
+                group_concat(the_loai.ten) as the_loai,
+                nha_san_xuat.ten as ten_nha_san_xuat
             from san_pham 
 
             left join the_loai_chi_tiet 
             on san_pham.ma = the_loai_chi_tiet.ma_san_pham 
             left join the_loai 
             on the_loai_chi_tiet.ma_the_loai = the_loai.ma 
+            left join nha_san_xuat 
+            on nha_san_xuat.ma = san_pham.ma_nha_san_xuat
 
             where (san_pham.ten like '%$search%' or mo_ta like '%$search%')
             $order
