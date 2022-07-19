@@ -12,6 +12,7 @@ if (!isset($_SESSION['ma']) || empty($_SESSION['ma'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<?php include '../admin/form.php'?>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
 	<link rel="stylesheet" type="text/css" href="../styles.css">
 	<link rel="icon" href="../resource/logo.png">
 	<style type="text/css">
@@ -21,6 +22,20 @@ if (!isset($_SESSION['ma']) || empty($_SESSION['ma'])) {
 			font-size: 16px;
 			text-decoration: none;
 		}
+        
+        .action {
+            text-decoration: none;
+            font-size: 20px;
+            color: #0784d9; 
+        }
+        
+        .login-box {
+            padding: 20px
+        }
+
+        h2 {
+            margin-bottom: 0px !important;
+        }
 	</style>
 </head>
 <body>
@@ -32,14 +47,20 @@ if (!isset($_SESSION['ma']) || empty($_SESSION['ma'])) {
         <div id="middle_div">
         	<div class="login-box">
 				<h2>Xin chào <?php echo $_SESSION['ten'] ?></h2>
-				<a href="process_sign_out.php" style="margin-left: 40%;text-decoration: none;">
-						Đăng xuất
+				<a class="action" href="process_sign_out.php">
+                    <span style="font-family:Hack, monospace;font-size:25px">&nbsp</span>
+                    Đăng xuất
 				</a>
                 <br>
-				<a href="show_saved_products.php" style="margin-left: 35%;text-decoration: none;">
-						Sản phẩm đã lưu
+				<a class="action" href="show_saved_products.php">
+                    <span style="font-family:Hack, monospace;font-size:20px">&nbsp</span>
+                    Sản phẩm đã lưu
 				</a>
-	
+                <br>
+				<a class="action" href="update_profile.php">
+                    <span style="font-family:hack, monospace;font-size:20px">&nbsp</span>
+                    Cập nhật hồ sơ
+				</a>
 			</div>
         </div>
     	<?php include '../partial/footer.php'; ?>
