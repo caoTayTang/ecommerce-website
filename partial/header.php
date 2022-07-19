@@ -43,7 +43,7 @@
 	background-repeat: no-repeat;">
 	</div>
 	<div id="shopping_cart" onclick="location.href='/ecommerce-website/cart/view_cart.php'"></div>
-	<div id="help" onclick="location.href='/ecommerce-website/help.php'"></div>
+	<div id="help" onclick="location.href='https://github.com/caoTayTang/ecommerce-website'"></div>
 </div>
 <script>
 
