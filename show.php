@@ -12,6 +12,7 @@
         margin-bottom: 7px;
         margin-top: 7px;
     }
+    
     </style>
     <link rel="icon" href="./resource/logo.png">
 </head>
@@ -111,9 +112,11 @@
 					 	 	<span style="font-family:Hack, monospace;font-size: 25px"></span> Thêm vào giỏ hàng
 					 	 </button>
                          <button name="buy_now" onclick='location.href="./buy/redirect.php?id=<?php echo $each['ma'] ?>"'> 
+                            <span style="font-family:Hack,monospace; font-size:20px"></span>
 					 	 	Mua ngay
 					 	 </button>
                          <button name="save" onclick="location.href='partial/process_save.php?id=<?php echo $id ?>'"> 
+                            <span style="font-family:Hack,monospace; font-size:20px"></span>
                             Lưu
 					 	 </button>
                           

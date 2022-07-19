@@ -611,7 +611,7 @@ h2 {
 
 	button[name="buy_now"] {
 		border: 0;
-		width: 100px;
+		width: 140px;
 		height: 50px;
         margin-left: 2%;
 		background-color: #018849;
@@ -625,11 +625,14 @@ h2 {
 		border: 0;
 		width: 100px;
 		height: 50px;
-		background-color: #018849;
+		background-color:#0770d6;
 		font-size: 20px;
 		color: white;
 		cursor: pointer;
 	}
+    #show button[name='save']:hover {
+        background-color:  #94b6d8;
+    }
 	#show button:hover{
 		background-color: #006637;
 	}
