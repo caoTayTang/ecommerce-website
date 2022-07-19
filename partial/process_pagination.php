@@ -47,7 +47,8 @@
 
      // Query the data that fits the ?query and ?page
     $sql =  "select 
-                san_pham.ma as ma, san_pham.ten as ten,
+                san_pham.ma as ma,
+                san_pham.ten as ten,
                 san_pham.anh as anh,
                 san_pham.gia as gia,
                 san_pham.so_luot_truy_cap as so_luot_truy_cap,
