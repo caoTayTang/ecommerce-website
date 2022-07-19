@@ -36,7 +36,7 @@
                                 </h2>
                             </div>
                             <div class="product_price">
-                                <?php echo $each['gia'] ?>
+                                <?php echo $each['gia'] ?>₫
                             </div>
                             <div class="product_tag">
                                 <?php 
