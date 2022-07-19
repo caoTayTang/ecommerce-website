@@ -12,7 +12,6 @@
 <body>  
     <?php
     require './database/connect.php';
-
     //3 rows, 4 products each row
     $products_per_page = 12;
     require './partial/process_pagination.php';
@@ -46,7 +45,7 @@
                                     $len = count($ten_the_loai);
                                     $the_loai = array_merge($ten_the_loai,$ma_the_loai);
                                 ?>
-                                <?php if (!empty($ten_the_loai[0])) { ?>
+                                <?php if ($ten_the_loai[0]) { ?>
                                     <?php 
                                         for($index = 0; $index < $len; $index++) { ?>
                                         <a class="tag" href="?sort=<?php echo $the_loai[$len+$index] ?>">

@@ -18,19 +18,25 @@
     // 0 - hot
     // ma_the_loai - ten_the_loai
     // ...
+
+    $query = "select count(*) from san_pham";
+
     $order = "";
+    $order_0 = "";
     if(isset($_GET['sort'])) {
         $sort = $_GET['sort'];
         if ($sort == 0) {
-            $order = "order by so_luot_truy_cap desc";
+            $order_0 = "order by so_luot_truy_cap desc";
         }else {
             $order = "and the_loai.ma = $sort";
-        }
+        } 
+         $query .= " inner join the_loai_chi_tiet on the_loai_chi_tiet.ma_san_pham = san_pham.ma
+                    inner join the_loai on the_loai.ma = the_loai_chi_tiet.ma_the_loai 
+                    where (san_pham.ten like '%$search%' or mo_ta like '%$search%')
+                    $order $order_0";
+    }else {
+        $query .= " where ten like '%$search%' or mo_ta like '%$search%'";
     }
-    
-    $query = "select count(*) from san_pham
-              where ten like '%$search%' or mo_ta like '%$search%'";
-
     $total_products = mysqli_query($connect,$query);
     $total_products = mysqli_fetch_array($total_products)['count(*)'];
 
@@ -55,8 +61,9 @@
             on the_loai_chi_tiet.ma_the_loai = the_loai.ma 
 
             where (san_pham.ten like '%$search%' or mo_ta like '%$search%')
-            group by san_pham.ma
             $order
+            group by san_pham.ma
+            $order_0
             limit $offset,$products_per_page";
     $return = mysqli_query($connect,$sql);
 
