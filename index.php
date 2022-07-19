@@ -40,9 +40,20 @@
                                 <?php echo $each['gia'] ?>
                             </div>
                             <div class="product_tag">
-                            <a class="tag" href="?sort=<?php echo $each['ma_the_loai'] ?>">
-                                    <?php echo $each['the_loai'] ?>
-                                </a>
+                                <?php 
+                                    $ten_the_loai = explode(',',$each['the_loai']); 
+                                    $ma_the_loai = explode(',',$each['ma_the_loai']);
+                                    $len = count($ten_the_loai);
+                                    $the_loai = array_merge($ten_the_loai,$ma_the_loai);
+                                ?>
+                                <?php if (!empty($ten_the_loai[0])) { ?>
+                                    <?php 
+                                        for($index = 0; $index < $len; $index++) { ?>
+                                        <a class="tag" href="?sort=<?php echo $the_loai[$len+$index] ?>">
+                                            <?php echo $the_loai[$index] ?>
+                                        </a>
+                                    <?php } ?>
+                                <?php } ?>
                                 <a class="view" href="?sort=0">
                                     <?php echo $each['so_luot_truy_cap'] ?>
                                     <span style="font-family:Hack, monospace;"> </span>
