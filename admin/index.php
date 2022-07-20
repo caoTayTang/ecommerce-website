@@ -27,7 +27,7 @@
 
 
 		if (isset($_SESSION['cap_do'])) {
-			echo("<script>window.location.href='./main_menu.php'</script>");
+			echo("<script>window.location.href='./products/index.php'</script>");
 			exit;
 		}
         ?>
