@@ -13,4 +13,7 @@
             <a href="/ecommerce-website/admin/manufacturers/form_insert.php">Thêm nhà sản xuất</a>
         </div>
     </div>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="location.href='../orders'">Quản lý đơn hàng</button>
+    </div>
 </div>
