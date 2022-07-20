@@ -31,7 +31,7 @@
         //     setcookie('remember',$token,time() + 60*60*24*30); // set cookies if user checked remember me, expired after 1 month
         // }
 
-		header('location: ./main_menu.php');
+		header('location: ./products/index.php');
 		exit;
 	}else {
 		echo "<script>alert('Thất bại')</script>";
