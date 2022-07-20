@@ -32,7 +32,7 @@
 	mysqli_query($connect,$query);
 	$error = mysqli_error($connect);
 	if ($error) {
-		echo "<script>alert('Lỗi khi đăng kí, vui lòng làm lại!')</script>";
+		echo "<script>alert('Lỗi khi cập nhật, vui lòng làm lại!')</script>";
 	}else {
 		$_SESSION['ma'] = $ma;
 		$_SESSION['ten'] = $ten;
