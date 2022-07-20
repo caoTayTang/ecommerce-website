@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Nhà sản xuất</title>
-	<link rel="stylesheet" type="text/css" href="../styles.css">
+	<link rel="stylesheet" type="text/css" href="../../styles.css">
     <style type="text/css">
         
         select[name='sort_div'] {
@@ -17,27 +17,27 @@
 			outline: none;
 		}
     </style>
-	<link rel="icon" href="../resource/logo.png">
+	<link rel="icon" href="../../resource/logo.png">
 </head>
 <body>
     <?php
-    require '../database/connect.php';
+    require '../../database/connect.php';
 
     //3 rows, 4 products each row
     $products_per_page = 15;
-    require '../partial/process_pagination.php';
+    require '../../partial/process_pagination.php';
     $num_rows = $return->num_rows;
 
     // Searching
-    require '../partial/process_search.php';
+    require '../../partial/process_search.php';
 
     $query_the_loai = "select * from the_loai";
     $the_loai = mysqli_query($connect,$query_the_loai);
     ?>
 	<div id="main_div">
         
-		<?php include '../partial/header.php'; ?>
-        <?php include './menu.php'?>
+		<?php include '../../partial/header.php'; ?>
+        <?php include '../menu.php'?>
         <?php 
                if (!isset($_SESSION['cap_do'])) {
                 echo('<script>location.href="./index.php"</script>');
@@ -122,15 +122,16 @@
                                     <?php echo $each['gia']; ?>
                                 </td>
                                 <td>
-                                    <img src="./products/photos/<?php echo $each['anh'] ?>" height="100px" />
+                                    <img src="./photos/<?php echo $each['anh'] ?>" height="100px" />
                                 </td>
                                 <td>
                                     <?php echo $each['ten_nha_san_xuat']; ?>
                                 </td>
-                                <td class="update" onclick="location.href='products/form_update.php'">
+                                <?php $ma = $each['ma'] ?>
+                                <td class="update" onclick="location.href='./form_update.php?ma=<?=$ma?>'">
                                     Sửa
                                 </td>
-                                <td class="delete" onclick="location.href='products/process_delete.php'">
+                                <td class="delete" onclick="location.href='./process_delete.php?ma=<?=$ma?>'">
                                     Xoá
                                 </td>   
                             </tr>
@@ -139,7 +140,7 @@
                 </p>
             </div>
 		</div>
-		<?php include '../partial/footer.php';?>
+		<?php include '../../partial/footer.php';?>
 	</div>
 <?php mysqli_close($connect); ?>
 </body>
