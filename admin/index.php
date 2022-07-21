@@ -45,9 +45,6 @@
 					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
 						Đăng nhập
 					</a>
-					<a href="form_sign_up.php" style="margin-top: 15px;">
-						Đăng ký
-					</a>
 				</form>
 			</div>
         </div>
