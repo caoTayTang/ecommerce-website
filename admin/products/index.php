@@ -37,12 +37,17 @@
 	<div id="main_div">
         
 		<?php include '../../partial/header.php'; ?>
-        <?php include '../menu.php'?>
         <?php 
                if (!isset($_SESSION['cap_do'])) {
                 echo('<script>location.href="./index.php"</script>');
                 exit;
             } 
+        ?>
+        <?php 
+        if ($_SESSION['cap_do'] == 1)
+            include '../menu.php';
+        else 
+            include './menu.php';
         ?>
   
 	 	<div id="middle_div" style="z-index: 9999">
