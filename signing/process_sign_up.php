@@ -4,6 +4,7 @@
 	$ten = $_POST['ten'];
 	$mat_khau = $_POST['mat_khau'];
 	$so_dien_thoai = $_POST['so_dien_thoai'];
+    $dia_chi = $_POST['dia_chi'];
 	$anh_dai_dien = $_FILES['anh_dai_dien'];
 
 	//move image from temp to photos folder so that my local sever can select that later on
@@ -18,8 +19,8 @@
 
 	require '../database/connect.php';
 	$query = "insert into khach_hang
-			(email,ten,so_dien_thoai,mat_khau,anh_dai_dien)
-			values('$email','$ten','$so_dien_thoai','$mat_khau','$file_name')";
+			(email,ten,so_dien_thoai,mat_khau,anh_dai_dien,dia_chi)
+			values('$email','$ten','$so_dien_thoai','$mat_khau','$file_name','$dia_chi')";
 	mysqli_query($connect,$query);
 	$error = mysqli_error($connect);
 	if ($error) {
@@ -28,6 +29,10 @@
 		$_SESSION['ma'] = mysqli_insert_id($connect);
 		$_SESSION['ten'] = $ten;
 		$_SESSION['anh_dai_dien'] = $file_name; 
+        require '../mail.php';
+        $subject = "Kaios The Shop thông báo";
+        $body = "Chào mừng đến với <b><a href='https://github.com/caoTayTang/ecommerce-website'>Kaios the Shop</a></b>";
+        send_mail($email,$ten,$subject,$body);
 	}
 	
 	

@@ -4,13 +4,13 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-require './PHPMailer-master/src/Exception.php';
-require './PHPMailer-master/src/PHPMailer.php';
-require './PHPMailer-master/src/SMTP.php';
-//Create an instance; passing `true` enables exceptions
-$mail = new PHPMailer(true);
+require '../PHPMailer-master/src/Exception.php';
+require '../PHPMailer-master/src/PHPMailer.php';
+require '../PHPMailer-master/src/SMTP.php';
 
-try {
+function send_mail($email,$name,$subject,$body) {
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
     //Server settings
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->CharSet = 'UTF-8';
@@ -24,17 +24,12 @@ try {
 
     //Recipients
     $mail->setFrom('kaiosthecompany@gmail.com', 'Kaios');
-    $mail->addAddress('lechidaitp@gmail.com', 'Đại');     //Add a recipient, name is optional
-    $mail->addReplyTo('info@example.com', 'Information');
+    $mail->addAddress($email, $name);     //Add a recipient, name is optional
+    $mail->addReplyTo('kaiosthecompany@gmail.com', 'Kaios');
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Kaois the shop thông báo';
-    $mail->Body    = 'Test tí nhé bạn tôi <b>viết đậm nè!</b>';
-    $mail->AltBody = 'Đây là cho người không xem được HTML nè';
-
+    $mail->Subject = $subject;
+    $mail->Body    = $body;
     $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }

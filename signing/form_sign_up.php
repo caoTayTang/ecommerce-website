@@ -46,6 +46,9 @@
 						Số điện thoại<input type="text" name="so_dien_thoai" required>
 					</div>
 					<div class="user-box">
+						Địa chỉ<input type="text" name="dia_chi" required>
+					</div>
+					<div class="user-box">
 		                Ảnh đại diện<input type="file" name="anh_dai_dien">
 					</div>
 					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();" style="margin-left: 40%;">
