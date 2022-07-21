@@ -6,9 +6,10 @@
         session_start();
     }
     
-
+    $href ="/ecommerce-website/index.php";
     if(isset($_SESSION['cap_do']) ) {
         $anh_dai_dien = '../../admin/default.png';
+        $href = "/ecommerce-website/admin/index.php";
     } else if (!isset($_SESSION['anh_dai_dien'])) {
 		$anh_dai_dien = 'default.png';
 	}else $anh_dai_dien = $_SESSION['anh_dai_dien'];
@@ -23,7 +24,7 @@
 		</div>
 	</div>
 	<div id="logo">
-		<a href="/ecommerce-website/index.php">
+    <a href=<?=$href?> >
 			<img src="/ecommerce-website/resource/logo-white.png" >
 		</a>
 	</div>
