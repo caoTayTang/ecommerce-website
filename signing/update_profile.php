@@ -29,7 +29,10 @@
             require '../database/connect.php';
             
             $ma = $_SESSION['ma'];
-            $query = "select * from khach_hang where ma = '$ma'";
+            if (isset($_SESSION['cap_do'])) { 
+                $table = "nhan_vien";
+            } else $table = "khach_hang";
+            $query = "select * from $table where ma = '$ma'";
             $result = mysqli_fetch_array(mysqli_query($connect,$query));
         ?>
         <div id="middle_div">
