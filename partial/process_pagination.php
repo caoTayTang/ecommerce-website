@@ -30,8 +30,8 @@
         }else {
             $order = "and the_loai.ma = $sort";
         } 
-         $query .= " inner join the_loai_chi_tiet on the_loai_chi_tiet.ma_san_pham = san_pham.ma
-                    inner join the_loai on the_loai.ma = the_loai_chi_tiet.ma_the_loai 
+         $query .= " right join the_loai_chi_tiet on the_loai_chi_tiet.ma_san_pham = san_pham.ma
+                    right join the_loai on the_loai.ma = the_loai_chi_tiet.ma_the_loai 
                     where (san_pham.ten like '%$search%' or mo_ta like '%$search%')
                     $order $order_0";
     }else {
