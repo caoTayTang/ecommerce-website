@@ -13,6 +13,7 @@
 			float: right;
 			font-size: 16px;
 			text-decoration: none;
+            color: #0784d9;
 		}
 		input[name='remember'] {
 			margin-bottom: 10px;
@@ -22,6 +23,12 @@
 		a[href="javascript:{}"] {
 			margin-left: 6% !important;
 		}
+        a[href='../forgot_password/process_forgot_password.php'] 
+        {
+            text-decoration: none;
+            color: #0784d9;
+            margin-left: 79%;
+        }
 	</style>
 </head>
 <body>
@@ -70,6 +77,10 @@
 					</a>
 					<a href="form_sign_up.php" style="margin-top: 15px;">
 						Đăng ký
+					</a>
+                    <br>
+					<a href="../forgot_password/process_forgot_password.php" style="margin-top: 15px;">
+						Quên mật khẩu
 					</a>
 				</form>
 			</div>
