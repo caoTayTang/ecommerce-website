@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['ten']) || empty($_SESSION['ten'])) {
+    header('location: user.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,13 +29,9 @@
 		include '../partial/menu.php';
         include '../partial/header.php'; ?>
         <?php 
-            if (!isset($_SESSION['ten']) || empty($_SESSION['ten'])) {
-                header('location: user.php');
-                exit;
-            }
             require '../database/connect.php';
-            
             $ma = $_SESSION['ma'];
+            // if admin -> CRUD at table admin
             if (isset($_SESSION['cap_do'])) { 
                 $table = "nhan_vien";
             } else $table = "khach_hang";

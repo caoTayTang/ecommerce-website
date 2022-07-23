@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (empty($_SESSION['cap_do'])) { //empty = !isset && !0
+        header('location: ../index.php');
+        exit;
+    } 
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +18,6 @@
 		<?php include '../../partial/header.php'; ?>
 	 	<?php include '../menu.php' ?>
         <?php 
-               if (empty($_SESSION['cap_do'])) { //empty = !isset && !0
-                echo('<script>location.href="../../index.php"</script>');
-                exit;
-            } 
             $ma = $_GET['ma'];
             require '../../database/connect.php';
             $sql = "select ten from nha_san_xuat where ma = $ma";

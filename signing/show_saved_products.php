@@ -1,3 +1,4 @@
+ <?php session_start()?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,6 @@
         $saved_sort = '';
         $sort = '';
     } 
-    session_start();
     $ma_khach_hang = $_SESSION['ma'];
     $query = "SELECT	
             san_pham_da_luu.ma_san_pham as ma,

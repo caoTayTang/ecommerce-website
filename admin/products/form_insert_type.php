@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+   if (!isset($_SESSION['cap_do'])) {
+        header('location: ../index.php');
+        exit;
+    } 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,13 +30,7 @@
 	 ?>
 	<div id="main_div">
 		<?php include '../../Partial/header.php'; ?>
-	 	<?php include '../menu.php' ?>
-        <?php 
-               if (!isset($_SESSION['cap_do'])) {
-                echo('<script>location.href="../index.php"</script>');
-                exit;
-            } 
-        ?>
+	 	<?php include './menu.php' ?>
 
 	 	<div id="middle_div">
 	 		<div class="login-box">

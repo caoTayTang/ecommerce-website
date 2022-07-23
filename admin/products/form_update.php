@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION['cap_do'])) {
+    echo('<script>location.href="../index.php"</script>');
+    header('location: ../index.php');
+ } 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +16,8 @@
 <body>
 	<div id="main_div">
 		<?php include '../../Partial/header.php'; ?>
-	 	<?php include '../menu.php' ?>
+	 	<?php include './menu.php' ?>
         <?php 
-               if (!isset($_SESSION['cap_do'])) {
-                echo('<script>location.href="../index.php"</script>');
-                exit;
-                } 
                $ma = $_GET['ma'];
                require '../../database/connect.php';
                $sql = "select * 

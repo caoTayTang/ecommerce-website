@@ -1,5 +1,3 @@
-// if user click "Mua ngay" in show.php then 
-// add that product to cart and redirect to view_cart.php
 <?php 
     session_start();
     $id = $_GET['id'];

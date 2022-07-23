@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+   if (empty($_SESSION['cap_do'])) {
+        header('location: ./index.php');
+        exit;
+    } 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +20,7 @@
 <body>
     <?php
     require '../../database/connect.php';
-
-    //3 rows, 4 products each row
-    $products_per_page = 15;
     require '../../partial/process_pagination.php';
-    $num_rows = $return->num_rows;
 
     // Searching
     require '../../partial/process_search.php';
@@ -30,17 +33,12 @@
             from hoa_don
             left join khach_hang on khach_hang.ma = hoa_don.ma_khach_hang";
     $return = mysqli_query($connect,$query);
+    $num_rows = $return->num_rows;
     ?>
 	<div id="main_div">
         
 		<?php include '../../partial/header.php'; ?>
         <?php include '../menu.php'?>
-        <?php 
-               if (empty($_SESSION['cap_do'])) {
-                echo('<script>location.href="./index.php"</script>');
-                exit;
-            } 
-        ?>
   
 	 	<div id="middle_div" style="z-index: 9999">
 			<div id="content">

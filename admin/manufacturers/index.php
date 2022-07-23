@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (empty($_SESSION['cap_do'])) { //empty = !isset && !0
+        header('location: ../../index.php');
+        exit;
+    } 
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,12 +38,6 @@
         
 		<?php include '../../partial/header.php'; ?>
         <?php include '../menu.php'?>
-        <?php 
-           if (empty($_SESSION['cap_do'])) { //empty = !isset && !0
-                echo('<script>location.href="../../index.php"</script>');
-                exit;
-            } 
-        ?>
   
 	 	<div id="middle_div" style="z-index: 9999">
 			<div id="content">

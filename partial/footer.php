@@ -5,13 +5,13 @@
         <?php 
         // admin dont need pagination
         $url = $_SERVER['REQUEST_URI'];
-        $contains = strpos($url,"products") || strpos($url,"manufacturers") || strpos($url,"signing") || strpos($url,"cart") || strpos($url,"buy") || strpos($url,'admin');
+        $contains =  strpos($url,"manufacturers") || strpos($url,"signing") || strpos($url,"cart") || strpos($url,"buy") || strpos($url,'orders') || strpos($url,'form_insert_type.php') || strpos($url,'admin/form_sign_in.php'); // || strpos($url,'admin') || strpos($url,"products") 
 
         if (strpos($url, "show.php")) {
         	//show.php dont need pagination
         } else if(strpos($url, "admin") && !$contains) {
-			include "../partial/pagination.php";
-        }else if (!$contains) {
+			include "../../partial/pagination.php";
+        } else if (!$contains) {
 			include "./partial/pagination.php";
     	}
 		?>
