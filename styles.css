@@ -434,8 +434,8 @@ h2 {
 }
 
 .each_product {
-	width: 23%;
-	height: 530px;
+	width: 18%;
+	height: 430px;
 	background-color: #ffffff;
 	float: left;
 	margin: 40px 0px 13px 20px;
@@ -448,7 +448,7 @@ h2 {
 
 .each_product:hover {
 	/* box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.19), 0 1px 6px rgba(0,0,0,0.23) */
-    border: 3px solid black;
+    border-bottom: 3px solid black;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;    
@@ -459,21 +459,24 @@ h2 {
 }
 
 .product_image {
-	height: 70%;
+	height: 60%;
 	width: 100%;
 	border-radius: 4px 4px 0 0;
-	background-size:100%;
+	background-size:100% 95%;
 	background-repeat: no-repeat;
 	padding: 0px !important;
+	object-fit: contain;
 }
 
 .product_name {
 	width: 100%;
 	height: 10%;
-	padding-top: 5px;
+	display: inline-block;
+	word-wrap: break-word;
 }
 
 .product_price{
+	display: inline-block;
     font-size:20px;
     margin-top: 5%;
 	width: 100%;
@@ -482,12 +485,12 @@ h2 {
 
 .product_tag {
 	width: auto;
-	height: 10%;
+	height: 5%;
 }
 
 .product_tag .tag {
 	width: fit-content;
-	height: fit-content;
+	height: 15px;
 	background-color: gray;
 	float: left;
 	padding: 5px;
@@ -504,7 +507,7 @@ h2 {
 
 .product_tag .view {
 	width: fit-content;
-	height: fit-content;
+	height: 15px;
 	background-color: gray;
 	float: right;
 	padding: 5px;

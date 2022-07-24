@@ -16,7 +16,7 @@
     	}
 		?>
 
-	    <img src="/ecommerce-website/resource/logo-black.png" height="90px">
+	    <img src="/resource/logo-black.png" height="90px">
     </div>  
 	<div id="info">
 		<h2>Thông tin</h2>

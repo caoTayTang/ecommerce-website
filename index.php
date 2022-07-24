@@ -14,7 +14,7 @@
     <?php
     require './database/connect.php';
     //3 rows, 4 products each row
-    $products_per_page = 12;
+    $products_per_page = 15;
     require './partial/process_pagination.php';
     // Searching
     require './partial/process_search.php';
@@ -26,8 +26,9 @@
             ?>
             <div id="middle_div">
                 <div id="products_container">
+
                     <?php foreach($return as $each) { ?>
-                        <div class="each_product" onclick="location.href='/ecommerce-website/show.php?id=<?php echo $each['ma'] ?>';">
+                        <div class="each_product" onclick="location.href='/show.php?id=<?php echo $each['ma'] ?>';">
                             <div class="product_image" style="background-image: url(./admin/products/photos/<?php echo $each['anh'] ?>);">
                                 
                             </div>
@@ -57,10 +58,12 @@
                                 <a class="view" href="?sort=0">
                                     <?php echo $each['so_luot_truy_cap'] ?>
                                     <span style="font-family:Hack, monospace;"> </span>
-                                </a>
+                                </a>                     
+
                             </div>
                         </div>
-                    <?php } ?>  
+                    <?php } ?>
+
                 </div>
             </div>
             <?php include './partial/footer.php';?>

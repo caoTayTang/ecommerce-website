@@ -1,15 +1,9 @@
 <?php
-$url = $_SERVER['REQUEST_URI'];
-// $contains = strpos($url,"show_saved_products.php") || strpos($url,"user.php");
-
-// if (!$contains) {
-    // session_start();
-// }
-
-$href ="/ecommerce-website/index.php";
+$href ="/index.php";
+// session already started at another files
 if(isset($_SESSION['cap_do']) ) {
     $anh_dai_dien = '../../admin/default.png';
-    $href = "/ecommerce-website/admin/index.php";
+    $href = "/admin/index.php";
 } else if (!isset($_SESSION['anh_dai_dien'])) {
     $anh_dai_dien = 'default.png';
 }else $anh_dai_dien = $_SESSION['anh_dai_dien'];
@@ -25,7 +19,7 @@ if(isset($_SESSION['cap_do']) ) {
     </div>
     <div id="logo">
     <a href=<?=$href?> >
-            <img src="/ecommerce-website/resource/logo-white.png" >
+            <img src="/resource/logo-white.png" >
         </a>
     </div>
     <div id="search_bar">
@@ -37,13 +31,13 @@ $search = "";
             <input type="text" placeholder="Tìm kiếm" name="query" value="<?php echo stripslashes($search) ?>">
         </form>
     </div>
-    <div id="user" onclick="location.href='/ecommerce-website/signing/form_sign_in.php'" style="
-    background-image: url('/ecommerce-website/signing/photos/<?php echo $anh_dai_dien ?>');
+    <div id="user" onclick="location.href='/signing/form_sign_in.php'" style="
+    background-image: url('/signing/photos/<?php echo $anh_dai_dien ?>');
     background-size:30px;
     background-position: 15px 20px;
     background-repeat: no-repeat;">
     </div>
-    <div id="shopping_cart" onclick="location.href='/ecommerce-website/cart/view_cart.php'"></div>
+    <div id="shopping_cart" onclick="location.href='/cart/view_cart.php'"></div>
     <div id="help" onclick="location.href='https://github.com/caoTayTang/ecommerce-website'"></div>
 </div>
 <script>

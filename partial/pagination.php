@@ -24,7 +24,7 @@
         </a>  
         <a href="index.php<?php echo $concatChar; echo $currentPage-1 ?>" <?php echo $special_style ?>> 
             &lt;
-        </a>    
+        </a>  
 
 
 <!-- Calculate the begin and end for the loop to show the correct page each case -->
@@ -54,9 +54,8 @@
    }
     ?>
 
-    <?php 
-    $selected_style = "";
-    for($i = $begin; $i <= $end; $i++) { ?>
+    <?php $selected_style = ""; ?>
+    <?php for($i = $begin; $i <= $end; $i++) { ?>
         <?php if ($i == $currentPage ) $selected_style = "style='background-color: #000;color: white'"; ?>
         <a href="index.php<?php echo $concatChar; echo $i ?>" <?php echo $selected_style ?>> 
             <?php echo $i ?>

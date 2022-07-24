@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if (!isset($_SESSION['cap_do'])) {
-        echo('<script>location.href="./index.php"</script>');
+        header('location: ./index.php');
         exit;
     } 
 ?>
@@ -40,6 +40,7 @@
 
     $query_the_loai = "select * from the_loai";
     $the_loai = mysqli_query($connect,$query_the_loai);
+
     ?>
 	<div id="main_div">
         
@@ -54,7 +55,7 @@
 	 	<div id="middle_div" style="z-index: 9999">
             <div id="sort_div">
                 <form id="my_form" method="get" action="process_sort.php">
-                    <span style="color:black">Sắp xếp theo:</span>
+                    <h4 style="color:black;display:inline">Sắp xếp theo:</h4>
                     <select name="sort_div" onchange="document.getElementById('my_form').submit();">
                     <option value="" selected disabled hidden>
                         <?php
@@ -135,10 +136,10 @@
                                 </td>
                                 <?php $ma = $each['ma'] ?>
                                 <td class="update" onclick="location.href='./form_update.php?ma=<?=$ma?>'">
-                                    Sửa
+                                   <span style="font-family:Hack, monospace;font-size: 20px;color:#147dc9"></span>
                                 </td>
                                 <td class="delete" onclick="location.href='./process_delete.php?ma=<?=$ma?>'">
-                                    Xoá
+                                    <span style="font-family:Hack, monospace;font-size: 20px;color:#ed5153"></span>
                                 </td>   
                             </tr>
                             <?php } ?>

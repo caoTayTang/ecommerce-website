@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_SESSION['cap_do'])) {
     echo('<script>location.href="../index.php"</script>');
     header('location: ../index.php');

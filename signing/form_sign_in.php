@@ -1,4 +1,9 @@
-<?php session_start()?>
+<?php session_start();
+	if (isset($_SESSION['ten']) && !empty($_SESSION['ten'])) {
+		header('location: user.php');
+		exit;
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,11 +43,6 @@
 		include '../partial/menu.php';
         include '../partial/header.php';
 
-		if (isset($_SESSION['ten']) && !empty($_SESSION['ten'])) {
-			echo("<script>window.location.href='user.php'</script>");
-			exit;
-		}
-        
         if (isset($_COOKIE['remember'])) {
             require '../database/connect.php';
             $token = $_COOKIE['remember'];
@@ -50,15 +50,16 @@
                     where token = '$token'";
             $result = mysqli_query($connect,$sql);
             $num_rows = $result->num_rows;
+            // validate
             if ($num_rows == 1) {
                 $each = mysqli_fetch_array($result);
                 $checked = "checked";
                 mysqli_close($connect);
-            }else {
+            }     
+        }else {
                 $each = array( 'email' => "", 'mat_khau' => "" );
                 $checked = "";
-            }        
-        }
+            }   
         ?>
 
 

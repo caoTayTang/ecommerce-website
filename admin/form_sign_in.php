@@ -28,7 +28,7 @@
 
         <div id="middle_div">
         	<div class="login-box">
-				<h2>Đăng nhập admin</h2>
+				<h2>Đăng nhập với tư cách quản trị viên</h2>
 				<form action="process_sign_in.php" method="post" id="my_form" enctype="multipart/form-data">
 		            <div class="user-box">
                     Email<input type="email" name="email" required="">
