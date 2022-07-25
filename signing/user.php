@@ -57,6 +57,11 @@ if (!isset($_SESSION['ma']) || empty($_SESSION['ma'])) {
                     Sản phẩm đã lưu
 				</a>
                 <br>
+				<a class="action" href="show_orders.php">
+                    <span style="font-family:Hack, monospace;font-size:20px">賂&nbsp</span>
+                    Quản lý hoá đơn
+				</a>
+                <br>
 				<a class="action" href="update_profile.php">
                     <span style="font-family:hack, monospace;font-size:20px">&nbsp</span>
                     Cập nhật hồ sơ
