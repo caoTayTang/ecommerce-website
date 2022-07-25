@@ -11,15 +11,21 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Quản lý đơn hàng</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
 	<link rel="stylesheet" type="text/css" href="../../styles.css">
     <style type="text/css">
-        
+        .info {
+            text-align: left;
+            padding: 10px;
+            padding-left: 20px;
+        }
     </style>
 	<link rel="icon" href="../../resource/logo.png">
 </head>
 <body>
     <?php
     require '../../database/connect.php';
+    $products_per_page = 1;
     require '../../partial/process_pagination.php';
 
     // Searching
@@ -31,7 +37,8 @@
                     khach_hang.so_dien_thoai as sdt_nguoi_dat,
                     khach_hang.dia_chi as dia_chi_nguoi_dat
             from hoa_don
-            left join khach_hang on khach_hang.ma = hoa_don.ma_khach_hang";
+            left join khach_hang on khach_hang.ma = hoa_don.ma_khach_hang
+            order by hoa_don.thoi_gian_dat DESC";
     $return = mysqli_query($connect,$query);
     $num_rows = $return->num_rows;
     ?>
@@ -81,12 +88,12 @@
                                 ?>
                             <tr name="each_row" style="background-color: <?php echo $row_color ?>;">
                                 <td onclick="location.href='./show.php?id=<?=$ma?>'">
-                                    <?php echo $each['ma']; ?>
+                                   <b> <?php echo $each['ma']; ?> </b>
                                 </td>
                                 <td onclick="location.href='./show.php?id=<?=$ma?>'">
                                     <?php echo $each['thoi_gian_dat'] ?>
                                 </td>
-                                <td onclick="location.href='./show.php?id=<?=$ma?>'">
+                                <td onclick="location.href='./show.php?id=<?=$ma?>'" class="info">
                                     <b>Tên: </b>
                                      <em>
                                          <?php echo $each['ten_nguoi_nhan']; ?>
@@ -102,7 +109,7 @@
                                         <?php echo $each['dia_chi_nguoi_nhan']; ?>
                                     </em>
                                 </td>
-                                <td onclick="location.href='./show.php?id=<?=$ma?>'">
+                                <td onclick="location.href='./show.php?id=<?=$ma?>'" class="info">
                                     <b>Tên: </b>
                                      <em>
                                          <?php echo $each['ten_nguoi_dat']; ?>
@@ -118,25 +125,28 @@
                                         <?php echo $each['dia_chi_nguoi_dat']; ?>
                                     </em>
                                 </td>
-                                <td onclick="location.href='./show.php?id=<?=$ma?>'">
                                     <?php 
                                         $trang_thai = $each['trang_thai'];
                                         switch ($trang_thai) {
                                             case "0":
-                                                echo "Mới đặt";
+                                                $msg = "Mới đặt";
+                                                $color = '#e9bc03';
                                                 break;
                                             case "1":
-                                                echo "Đã duyệt";
+                                                $msg = "Đã duyệt";
+                                                $color = 'blue';
                                                 break;
                                             case "2":
-                                                echo "Đã huỷ";
+                                                $msg = "Đã huỷ";
+                                                $color = 'red';
                                                 break;
-
                                         }
                                     ?>
+                                <td onclick="location.href='./show.php?id=<?=$ma?>'" style="color:<?=$color?> ;">
+                                    <?=$msg ?>
                                 </td>
                                 <td>
-                                    <?php echo $each['tong_tien'] ?>
+                                    <?php echo number_format($each['tong_tien'],0, '', ',') ?>
                                 </td>
                                 <?php
                                         //if $each[trang_thai != 1] (or đã duyệt hoặc huỷ) then style it
@@ -145,16 +155,21 @@
                                         if($each['trang_thai'] != 0) {
                                             $onclick = "onclick='location.href='javascript:void(0)'";
                                             $da_duyet ="style='cursor: default'";
+                                            $duyet = 'color: gray';
+                                            $huy = 'color: gray';
                                         } else { 
                                             $da_duyet = "";
                                             $onclick = "";
+                                            $duyet = 'color: blue';
+                                            $huy = 'color: red';
                                         }                                ?>
                                 <?php $ma = $each['ma'] ?>
-                                <td class="update" <?=$onclick?> onclick="location.href='./update_status.php?id=<?=$ma?>&status=1'"  <?=$da_duyet?> >
-                                    Duyệt  
+                                <td title='Duyệt' class="update" <?=$onclick?> onclick="location.href='./update_status.php?id=<?=$ma?>&status=1'"  <?=$da_duyet?> >
+                                    <span style="font-family:Hack, monospace;font-size: 20px;<?=$duyet?>;"> </span>
                                 </td>
-                                <td class="delete" <?=$onclick?>onclick="location.href='./update_status.php?id=<?=$ma?>&status=2'" <?=$da_duyet?>>
-                                    Huỷ
+                                <td title='Huỷ' class="delete" <?=$onclick?>onclick="location.href='./update_status.php?id=<?=$ma?>&status=2'" <?=$da_duyet?>>
+                                    <span style="font-family:Hack, monospace;font-size: 20px;<?=$huy?>;"> </span>
+
                                 </td>   
                             </tr>
                             <?php } ?>
