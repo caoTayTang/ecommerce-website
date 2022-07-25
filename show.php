@@ -88,7 +88,7 @@
     				<div id="show_right">
 	    				 <h1 style="font-size:45px"><?php echo $each['ten'] ?></h1>
 	    				 <p name="price" style="font-weight: bold">
-	    				 	Giá: <?php echo $each['gia'] ?>₫
+	    				 	Giá: <?php echo number_format($each['gia'],0, '', ',') ?>₫
 	    				 </p>
 	    				 <p class="need_to_bold">
 	    				 	Mô tả: 
