@@ -126,7 +126,7 @@
                                     <?php echo $each['ten'] ?>
                                 </td>
                                 <td>
-                                    <?php echo $each['gia']; ?>
+                                    <?php echo number_format($each['gia'],0, '', ',') ?>
                                 </td>
                                 <td>
                                     <img src="./photos/<?php echo $each['anh'] ?>" height="100px" />

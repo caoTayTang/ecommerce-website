@@ -28,13 +28,15 @@
         if ($sort == 0) {
             $order_0 = "order by so_luot_truy_cap desc";
         }else {
-            $order = "and the_loai.ma = $sort";
+            $order = "and the_loai.ma = '$sort'";
         } 
-         $query .= " right join the_loai_chi_tiet on the_loai_chi_tiet.ma_san_pham = san_pham.ma
+         $query .= " right join the_loai_chi_tiet 
+                    on the_loai_chi_tiet.ma_san_pham =    san_pham.ma
                     right join the_loai on the_loai.ma = the_loai_chi_tiet.ma_the_loai 
                     where (san_pham.ten like '%$search%' or mo_ta like '%$search%')
                     $order $order_0";
     }else {
+        $order_0 = "order by san_pham.ma desc"; //default to order by time the products got added
         $query .= " where ten like '%$search%' or mo_ta like '%$search%'";
     }
     $total_products = mysqli_query($connect,$query);
@@ -92,7 +94,7 @@
             limit $offset,$products_per_page";
 
     }
-    
+
     $return = mysqli_query($connect,$sql);
 
     // $sql =  "select 
