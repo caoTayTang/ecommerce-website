@@ -50,10 +50,6 @@ if (!isset($_SESSION['ten']) || empty($_SESSION['ten'])) {
 						Tên<input type="text" name="ten" required value="<?php echo $result['ten'] ?>">
 						
 					</div>
-		            <div class="user-box">
-						Mật khẩu<input type="password" name="mat_khau" required value="<?php echo $result['mat_khau'] ?>">
-						
-					</div>
 					<div class="user-box">
 						Số điện thoại<input type="text" name="so_dien_thoai" required value="<?php echo $result['so_dien_thoai'] ?>">
 					</div>
