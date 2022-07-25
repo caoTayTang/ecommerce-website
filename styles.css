@@ -135,6 +135,7 @@ body {
 		height: 65px;
 		position: absolute;
 		top: 5px;
+		left: 6%;
 	}
 
 
@@ -464,7 +465,7 @@ h2 {
 	background-size:100% 95%;
 	background-repeat: no-repeat;
 	padding: 0px !important;
-	object-fit: contain;
+	object-fit: cover;
 }
 
 .product_name {
