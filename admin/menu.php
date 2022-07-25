@@ -20,7 +20,10 @@
     </div>
 
     <div class="dropdown">
-        <button class="dropbtn" onclick="location.href='../orders'">Quản lý nhân viên</button>
+        <button class="dropbtn" onclick="location.href='../employees'">Quản lý nhân viên</button>
+        <div class="dropdown-content">
+            <a href="/admin/employees/form_insert_employee.php">Thêm nhân viên</a>
+        </div>
     </div>
 
     <div class="dropdown">
