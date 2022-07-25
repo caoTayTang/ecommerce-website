@@ -30,6 +30,7 @@
         <button class="dropbtn" onclick="location.href='../manufacturers/index.php'">Quản lý  nhà sản xuất</button>
         <div class="dropdown-content">
             <a href="/admin/manufacturers/form_insert.php">Thêm nhà sản xuất</a>
+            <a href="/admin/manufacturers/form_update.php">Sửa nhà sản xuất</a>
         </div>
     </div>
 
