@@ -31,7 +31,15 @@
 			border-radius: 3px;
 			outline: none;
 			background: transparent;
-		} 
+		}
+
+	 	.user-box {
+        	margin: 0;
+        }
+
+        input, textarea, select {
+        	margin-bottom: 5px!important;
+        }
 	</style>
 </head>
 <body>
@@ -61,15 +69,23 @@
 					<div class="user-box">
 						Tên sản phẩm<input type="text" name="ten" required>
 					</div>	
+					<span class="error_span"></span>
+
 					<div class="user-box">
 						Giá tiền<input type="number" name="gia" required>
 					</div>
+					<span class="error_span"></span>
+
 					<div class="user-box">
 		                Ảnh<input type="file" name="anh" required>
 					</div>
+					<span class="error_span"></span>
+
 					<div class="user-box">
 		                Mô tả<textarea name="mo_ta" required></textarea>
 					</div>
+					<span class="error_span"></span>
+
 		            <div class="user-box">
 						Tên nhà sản xuất
 						<select name="ma_nha_san_xuat">
@@ -81,6 +97,8 @@
 							<?php } ?>
 						</select>
 					</div>
+					<span class="error_span"></span>
+
 		            <div class="user-box" name="the_loai">
 						Thể loại
                         <select name="ma_the_loai[]" onchange='appendSelect()'>
@@ -92,7 +110,9 @@
 							<?php } ?>
 						</select>
 					</div>
-					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
+					<span class="error_span"></span>
+
+					<a href="javascript:{}" onclick="validate();">
 						Thêm 
 					</a>
 				</form>
@@ -105,9 +125,75 @@
 </body>
 </html>
 <script>
-function appendSelect() {
-    let container = document.querySelector("[name='the_loai']");
-    let section = document.querySelector("[name='ma_the_loai[]']");
-    container.appendChild(section.cloneNode(true));
-}
+	function appendSelect() {
+	    let container = document.querySelector("[name='the_loai']");
+	    let section = document.querySelector("[name='ma_the_loai[]']");
+	    container.appendChild(section.cloneNode(true));
+	}
+
+	//validating form
+    function validate() {
+		//input
+		const ten = document.querySelector("[name='ten']"); 
+		const gia = document.querySelector("[name='gia']");
+		const mo_ta = document.querySelector("[name='mo_ta']");
+		const nha_san_xuat = document.querySelector("[name='ma_nha_san_xuat']");
+		const the_loai = document.querySelector("[name='ma_the_loai[]']");
+		// Error span
+		const error_span = document.getElementsByClassName('error_span');
+		
+		let isValid = true;
+
+		if( !check_not_empty(ten) )
+		{
+			error_span[0].innerHTML = "Tên không hợp lệ";
+			isValid = false;
+		} else error_span[0].innerHTML = "";
+
+		if( !check_price(gia) )
+		{
+			error_span[1].innerHTML = "Giá không hợp lệ!";
+			isValid = false;
+		} else error_span[1].innerHTML = "";
+
+		if( !check_not_empty(mo_ta) )
+		{
+			error_span[3].innerHTML = "Mô tả không hợp lệ";
+			isValid = false;
+		} else error_span[3].innerHTML = "";
+
+		if( !check_not_empty(nha_san_xuat) )
+		{
+			error_span[4].innerHTML = "Xin chọn nhà sản xuất";
+			isValid = false;
+		} else error_span[4].innerHTML = "";
+
+		if( !check_not_empty(the_loai) )
+		{
+			error_span[5].innerHTML = "Xin chọn thể loại";
+			isValid = false;
+		} else error_span[5].innerHTML = "";
+
+		if (isValid) {
+			document.getElementById('my_form').submit();
+		}else {
+			console.log("khong valid nhe");
+		}
+	}
+
+	//check name if its > 0 character and some regex
+	function check_not_empty(element)
+	{
+		if(element.value == "" || typeof(element.value) == "undefined" ) {
+			return false;
+		} else return true;
+	}	
+
+	//at least 8 number, do not have ^00...
+	function check_price(price)
+	{
+		const regex = /\d/
+		return regex.test(price.value);
+	}
+
 </script>

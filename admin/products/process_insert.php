@@ -39,7 +39,7 @@
         $temp_array[$index] = "('$ma_san_pham','$each')";
         $index++;
     }
-    
+
     $query_the_loai .= join(",",$temp_array);
 	mysqli_query($connect,$query_the_loai);
 
