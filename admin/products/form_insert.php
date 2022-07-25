@@ -47,7 +47,12 @@
 	 ?>
 	<div id="main_div">
 		<?php include '../../partial/header.php'; ?>
-	 	<?php include './menu.php' ?>
+        <?php 
+        if ($_SESSION['cap_do'] == 1)
+            include '../menu.php';
+        else 
+            include './menu.php';
+        ?>
 
 	 	<div id="middle_div">
 	 		<div class="login-box">
