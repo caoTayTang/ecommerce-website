@@ -68,6 +68,5 @@
             </div>
             <?php include './partial/footer.php';?>
     </div> 
-    <!-- <?php mysqli_close($connect) ?> -->
 </body>
 </html>
