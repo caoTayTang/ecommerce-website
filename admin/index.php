@@ -5,5 +5,6 @@
         exit;
     } else {
         header('location: ./form_sign_in.php');
+        exit();
     }
 ?>
