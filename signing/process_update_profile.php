@@ -3,7 +3,6 @@
     $ma = $_POST['ma'];
 	$email = $_POST['email'];
 	$ten = $_POST['ten'];
-	$mat_khau = $_POST['mat_khau'];
 	$so_dien_thoai = $_POST['so_dien_thoai'];
     $file_name = $_SESSION['anh_dai_dien'];
     if (!($_FILES['anh_dai_dien']['size'] == 0 || $_FILES['anh_dai_dien']['error'] == 4)) {
@@ -21,7 +20,6 @@
     $query = "update khach_hang set 
                 email = '$email',
                 ten = '$ten',
-                mat_khau = '$mat_khau',
                 so_dien_thoai = '$so_dien_thoai',
                 anh_dai_dien = '$file_name'
               where ma = '$ma'";
