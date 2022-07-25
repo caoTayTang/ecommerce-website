@@ -2,8 +2,12 @@
 $href ="/index.php";
 // session already started at another files
 if(isset($_SESSION['cap_do']) ) {
-    $anh_dai_dien = '../../admin/default.png';
     $href = "/admin/index.php";
+    if (!isset($_SESSION['anh_dai_dien'])) {
+        $anh_dai_dien = '../../admin/employees/photos/default.png';
+    }else {
+        $anh_dai_dien = '../../admin/employees/photos/' . $_SESSION['anh_dai_dien'];
+    }
 } else if (!isset($_SESSION['anh_dai_dien'])) {
     $anh_dai_dien = 'default.png';
 }else $anh_dai_dien = $_SESSION['anh_dai_dien'];
