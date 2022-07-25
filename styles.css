@@ -645,3 +645,8 @@ h2 {
     }
 	
 /*End show.php*/
+
+/*For form validate*/
+.error_span {
+		color: red;
+}

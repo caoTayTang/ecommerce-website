@@ -35,6 +35,13 @@
             color: #0784d9;
             margin-left: 79%;
         }
+        .user-box {
+        	margin: 0;
+        }
+
+        input {
+        	margin-bottom: 20px!important;
+        }
 	</style>
 </head>
 <body>
@@ -68,21 +75,21 @@
 				<h2>Đăng nhập</h2>
 				<form action="process_sign_in.php" method="post" id="my_form" enctype="multipart/form-data">
 		            <div class="user-box">
-                    Email<input type="email" name="email" required="" value="<?php echo $each['email'] ?>">
+                    	Email<input type="email" name="email" required="" value="<?php echo $each['email'] ?>">
 					</div>
+					<span class="error_span"></span>
+
 		            <div class="user-box">
 						Mật khẩu<input type="password" name="mat_khau" required value="<?php echo $each['mat_khau'] ?>">
 					</div>
+					<span class="error_span"></span>
+					<br>
                     Ghi nhớ đăng nhập?<input type="checkbox" name="remember" <?php echo $checked ?>>
-					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
+					<a href="javascript:{}" onclick="validate()">
 						Đăng nhập
 					</a>
 					<a href="form_sign_up.php" style="margin-top: 15px;">
 						Đăng ký
-					</a>
-                    <br>
-					<a href="../forgot_password/process_forgot_password.php" style="margin-top: 15px;">
-						Quên mật khẩu
 					</a>
 				</form>
 			</div>
@@ -91,3 +98,47 @@
 	</div>
 </body>
 </html>
+
+<script type="text/javascript">
+		//validating form
+        function validate() {
+			//input
+			const email = document.querySelector("[type='email']");
+			const mat_khau = document.querySelector("[type='password']");
+			// Error span
+			const error_span = document.getElementsByClassName('error_span');
+
+			let isValid = true;
+
+			if( !check_email(email) )
+			{
+				error_span[0].innerHTML = "Email không hợp lệ";
+				isValid = false;
+			}
+
+			if( !check_password(mat_khau) )
+			{
+				error_span[1].innerHTML = "Password phải có ít nhất <br> 8 kí tự, có chữ in hoa, có kí tự đặt biệt";
+				isValid = false;
+			}
+
+			if (isValid) {
+				document.getElementById('my_form').submit();
+			}else {
+				console.log("khong valid nhe");
+			}
+		}
+
+		function check_email(email)
+		{
+			const regexEmail = /^\w+([\.-]?\w+)*\@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+			return regexEmail.test(email.value)
+		}
+
+		//At least 8 chars, 1 special num, 1 capital, 1 normal and no number required
+		function check_password(password)
+		{
+			const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+			return regexPassword.test(password.value);
+		}
+</script>
