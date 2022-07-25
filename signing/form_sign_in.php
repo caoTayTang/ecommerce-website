@@ -114,13 +114,13 @@
 			{
 				error_span[0].innerHTML = "Email không hợp lệ";
 				isValid = false;
-			}
+			} else error_span[0].innerHTML = "";
 
 			if( !check_password(mat_khau) )
 			{
-				error_span[1].innerHTML = "Password phải có ít nhất <br> 8 kí tự, có chữ in hoa, có kí tự đặt biệt";
+				error_span[1].innerHTML = "Password phải có ít nhất <br> 8 kí tự, có chữ in hoa, có kí tự đặc biệt";
 				isValid = false;
-			}
+			} else error_span[1].innerHTML = "";
 
 			if (isValid) {
 				document.getElementById('my_form').submit();

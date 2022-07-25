@@ -649,4 +649,5 @@ h2 {
 /*For form validate*/
 .error_span {
 		color: red;
+		display: block;
 }
