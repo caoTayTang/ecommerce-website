@@ -3,7 +3,12 @@
     if (empty($_SESSION['cap_do'])) { //empty = !isset && !0
         header('location: ../index.php');
         exit;
-    } 
+    }
+    if (!isset($_GET['ma'])) {
+    	echo("<script>alert('Link không hợp lệ!')</script>");
+    	echo("<a href='./index.php'>Quay lại trang chủ</a>");
+    	die();
+    }
  ?>
 <!DOCTYPE html>
 <html>
