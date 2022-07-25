@@ -7,7 +7,7 @@
     $dia_chi = $_POST['dia_chi'];
 	$anh_dai_dien = $_FILES['anh_dai_dien'];
 
-	// Check file size
+	// validate image
 	if ($anh_dai_dien['size'] > 5000000) {
 	  echo "<script>alert('Kích thước ảnh quá lớn (>5MB)')</script>";
 	  die();
