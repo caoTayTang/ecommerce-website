@@ -88,10 +88,19 @@
                                 ?>
                             <tr name="each_row" style="background-color: <?php echo $row_color ?>;">
                                 <td onclick="location.href='./show.php?id=<?=$ma?>'">
-                                   <b> <?php echo $each['ma']; ?> </b>
+                                    <?php echo $each['ma']; ?>
                                 </td>
                                 <td onclick="location.href='./show.php?id=<?=$ma?>'">
-                                    <?php echo $each['thoi_gian_dat'] ?>
+                                    <b>
+                                    <?php 
+                                        echo date('H:i',strtotime($each['thoi_gian_dat'])) 
+                                    ?>
+                                    </b>
+                                    <em>
+                                    <?php 
+                                        echo date('d-m-Y',strtotime($each['thoi_gian_dat'])) 
+                                    ?>
+                                    </em>
                                 </td>
                                 <td onclick="location.href='./show.php?id=<?=$ma?>'" class="info">
                                     <b>Tên: </b>
