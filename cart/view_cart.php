@@ -56,14 +56,30 @@
         border-radius: 7px;
         color: #6c757d;
         box-shadow: 2px 8px 8px 2px rgba(0,0,0,0.15);
-        display: flex;
-        justify-content:center;
-        align-items: center;
+        position: relative;
     }
-    
+    span {
+        padding-top: 3% ;
+        padding-bottom: 4%;
+    }
     button[name='buy_now'] {
         width: 150px; 
         word-spacing: 8px;
+        margin: auto;
+    }
+
+    #quan_li_hoa_don {
+        position: absolute;
+        bottom: 3vh;
+        right: 4%;
+        display: block;
+    }
+
+    #san_pham_da_luu {
+        position: absolute;
+        bottom: 3vh;
+        left: 4%;
+        display: block;
     }
     </style>
 	<link rel="icon" href="../resource/logo.png">
@@ -148,13 +164,18 @@
                     </div>
                 <?php } else if ($num_rows === 0){ ?>
                     <div id="alert">
-                        <span style="font-size:20px;">Giỏ hàng của bạn trống!<span>
-                        <br>
-                        <br>
-                        <br>
+                        <span style="font-size:20px;display: block;">
+                            Giỏ hàng của bạn trống!
+                        </span>
                         <button name="buy_now" onclick="location.href='../index.php'"> 
                             MUA NGAY!
                         </button>
+                        <a id="quan_li_hoa_don" href="../signing/show_orders.php">
+                            Quản lý hoá đơn
+                        </a>
+                        <a id="san_pham_da_luu" href="../signing/show_saved_products.php">
+                            Xem sản phẩm đã lưu
+                        </a>
                     </div>
                 <?php } ?>
                 </p>
