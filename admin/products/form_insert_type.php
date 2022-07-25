@@ -39,7 +39,7 @@
 
 	 	<div id="middle_div">
 	 		<div class="login-box">
-				<h2>Thêm sản phẩm</h2>
+				<h2>Thêm thể loại	</h2>
 				<form action="process_insert_type.php" method="post" id="my_form">
 					<div class="user-box">
 						Tên thể loại<input type="text" name="ten_the_loai" required>
