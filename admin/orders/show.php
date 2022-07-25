@@ -1,9 +1,9 @@
 <?php 
-       session_start();
-       if (!isset($_SESSION['cap_do'])) {
+    session_start();
+    if (!isset($_SESSION['cap_do'])) {
         header('location: ./index.php');
         exit;
-    } 
+    }    
 ?>
 <!DOCTYPE html>
 <html>
