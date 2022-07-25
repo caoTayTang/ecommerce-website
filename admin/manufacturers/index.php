@@ -16,6 +16,9 @@
         p {
             padding: 5px;
         }
+        tr {
+            line-height: 25px;
+        }
     </style>
 	<link rel="icon" href="../../resource/logo.png">
 </head>
@@ -74,10 +77,10 @@
                                 </td>
                                 <?php $ma = $each['ma'] ?>
                                 <td class="update" onclick='location.href="./form_update.php?ma=<?php echo $ma ?>"'>
-                                    Sửa
+                                    <span style="font-family:Hack, monospace;font-size: 20px;color:#147dc9"></span>
                                 </td>
                                 <td class="delete" onclick='location.href="./process_delete.php?ma=<?php echo $ma ?>"'>
-                                    Xoá
+                                    <span style="font-family:Hack, monospace;font-size: 20px;color:#ed5153"></span>
                                 </td>   
                             </tr>
                             <?php } ?>
