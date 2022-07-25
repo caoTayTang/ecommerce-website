@@ -1,4 +1,11 @@
-<?php session_start() ?>
+<?php
+	session_start();
+	if (!isset($_SESSION['cart']) || empty($_SESSION['cart']) || !isset($_SESSION['ma']) || empty($_SESSION['ma']))        
+	{
+		header('location: ../index.php');
+	    exit;
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,35 +26,35 @@
 
 	<?php 
 		require '../database/connect.php';
-		$query1 = "select * from nha_san_xuat";
-		$result1 = mysqli_query($connect,$query1);
-
-		$query2 = "select * from the_loai";
-		$result2 = mysqli_query($connect,$query2);
+		$id = $_SESSION['ma'];
+		$query = "select * from khach_hang where ma = '$id'";
+		$return = mysqli_query($connect,$query);
+		// validate
+		if (mysqli_num_rows($return) == 1) {
+			$info = mysqli_fetch_array($return);
+		} else {
+			echo("<script>alert('Xin đăng nhập lại!')</script>");
+			exit;
+		}
 
 	 ?>
+
 	<div id="main_div">
 		<?php include '../partial/header.php'; ?>
 		<?php include '../partial/menu.php' ?>
-        <?php
-            if (!isset($_SESSION['cart']) || empty($_SESSION['cart']) || !isset($_SESSION['ma']) || empty($_SESSION['ma']))        
-            {
-                echo("<script>location.href='../index.php'</script>");
-                exit;
-            }
-        ?>
+
 		<div id="middle_div">
 			<div class="login-box">
 				<h2>Mua hàng</h2>
 				<form action="process_checkout.php" method="post" id="my_form" >
                     <div class="user-box">
-						Tên người nhận:<input type="text" name="ten_nguoi_nhan" required>
+						Tên người nhận:<input type="text" name="ten_nguoi_nhan" required value="<?php echo $info['ten']?>">
 					</div>	
                     <div class="user-box">
-					    Số điện thoại người nhận:<input type="number" name="sdt_nguoi_nhan" required>
+					    Số điện thoại người nhận:<input type="number" name="sdt_nguoi_nhan" required value="<?php echo $info['so_dien_thoai'] ?>">
 					</div>	
                     <div class="user-box">
-					    Địa chỉ:<input type="text" name="dia_chi_nguoi_nhan" required>
+					    Địa chỉ:<input type="text" name="dia_chi_nguoi_nhan" required value="<?=$info['dia_chi']?>">
 					</div>	
                     <div class="user-box">
 					    Ghi chú: <textarea name='ghi_chu'></textarea>
@@ -58,8 +65,8 @@
 				</form>
 			</div>
 		</div>
-		
-	<?php include '../Partial/footer.php'; ?>
+
+	<?php include '../partial/footer.php'; ?>
 	</div>
 <!--<?php mysqli_close($connect); ?> -->
 </body>
