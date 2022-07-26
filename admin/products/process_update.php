@@ -5,6 +5,16 @@
     $ma_nha_san_xuat = $_POST['ma_nha_san_xuat'];
 
     if (!($_FILES['anh']['size'] == 0 || $_FILES['anh']['error'] == 4)) {
+        // validate image
+        if ($anh['size'] > 5000000) {
+          echo "<script>alert('Kích thước ảnh quá lớn (>5MB)')</script>";
+          die();
+        }
+        if ($anh['type'] != "image/png") {
+          echo "<script>alert('Chỉ chấp nhận ảnh jpg/png')</script>";
+          die();
+        }
+        
         $anh = $_FILES['anh'];
         //move image from temp to photos folder so that my local sever can select that later on 
         $folder = 'photos/'; 

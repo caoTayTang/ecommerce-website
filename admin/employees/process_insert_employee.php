@@ -13,6 +13,16 @@
 	$ngay_sinh = $_POST['ngay_sinh'];
 	$cap_do = $_POST['cap_do'];
 
+	// validate image
+	if ($anh_dai_dien['size'] > 5000000) {
+	  echo "<script>alert('Kích thước ảnh quá lớn (>5MB)')</script>";
+	  die();
+	}
+	if ($anh_dai_dien['type'] != "image/png") {
+	  echo "<script>alert('Chỉ chấp nhận ảnh jpg/png')</script>";
+	  die();
+	}
+
 	//move image from temp to photos folder so that my local sever can select that later on
 	$folder = 'photos/'; 
 	//get img extension
