@@ -1,7 +1,7 @@
 <?php 
     session_start();
    if (empty($_SESSION['cap_do'])) {
-        header('location: ./index.php');
+        header('location: ../index.php');
         exit;
     } 
 ?>
