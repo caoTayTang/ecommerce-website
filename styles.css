@@ -276,6 +276,7 @@ li a:hover {
 	display: none;
 	position: fixed;
 	z-index: 3;
+	overflow-y: scroll;
 }
 
 #cancel_button {
@@ -465,7 +466,7 @@ h2 {
 	background-size:100% 95%;
 	background-repeat: no-repeat;
 	padding: 0px !important;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 .product_name {
