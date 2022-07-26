@@ -9,5 +9,5 @@
 
 	$query = "insert into the_loai(ten) values('$ten_the_loai')";
 	mysqli_query($connect,$query);
-	echo mysqli_error($connect);
 	mysqli_close($connect);
+	header('location: ./index.php');
