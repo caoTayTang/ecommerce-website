@@ -72,7 +72,7 @@
          mysqli_query($connect,$query_view);
             
         	
-        if (isset($_GET['error']))) {
+        if (isset($_GET['error'])) {
 	        $error = $_GET['error'];
 	        if ($error == "duplicate") {
 		        echo("<script>alert('Lỗi: sản phẩm này đã được lưu')</script>");
