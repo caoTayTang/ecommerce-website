@@ -7,7 +7,8 @@ if(!isset($_SESSION['ma']) || empty($_SESSION['ma']))
 } else {
     require '../database/connect.php';
     $ma_khach_hang = $_SESSION['ma'];
-    if (!isset($GET['id']) || empty($GET['id'])) {
+
+    if (!isset($_GET['id']) || empty($_GET['id']) ) {
         echo("<script>alert('Link không hợp lệ, xin làm lại!')</script>");
         die();
     }
@@ -21,9 +22,6 @@ if(!isset($_SESSION['ma']) || empty($_SESSION['ma']))
     mysqli_close($connect);
     if ($error[0] == 'Duplicate') {
         header("location: ../show.php?id=$ma_san_pham&error=duplicate");
-        exit;
-    } else {
-        header("location: ../show.php?id=$ma_san_pham&error=unknown");
         exit;
     }
     header("location: ../show.php?id=$ma_san_pham");
