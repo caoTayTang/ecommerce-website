@@ -3,9 +3,14 @@ session_start();
 if(!isset($_SESSION['ma']) || empty($_SESSION['ma']))
 {
     echo("<script>alert('Bạn cần đăng nhập trước!')</script>");
+    die();
 } else {
     require '../database/connect.php';
     $ma_khach_hang = $_SESSION['ma'];
+    if (!isset($GET['id']) || empty($GET['id'])) {
+        echo("<script>alert('Link không hợp lệ, xin làm lại!')</script>");
+        die();
+    }
     $ma_san_pham = $_GET['id'];
     date_default_timezone_set('Asia/Bangkok');
     $date = date('Y/m/d H:i:s');
@@ -16,6 +21,9 @@ if(!isset($_SESSION['ma']) || empty($_SESSION['ma']))
     mysqli_close($connect);
     if ($error[0] == 'Duplicate') {
         header("location: ../show.php?id=$ma_san_pham&error=duplicate");
+        exit;
+    } else {
+        header("location: ../show.php?id=$ma_san_pham&error=unknown");
         exit;
     }
     header("location: ../show.php?id=$ma_san_pham");

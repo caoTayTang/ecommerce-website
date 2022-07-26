@@ -1,11 +1,11 @@
 <?php 
-	if (empty($_POST['ten_nguoi_nhan'])||empty($_POST['sdt_nguoi_nhan']) ||empty($_POST['dia_chi_nguoi_nhan'])||empty($_POST['ghi_chu'])) {
+	if (empty($_POST['ten_nguoi_nhan'])||empty($_POST['sdt_nguoi_nhan']) ||empty($_POST['dia_chi_nguoi_nhan'])) {
 		echo "<script>alert('Xin điền đầy đủ thông tin!')</script>";
 	}
 
     session_start();
     if (!isset($_SESSION['ma']) || empty($_SESSION['ma'])) {
-        echo("Chua dang nhap kia ban oiiiiiiiiiii");
+        echo("Xin đăng nhập");
     }
     
     $cart = $_SESSION['cart'];

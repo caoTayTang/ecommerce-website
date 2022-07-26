@@ -70,7 +70,7 @@
 					<span class="error_span"></span>
 					
                     <div class="user-box">
-					    Ghi chú: <textarea name='ghi_chu'></textarea>
+					    Ghi chú: <textarea name='ghi_chu' placeholder="Không bắt buộc"></textarea>
 					</div>	
 					<span class="error_span"></span>
 					
@@ -94,7 +94,6 @@
 			const ten = document.querySelector("[name='ten_nguoi_nhan']");
 			const so_dien_thoai = document.querySelector("[name='sdt_nguoi_nhan']");
 			const dia_chi = document.querySelector("[name='dia_chi_nguoi_nhan']");
-			const ghi_chu = document.querySelector("[name='ghi_chu']");
 			// Error span
 			const error_span = document.getElementsByClassName('error_span');
 
@@ -116,11 +115,6 @@
 				error_span[2].innerHTML = "Không được để trống địa chỉ";
 				isValid = false;
 			} else error_span[2].innerHTML = "";
-
-			if (!check_not_empty(ghi_chu)) {
-				error_span[3].innerHTML = "Không được để trống ghi chú";
-				isValid = false;
-			} else error_span[3].innerHTML = "";
 
 			if (isValid) {
 				document.getElementById('my_form').submit();

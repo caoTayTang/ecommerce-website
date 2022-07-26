@@ -26,10 +26,10 @@
 		require './partial/process_search.php';
 
 		$id = $_GET['id'];
-		if (!isset($id)) 
+		if (!isset($id) || empty($id)) 
 		{
 			//header('Location: /ecommerce-website');
-			echo("<script>alert('Đã có lỗi vui lòng về trang chủ!')</script>");
+			echo("<script>alert('Link không hợp lệ, vui lòng về trang chủ!')</script>");
 		}
 
 		$sql =  "select 
@@ -56,6 +56,10 @@
                 limit 1";
         $return = mysqli_query($connect,$sql);
 
+        if (mysqli_num_rows($return) !== 1) {
+				echo("<script>alert('Link không hợp lệ, vui lòng về trang chủ!')</script>");
+				die();
+        }
 
 		// Increase so_luot_truy_cap 
 
@@ -68,9 +72,13 @@
          mysqli_query($connect,$query_view);
             
         	
-        if (isset($_GET['error'])) {
-        $error = $_GET['error'];
-        echo("<script>alert('Lỗi: sản phẩm này đã được lưu')</script>");
+        if (isset($_GET['error']))) {
+	        $error = $_GET['error'];
+	        if ($error == "duplicate") {
+		        echo("<script>alert('Lỗi: sản phẩm này đã được lưu')</script>");
+	        } else if ($error == "unknown") {
+		        echo("<script>alert('Lỗi xin làm lại!')</script>");     	
+	        }
         }
         
 	?>

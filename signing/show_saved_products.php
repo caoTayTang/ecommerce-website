@@ -50,6 +50,7 @@
     // Searching
     require '../partial/process_search.php';
     
+    // if user click sort button then order by ... ASC / DESC
     if (isset($_GET['saved_sort'])) {
         $saved_sort = $_GET['saved_sort'];
         $sort = "order by san_pham_da_luu.thoi_gian " . $saved_sort;
