@@ -40,7 +40,7 @@
         }
 
         input {
-        	margin-bottom: 20px!important;
+        	margin-bottom: 10px!important;
         }
 	</style>
 </head>
@@ -85,7 +85,7 @@
 					<span class="error_span"></span>
 					<br>
                     Ghi nhớ đăng nhập?<input type="checkbox" name="remember" <?php echo $checked ?>>
-					<a href="javascript:{}" onclick="document.getElementById('my_form').submit()">
+					<a href="javascript:{}" onclick="validate()">
 						Đăng nhập
 					</a>
 					<a href="form_sign_up.php" style="margin-top: 15px;">
@@ -98,3 +98,41 @@
 	</div>
 </body>
 </html>
+
+<script type="text/javascript">
+		//validating form
+        function validate() {
+			//input
+			const email= document.querySelector("[name='email']");
+			const mat_khau = document.querySelector("[name='mat_khau']");
+			// Error span
+			const error_span = document.getElementsByClassName('error_span');
+
+			let isValid = true;
+
+			if( !check_not_empty(email) )
+			{
+				error_span[0].innerHTML = "Email không hợp lệ";
+				isValid = false;
+			} else error_span[0].innerHTML = "";
+
+			if( !check_not_empty(mat_khau) )
+			{
+				error_span[1].innerHTML = "Tên không hợp lệ";
+				isValid = false;
+			} else error_span[1].innerHTML = "";
+
+			if (isValid) {
+				document.getElementById('my_form').submit();
+			}
+		}
+		
+
+		function check_not_empty(element)
+		{
+			if(element.value == "" || typeof(element.value) == "undefined") {
+				return false;
+			} else return true;
+		}	
+
+</script>

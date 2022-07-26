@@ -17,6 +17,13 @@
 		a[href="javascript:{}"] {
 			margin-left: 39% !important;
 		}
+	    .user-box {
+        	margin: 0;
+        }
+
+        input {
+        	margin-bottom: 10px!important;
+        }
 	</style>
 </head>
 <body>
@@ -33,10 +40,14 @@
 		            <div class="user-box">
                     Email<input type="email" name="email" required="">
 					</div>
+					<span class="error_span"></span>
+
 		            <div class="user-box">
 						Mật khẩu<input type="password" name="mat_khau" required>
 					</div>
-					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
+					<span class="error_span"></span>
+
+					<a href="javascript:{}" onclick="validate();">
 						Đăng nhập
 					</a>
 				</form>
@@ -46,3 +57,41 @@
 	</div>
 </body>
 </html>
+
+<script type="text/javascript">
+		//validating form
+        function validate() {
+			//input
+			const email= document.querySelector("[name='email']");
+			const mat_khau = document.querySelector("[name='mat_khau']");
+			// Error span
+			const error_span = document.getElementsByClassName('error_span');
+
+			let isValid = true;
+
+			if( !check_not_empty(email) )
+			{
+				error_span[0].innerHTML = "Email không hợp lệ";
+				isValid = false;
+			} else error_span[0].innerHTML = "";
+
+			if( !check_not_empty(mat_khau) )
+			{
+				error_span[1].innerHTML = "Tên không hợp lệ";
+				isValid = false;
+			} else error_span[1].innerHTML = "";
+
+			if (isValid) {
+				document.getElementById('my_form').submit();
+			}
+		}
+		
+
+		function check_not_empty(element)
+		{
+			if(element.value == "" || typeof(element.value) == "undefined") {
+				return false;
+			} else return true;
+		}	
+
+</script>
