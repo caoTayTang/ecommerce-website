@@ -2,7 +2,7 @@
 	session_start();
 	if (!isset($_SESSION['cart']) || empty($_SESSION['cart']) || !isset($_SESSION['ma']) || empty($_SESSION['ma']))        
 	{
-		header('location: ../index.php');
+		echo("<script>alert('Xin đăng nhập!')</script>");
 	    exit;
 	}
 ?>
@@ -20,6 +20,13 @@
 		.login-box form a[href='javascript:{}'] {
 			margin-left: 40%;
 		}
+		        .user-box {
+        	margin: 0;
+        }
+
+        input, textarea {
+        	margin-bottom: 10px!important;
+        }
 	</style>
 </head>
 <body>
@@ -50,16 +57,24 @@
                     <div class="user-box">
 						Tên người nhận:<input type="text" name="ten_nguoi_nhan" required value="<?php echo $info['ten']?>">
 					</div>	
+					<span class="error_span"></span>
+
                     <div class="user-box">
 					    Số điện thoại người nhận:<input type="number" name="sdt_nguoi_nhan" required value="<?php echo $info['so_dien_thoai'] ?>">
 					</div>	
+					<span class="error_span"></span>
+					
                     <div class="user-box">
 					    Địa chỉ:<input type="text" name="dia_chi_nguoi_nhan" required value="<?=$info['dia_chi']?>">
 					</div>	
+					<span class="error_span"></span>
+					
                     <div class="user-box">
 					    Ghi chú: <textarea name='ghi_chu'></textarea>
 					</div>	
-				<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
+					<span class="error_span"></span>
+					
+				<a href="javascript:{}" onclick="validate()">
 						Thêm 
 					</a>
 				</form>
@@ -71,3 +86,68 @@
 <!--<?php mysqli_close($connect); ?> -->
 </body>
 </html>
+
+<script type="text/javascript">
+		//validating form
+        function validate() {
+			//input
+			const ten = document.querySelector("[name='ten_nguoi_nhan']");
+			const so_dien_thoai = document.querySelector("[name='sdt_nguoi_nhan']");
+			const dia_chi = document.querySelector("[name='dia_chi_nguoi_nhan']");
+			const ghi_chu = document.querySelector("[name='ghi_chu']");
+			// Error span
+			const error_span = document.getElementsByClassName('error_span');
+
+			let isValid = true;
+		
+			if( !check_name(ten) )
+			{
+				error_span[0].innerHTML = "Tên không hợp lệ";
+				isValid = false;
+			} else error_span[0].innerHTML = "";
+
+			if( !check_phone_number(so_dien_thoai) )
+			{
+				error_span[1].innerHTML = "Số điện thoại không hợp lệ!";
+				isValid = false;
+			} else error_span[1].innerHTML = "";
+
+			if (!check_not_empty(dia_chi)) {
+				error_span[2].innerHTML = "Không được để trống địa chỉ";
+				isValid = false;
+			} else error_span[2].innerHTML = "";
+
+			if (!check_not_empty(ghi_chu)) {
+				error_span[3].innerHTML = "Không được để trống ghi chú";
+				isValid = false;
+			} else error_span[3].innerHTML = "";
+
+			if (isValid) {
+				document.getElementById('my_form').submit();
+			}
+		}
+
+		//check name if its > 0 character and some regex
+		function check_name(name)
+		{
+			//Họ tên: (có thể có 1 chữ cái, dấu hay không đều được)
+			const regexName = /^[A-VXYỲỌÁẦẢẤỜỄÀẠẰỆẾÝỘẬỐŨỨĨÕÚỮỊỖÌỀỂẨỚẶÒÙỒỢÃỤỦÍỸẮẪỰỈỎỪỶỞÓÉỬỴẲẸÈẼỔẴẺỠƠÔƯĂÊÂĐ]{0,}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ ,.'-]+$/; 
+			return regexName.test(name.value);
+		}	
+
+		//at least 8 number, do not have ^00...
+		function check_phone_number(phone_number)
+		{
+			const regexPassword = /0?[1-9]+[0-9]{7,}/
+			return regexPassword.test(phone_number.value);
+		}		
+
+		function check_not_empty(element)
+		{
+			if(element.value == "" || typeof(element.value) == "undefined") {
+				return false;
+			} else return true;
+		}	
+
+
+</script>

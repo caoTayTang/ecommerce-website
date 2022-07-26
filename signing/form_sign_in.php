@@ -85,7 +85,7 @@
 					<span class="error_span"></span>
 					<br>
                     Ghi nhớ đăng nhập?<input type="checkbox" name="remember" <?php echo $checked ?>>
-					<a href="javascript:{}" onclick="validate()">
+					<a href="javascript:{}" onclick="document.getElementById('my_form').submit()">
 						Đăng nhập
 					</a>
 					<a href="form_sign_up.php" style="margin-top: 15px;">
