@@ -26,7 +26,6 @@
             ?>
             <div id="middle_div">
                 <div id="products_container">
-
                     <?php foreach($return as $each) { ?>
                         <div class="each_product" onclick="location.href='/show.php?id=<?php echo $each['ma'] ?>';">
                             <div class="product_image" style="background-image: url(./admin/products/photos/<?php echo $each['anh'] ?>);">
