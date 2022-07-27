@@ -1,7 +1,7 @@
 <?php 
     session_start();
     if (!isset($_SESSION['cap_do'])) {
-        header('location: ./index.php');
+        header('location: ../index.php');
         exit;
     } 
 ?>
@@ -44,7 +44,7 @@
     ?>
 	<div id="main_div">
         
-		<?php include '../../partial/header.php'; ?>
+		<?php include '../header.php'; ?>
         <?php 
         if ($_SESSION['cap_do'] == 1)
             include '../menu.php';

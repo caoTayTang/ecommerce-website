@@ -54,7 +54,7 @@
 
 	 ?>
 	<div id="main_div">
-		<?php include '../../partial/header.php'; ?>
+		<?php include '../header.php'; ?>
         <?php 
         if ($_SESSION['cap_do'] == 1)
             include '../menu.php';
@@ -181,7 +181,6 @@
 		}
 	}
 
-	//check name if its > 0 character and some regex
 	function check_not_empty(element)
 	{
 		if(element.value == "" || typeof(element.value) == "undefined" ) {
@@ -189,7 +188,6 @@
 		} else return true;
 	}	
 
-	//at least 8 number, do not have ^00...
 	function check_price(price)
 	{
 		const regex = /\d/

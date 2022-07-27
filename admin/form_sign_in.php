@@ -29,8 +29,12 @@
 <body>
 	<div id="main_div">
 		<?php 
-		include '../partial/menu.php';
-        include '../partial/header.php';
+		if ($_SESSION['cap_do'] == 1)
+            include '../menu.php';
+        else 
+            include '../products/menu.php';
+        
+        include './header.php';
         ?>
 
         <div id="middle_div">
@@ -77,7 +81,7 @@
 
 			if( !check_not_empty(mat_khau) )
 			{
-				error_span[1].innerHTML = "Tên không hợp lệ";
+				error_span[1].innerHTML = "Mật khẩu không hợp lệ";
 				isValid = false;
 			} else error_span[1].innerHTML = "";
 

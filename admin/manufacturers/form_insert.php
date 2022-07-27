@@ -24,7 +24,7 @@ session_start();
 </head>
 <body>
 	<div id="main_div">
-		<?php include '../../partial/header.php'; ?>
+		<?php include '../header.php'; ?>
 	 	<?php include '../menu.php' ?>
 	 	<div id="middle_div">
 			<div class="login-box">
@@ -58,12 +58,11 @@ session_start();
 			if( !check_name(ten) )
 			{
 				error_span[0].innerHTML = "Tên nhà sản không được để trống";
+				isValid = false;
 			}else error_span[0].innerHTML = ""
 
 			if (isValid) {
 				document.getElementById('my_form').submit();
-			}else {
-				console.log("khong valid nhe");
 			}
 		}
 

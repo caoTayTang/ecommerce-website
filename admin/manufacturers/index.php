@@ -39,7 +39,7 @@
     ?>
 	<div id="main_div">
         
-		<?php include '../../partial/header.php'; ?>
+		<?php include '../header.php'; ?>
         <?php include '../menu.php'?>
   
 	 	<div id="middle_div" style="z-index: 9999">

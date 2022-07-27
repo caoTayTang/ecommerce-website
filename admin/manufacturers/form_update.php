@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div id="main_div">
-		<?php include '../../partial/header.php'; ?>
+		<?php include './header.php'; ?>
 	 	<?php include '../menu.php' ?>
         <?php 
             $ma = $_GET['ma'];

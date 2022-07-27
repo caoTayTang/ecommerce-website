@@ -19,6 +19,14 @@
 		.login-box form a[href='javascript:{}'] {
 			margin-left: 40%;
 		}
+
+	 	.user-box {
+        	margin: 0;
+        }
+
+        input, textarea, select {
+        	margin-bottom: 5px!important;
+        }
 	</style>
 </head>
 <body>
@@ -29,7 +37,7 @@
 		$result = mysqli_query($connect,$query);
 	 ?>
 	<div id="main_div">
-		<?php include '../../Partial/header.php'; ?>
+		<?php include '../header.php'; ?>
         <?php 
         if ($_SESSION['cap_do'] == 1)
             include '../menu.php';
@@ -44,7 +52,9 @@
 					<div class="user-box">
 						Tên thể loại<input type="text" name="ten_the_loai" required>
 					</div>	
-					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
+					<span class="error_span"></span>
+
+					<a href="javascript:{}" onclick="validate();">
 						Thêm 
 					</a>
 				</form>
@@ -56,3 +66,33 @@
 	<?php mysqli_close($connect); ?>
 </body>
 </html>
+<script type="text/javascript">
+		//validating form
+        function validate() {
+			//input
+			const ten = document.querySelector("[name='ten_the_loai']");
+			// Error span
+			const error_span = document.getElementsByClassName('error_span');
+
+			let isValid = true;
+
+			if( !check_name(ten) )
+			{
+				error_span[0].innerHTML = "Thể loại không được để trống";
+				isValid = false;
+			}else error_span[0].innerHTML = ""
+
+			if (isValid) {
+				document.getElementById('my_form').submit();
+			}
+		}
+
+		//check name if its > 0 character and some regex
+		function check_name(name)
+		{
+			if (name.value == "") {
+				return false;
+			} else return true;
+		}
+
+</script>
