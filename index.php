@@ -83,7 +83,7 @@
             })
             .done(function(response) {
                 if(response == 1) {
-                    alert('Thành công');
+                    alert('Thêm vào giỏ hàng thành công');
                 } else {
                     alert(response);
                 }
