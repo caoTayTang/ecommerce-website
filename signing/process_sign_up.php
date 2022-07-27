@@ -12,7 +12,7 @@
 	  echo "<script>alert('Kích thước ảnh quá lớn (>5MB)')</script>";
 	  die();
 	}
-	if ($anh_dai_dien['type'] != "image/png") {
+	if ($anh_dai_dien['type'] != "image/png" && $anh_dai_dien['type'] != "image/jpeg") {
 	  echo "<script>alert('Chỉ chấp nhận ảnh jpg/png')</script>";
 	  die();
 	}
@@ -28,6 +28,16 @@
 	move_uploaded_file($anh_dai_dien["tmp_name"],$path_file);
 
 	require '../database/connect.php';
+
+	// validate email
+	$query_email = "select count(*) from khach_hang
+					where email = '$email'";
+	$validate_email = mysqli_fetch_array(mysqli_query($connect,$query_email))['count(*)'];
+	if ($validate_email != 0 ) {
+	  echo "<script>alert('Email đã tồn tại!')</script>";
+	  die();
+	}
+
 	$query = "insert into khach_hang
 			(email,ten,so_dien_thoai,mat_khau,anh_dai_dien,dia_chi)
 			values('$email','$ten','$so_dien_thoai','$mat_khau','$file_name','$dia_chi')";
