@@ -1,7 +1,7 @@
 <?php 
 	include '../database/connect.php';
-	$email = $_POST['email'];
-	$mat_khau = $_POST['mat_khau'];
+	$email = addslashes($_POST['email']);
+	$mat_khau = addslashes($_POST['mat_khau']);
 	
 	$query = "select * from nhan_vien 
 			  where email = '$email' AND mat_khau = '$mat_khau'";

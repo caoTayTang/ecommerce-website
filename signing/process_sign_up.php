@@ -1,10 +1,16 @@
 <?php 
 	session_start();
-	$email = $_POST['email'];
-	$ten = $_POST['ten'];
-	$mat_khau = $_POST['mat_khau'];
-	$so_dien_thoai = $_POST['so_dien_thoai'];
-    $dia_chi = $_POST['dia_chi'];
+
+	if (empty($_POST['email']) || empty($_POST['ten']) || empty($_POST['mat_khau']) || empty($_POST['so_dien_thoai']) || empty($_POST['dia_chi']) || empty($_FILES['anh_dai_dien'])) {
+		echo "<script>alert('Thông tin không được để trống!')</script>";
+		die();
+	}
+
+	$email = addslashes($_POST['email']);
+	$ten = addslashes($_POST['ten']);
+	$mat_khau = addslashes($_POST['mat_khau']);
+	$so_dien_thoai = addslashes($_POST['so_dien_thoai']);
+    $dia_chi = addslashes($_POST['dia_chi']);
 	$anh_dai_dien = $_FILES['anh_dai_dien'];
 
 	// validate image

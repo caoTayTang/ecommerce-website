@@ -4,7 +4,7 @@
         die();
 	}
 
-	$ten = $_POST['ten'];
+	$ten = addslashes($_POST['ten']);
 	require '../../database/connect.php';
 
 	$query = "insert into nha_san_xuat(ten)

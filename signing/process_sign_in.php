@@ -1,7 +1,13 @@
 <?php 
 	include '../database/connect.php';
-	$email = $_POST['email'];
-	$mat_khau = $_POST['mat_khau'];
+
+	if ( empty($_POST['email']) || empty($_POST['mat_khau'])) {
+		echo "<script>alert('Xin điền đầy đủ thông tin')</script>";
+		die();
+	} 
+
+	$email = addslashes($_POST['email']);
+	$mat_khau = addslashes($_POST['mat_khau']);
     if (isset($_POST['remember'])) {
         $remember = true;
     }else $remember = false;

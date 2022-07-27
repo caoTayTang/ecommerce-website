@@ -4,10 +4,10 @@
         die();
 	}
 
-	$ten = $_POST['ten'];
-	$mo_ta = $_POST['mo_ta'];
-	$anh = $_FILES['anh'];
-	$gia = $_POST['gia'];
+	$ten = addslashes($_POST['ten']);
+	$mo_ta = addslashes($_POST['mo_ta']);
+	$anh = addslashes($_FILES['anh']);
+	$gia = addslashes($_POST['gia']);
 	$ma_nha_san_xuat = $_POST['ma_nha_san_xuat'];
 	$ma_the_loai = $_POST['ma_the_loai'];
 
