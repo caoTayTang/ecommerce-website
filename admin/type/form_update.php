@@ -25,19 +25,21 @@
         <?php 
             $ma = $_GET['ma'];
             require '../../database/connect.php';
-            $sql = "select ten from nha_san_xuat where ma = $ma";
+            $sql = "select ten from the_loai where ma = $ma";
             $result = mysqli_fetch_array(mysqli_query($connect,$sql));
         ?>
     
 	 	<div id="middle_div">
 			<div class="login-box">
-				<h2>Cập nhật nhà sản xuất</h2>
+				<h2>Cập nhật thể loại</h2>
 				<form action="process_update.php" method="post" id="my_form">
                     <input hidden value="<?php echo $ma ?>" name='ma'>
 					<div class="user-box">
-                    Tên nhà sản xuất<input type="text" name="ten" required="" value="<?= $result['ten'] ?>">
+                    Tên thể loại<input type="text" name="ten" required="" value="<?= $result['ten'] ?>">
 					</div>
-					<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">
+					<span class="error_span"></span>
+
+					<a href="javascript:{}" onclick="validate();">
                         Cập nhật
 					</a>
 				</form>
@@ -78,4 +80,3 @@
 		}
 
 </script>
-
