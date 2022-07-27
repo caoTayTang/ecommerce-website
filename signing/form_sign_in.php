@@ -118,7 +118,7 @@
 
 			if( !check_not_empty(mat_khau) )
 			{
-				error_span[1].innerHTML = "Tên không hợp lệ";
+				error_span[1].innerHTML = "Mật khẩu không được để trống";
 				isValid = false;
 			} else error_span[1].innerHTML = "";
 
