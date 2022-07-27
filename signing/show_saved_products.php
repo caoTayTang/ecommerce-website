@@ -105,8 +105,8 @@
                     </div>
                     <div id="products_container">
                         <?php foreach($return as $each) { ?>
-                            <div class="each_product" onclick="location.href='/ecommerce-website/show.php?id=<?php echo $each['ma'] ?>';">
-                                <div class="product_image" style="background-image: url(../admin/products/photos/<?php echo $each['anh'] ?>);">
+                            <div class="each_product">
+                                <div class="product_image" style="background-image: url(../admin/products/photos/<?php echo $each['anh'] ?>);" onclick="location.href='/show.php?id=<?php echo $each['ma'] ?>';">
                                     
                                 </div>
                                 <div class="product_name">
@@ -116,6 +116,15 @@
                                 </div>
                                 <div class="product_price">
                                     <?php echo $each['gia'] ?>
+                                </div>
+                                <div class="product_add_to_cart">
+                                    <button 
+                                        class="btn-unsave" 
+                                        data-id="<?php echo $each['ma'] ?>"
+                                        title="Xoá" 
+                                    >
+                                        
+                                    </button>
                                 </div>
                                 <div class="product_tag">
                                     <a class="tag" href="https://example.com">
@@ -153,5 +162,28 @@
         else window.location.href = 'show_saved_products.php?saved_sort=DESC';
                   
     } 
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".btn-unsave").click(function() {
+            let btn = $(this)
+            let id = $(this).data('id');
+            $.ajax({
+                url: '../partial/process_unsave.php',
+                type: 'GET',
+                data: {id},
+            })
+            .done(function(response) {
+                if(response == 1) {
+                    alert('Xoá khỏi lưu thành công');
+                    btn.parents(".each_product").remove();
+                } else {
+                    alert(response);
+                }
+            })
+        });
+    });
 </script>
 
