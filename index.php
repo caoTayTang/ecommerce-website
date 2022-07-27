@@ -27,9 +27,8 @@
             <div id="middle_div">
                 <div id="products_container">
                     <?php foreach($return as $each) { ?>
-                        <div class="each_product" onclick="location.href='/show.php?id=<?php echo $each['ma'] ?>';">
-                            <div class="product_image" style="background-image: url(./admin/products/photos/<?php echo $each['anh'] ?>);">
-                                
+                        <div class="each_product" >
+                            <div class="product_image" onclick="location.href='/show.php?id=<?php echo $each['ma'] ?>'" style="background-image: url(./admin/products/photos/<?php echo $each['anh'] ?>);">
                             </div>
                             <div class="product_name">
                                 <h2>
@@ -38,6 +37,9 @@
                             </div>
                             <div class="product_price">
                                 <?php echo number_format($each['gia'],'0','',',') ?>₫
+                            </div>
+                            <div class="product_add_to_cart">
+                                <button class="btn-add-to-cart" data-id="<?php echo $each['ma'] ?>"></button>
                             </div>
                             <div class="product_tag">
                                 <?php 
@@ -69,3 +71,23 @@
     </div> 
 </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".btn-add-to-cart").click(function() {
+            let id = $(this).data('id');
+            $.ajax({
+                url: './cart/add_to_cart.php',
+                type: 'GET',
+                data: {id},
+            })
+            .done(function(response) {
+                if(response == 1) {
+                    alert('Thành công');
+                } else {
+                    alert(response);
+                }
+            })
+        });
+    });
+</script>

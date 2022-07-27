@@ -117,7 +117,7 @@
                          </span>
                          <br>
                          <br>
-                         <button name="add_to_cart" onclick="add_to_cart()"> 
+                         <button class="btn-add-to-cart" name="add_to_cart" data-id="<?=$each['ma']?>"> 
 					 	 	<span style="font-family:Hack, monospace;font-size: 25px"></span> Thêm vào giỏ hàng
 					 	 </button>
                          <button name="buy_now" onclick='location.href="./buy/redirect.php?id=<?php echo $each['ma'] ?>"'> 
@@ -139,10 +139,24 @@
 	<?php mysqli_close($connect) ?>
 </body>
 </html>
-<script>
-    function add_to_cart() {
-    let cart_btn = document.querySelector('[name="add_to_cart"]');
-    alert('Đã thêm vào giỏ hàng thành công');
-    window.location.href ='cart/add_to_cart.php?id=<?php echo $each['ma'] ?>';
-    }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".btn-add-to-cart").click(function() {
+            let id = $(this).data('id');
+            $.ajax({
+                url: './cart/add_to_cart.php',
+                type: 'GET',
+                data: {id},
+            })
+            .done(function(response) {
+                if(response == 1) {
+                    alert('Thành công');
+                } else {
+                    alert(response);
+                }
+            })
+        });
+    });
 </script>

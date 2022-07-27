@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Xem giỏ hàng</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
 	<link rel="stylesheet" type="text/css" href="../styles.css">
     <style type="text/css">
     /*override some type */
@@ -29,6 +30,7 @@
         border-left: 1px solid black;
         text-decoration: none;
         color: black;
+        cursor: pointer;
     }
     
     a[name='remove'] {
@@ -38,6 +40,7 @@
         text-decoration: none;
         border-right: 1px solid black;
         color: black;
+        cursor: pointer;
     }
     
     .sub_so_luong a:hover {
@@ -81,6 +84,16 @@
         left: 4%;
         display: block;
     }
+
+    .btn-delete {
+        border: 1px solid black;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .btn-delete:hover {
+        background-color: #ffa48d;
+    }
     </style>
 	<link rel="icon" href="../resource/logo.png">
 
@@ -94,7 +107,7 @@
 			<div id="content">
                 <p>
                     <?php 
-                    $sum = 0;
+                    $total = 0;
                     if(!isset($_SESSION['cart'])) {
                         $cart = NULL;
                         $num_rows = 0;
@@ -118,6 +131,12 @@
                            <th>
                                 Số lượng
                             </th>
+                            <th>
+                                Tổng tiền
+                            </th>
+                           <th>
+                                Xoá
+                            </th>
                         </tr>
 
                             <?php 
@@ -135,25 +154,72 @@
                                 <td onclick='location.href="../show.php?id=<?php echo $key ?>"'>
                                     <img src="../admin/products/photos/<?php echo $each['anh'] ?>" height="100px" />
                                 </td>
-                                <td onclick='location.href="../show.php?id=<?php echo $key ?>"' style="color: #0770cf">
-                                    <?php 
-                                    $result = $each['gia'] * $each['so_luong'];
-                                    echo $result . ' ₫'; 
-                                    $sum += $result;
-                                    ?>
+                                <td onclick='location.href="../show.php?id=<?php echo $key ?>"' style="font-weight: bold;">
+
+                                    <span class="span-price" data-value="<?=$each['gia']?>" >
+                                        <?php 
+                                            echo(number_format($each['gia'],'0','',',') );
+                                        ?>
+                                         ₫
+                                    </span>
                                 </td>
                                 <td class="so_luong">
-                                <div class="sub_so_luong"> 
-                                        <a name='remove' href="update_quantity.php?type=remove&id=<?php echo $key ?>" >-</a>
-                                        <?php echo $each['so_luong'] ?>
-                                        <a name='add' href="update_quantity.php?type=add&id=<?php echo $key ?>">+</a>
+                                    <div class="sub_so_luong"> 
+                                        <a 
+                                            class="update-quantity"
+                                            name='remove' 
+                                            data-id="<?php echo $key ?>" 
+                                            data-type="remove"
+                                        >
+                                            -
+                                        </a>
+
+                                        <span class="span-quantity">
+                                            <?php echo $each['so_luong'] ?>
+                                        </span>
+                                        
+                                        <a
+                                            class="update-quantity"
+                                            name='add'
+                                            data-id="<?php echo $key ?>"
+                                            data-type="add"
+                                        >   
+                                            +
+                                        </a>
                                     </div>
                                 </td>   
+                                <td>
+                                    <span 
+                                        data-value="<?=$each['gia'] * $each['so_luong']?>"
+                                        class="span-sum" 
+                                        style="color: #0770cf;font-size: 19px;" 
+                                    >
+                                        <?php 
+                                            $result = $each['gia'] * $each['so_luong'];
+                                            echo number_format($result,'0','',',') . ' ₫'; 
+                                            $total += $result;
+                                        ?>
+                                    </span>
+                                </td>
+                                <td>
+                                    <button 
+                                        class="btn-delete"
+                                        style="font-family: Hack,monospace;color: #ed5153;font-size: 20px;" 
+                                        data-id="<?=$key?>"
+                                      >
+                                        
+                                    </button>
+                                </td>
                             </tr>
+                            
+                            
                             <?php } ?>
                             <tr>
-                                <th colspan = "4" style="text-align: center;color:#0770cf">
-                                    Tổng tiền: <?php echo $sum ?> ₫
+                                <th colspan = "6" style="text-align: center;color:#0770cf;font-size: 23px">
+                                    Tổng tiền hoá đơn: 
+                                    <span id="span-total" data-value="<?=$total?>">
+                                    <?php echo number_format($total,'0','',',') ?> ₫    
+                                    </span>
                                 </th>
                             </tr>
                     </table>
@@ -185,3 +251,88 @@
 	</div>
 </body>
 </html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".update-quantity").click(function() {
+            let btn = $(this) // the a tag, not btn but anw
+            let id = btn.data('id')
+            let type = btn.data('type')
+            $.ajax({
+                url: 'update_quantity.php',
+                type: 'GET',
+                data: {id,type},
+            })
+            .done(function(response) {
+                if (response == 1) {
+                    let parent_tr = btn.parents('tr');
+
+                    let price = parent_tr.find('.span-price').data('value');
+                    let quantity = parent_tr.find('.span-quantity').text();
+                    if (type == "add") {
+                        quantity++;
+                    } else {
+                        quantity--;
+                    }
+                    if (quantity == 0) {
+                        parent_tr.remove();
+                    } else { 
+                        // update quantity
+                        parent_tr.find('.span-quantity').text(quantity);
+                        
+                        // find sum price each item
+                        let sum = price * quantity;
+                        parent_tr.find('.span-sum').data('value',sum);
+                        sum = sum.toLocaleString();
+                        parent_tr.find('.span-sum').text(sum + ' ₫');
+                    }
+                    getTotal();
+                    isDeleteAll() 
+
+                } else {
+                    alert(response);
+                }
+            })
+        });
+
+        $(".btn-delete").click(function() {
+            let btn = $(this)
+            let id = btn.data('id')
+            $.ajax({
+                url: 'delete_from_cart.php',
+                type: 'GET',
+                data: {id},
+            })
+            .done(function(response) {
+                if (response == 1) {
+                    btn.parents('tr').remove();  
+                    getTotal();
+                    isDeleteAll(); 
+                } else {
+                    alert(response);
+                }
+            })
+        });
+    }); 
+
+function getTotal() {
+    let total = 0;
+    $(".span-sum").each(function() {
+        total += parseFloat($(this).data('value'));
+        $('#span-total').data('value',total); //do this to avoid async unappropriate
+    });
+    total = $("#span-total").data('value').toLocaleString() + ' ₫';
+    $("#span-total").text(total);    
+}
+
+// if delete all products in cart then reload to show "Mua ngay" button
+function isDeleteAll() {
+    let tr = $('tr').length;
+    if (tr == 2) {
+        location.reload();
+    }
+}
+
+
+</script>

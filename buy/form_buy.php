@@ -1,8 +1,13 @@
 <?php
 	session_start();
-	if (!isset($_SESSION['cart']) || empty($_SESSION['cart']) || !isset($_SESSION['ma']) || empty($_SESSION['ma']))        
+	if (!isset($_SESSION['ma']) || empty($_SESSION['ma']))        
 	{
 		echo("<script>alert('Xin đăng nhập!')</script>");
+	    exit;
+	}
+	if (!isset($_SESSION['cart']) || empty($_SESSION['cart']))        
+	{
+		echo("<script>alert('Giỏ hàng trống!')</script>");
 	    exit;
 	}
 ?>
