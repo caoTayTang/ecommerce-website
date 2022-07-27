@@ -444,7 +444,6 @@ h2 {
 	border-radius: 4px;
 	background-blend-mode: lighten;
 	box-shadow: 0px 1px 2px rgba(0,0,0,0.1), 0 1px 6px rgba(0,0,0,0.23);
-	cursor: pointer;
 }
 
 .each_product:hover {
@@ -467,6 +466,7 @@ h2 {
 	background-repeat: no-repeat;
 	padding: 0px !important;
 	object-fit: cover;
+	cursor: pointer;
 }
 
 .product_name {
@@ -478,15 +478,42 @@ h2 {
 
 .product_price{
 	display: inline-block;
-    font-size:20px;
-    margin-top: 5%;
-	width: 100%;
+  font-size:20px;
+  margin-top: 5%;
+	width: 45%;
 	height: 10%;
+	float: left;
+}
+
+.product_add_to_cart {
+	display: inline-block;
+  font-size:20px;
+  margin-top: 5%;
+	width: 45%;
+	height: 10%;
+	float: right;
+}
+
+.product_add_to_cart > button {
+	float: right;
+	margin-right: 10px;
+	padding: 2;
+	font-family:Hack, monospace;
+	border: 0;
+	background-color: #018849;
+	color: white;
+	cursor: pointer;
+	font-size: 25px;
+	border-radius: 5px;
+}
+.product_add_to_cart > button:hover {
+	border: 1px solid black;
+	background-color: #003b1f;
 }
 
 .product_tag {
 	width: auto;
-	height: 5%;
+	height: auto;
 }
 
 .product_tag .tag {
@@ -508,7 +535,7 @@ h2 {
 
 .product_tag .view {
 	width: fit-content;
-	height: 15px;
+	height: auto;
 	background-color: gray;
 	float: right;
 	padding: 5px;
@@ -617,7 +644,7 @@ h2 {
 		border: 0;
 		width: 140px;
 		height: 50px;
-        margin-left: 2%;
+    margin-left: 2%;
 		background-color: #018849;
 		font-size: 20px;
 		color: white;
@@ -625,7 +652,7 @@ h2 {
 	}
 
 	button[name="save"] {
-        float: right;
+    float: right;
 		border: 0;
 		width: 100px;
 		height: 50px;
