@@ -111,7 +111,7 @@
 
 			if( !check_password(mat_khau) )
 			{
-				error_span[2].innerHTML = "Password phải có ít nhất 8 kí tự, <br> có chữ in hoa, chữ thường, có kí tự đặc biệt";
+				error_span[2].innerHTML = "Mật khẩu phải có ít nhất 8 kí tự, <br> có chữ in hoa, chữ thường, có kí tự đặc biệt";
 				isValid = false;
 			} else error_span[2].innerHTML = "";
 
@@ -146,7 +146,7 @@
 		function check_name(name)
 		{
 			//Họ tên: (có thể có 1 chữ cái, dấu hay không đều được)
-			const regexName = /^[A-VXYỲỌÁẦẢẤỜỄÀẠẰỆẾÝỘẬỐŨỨĨÕÚỮỊỖÌỀỂẨỚẶÒÙỒỢÃỤỦÍỸẮẪỰỈỎỪỶỞÓÉỬỴẲẸÈẼỔẴẺỠƠÔƯĂÊÂĐ]{0,}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ ,.'-]+$/; 
+			const regexName = /^([A-VXYỲỌÁẦẢẤỜỄÀẠẰỆẾÝỘẬỐŨỨĨÕÚỮỊỖÌỀỂẨỚẶÒÙỒỢÃỤỦÍỸẮẪỰỈỎỪỶỞÓÉỬỴẲẸÈẼỔẴẺỠƠÔƯĂÊÂĐ]{0,}[a-vxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ ,.'-]?)+$/; 
 			return regexName.test(name.value);
 		}	
 
