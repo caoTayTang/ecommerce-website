@@ -6,11 +6,13 @@
 
     if (!($_FILES['anh']['size'] == 0 || $_FILES['anh']['error'] == 4)) {
         // validate image
+        $anh = $_FILES['anh'];
         if ($anh['size'] > 5000000) {
           echo "<script>alert('Kích thước ảnh quá lớn (>5MB)')</script>";
           die();
         }
-        if ($anh['type'] != "image/png") {
+        if ($anh['type'] != "image/png" && $anh['type'] != "image/jpeg" ) {
+            echo $anh['type'];
           echo "<script>alert('Chỉ chấp nhận ảnh jpg/png')</script>";
           die();
         }
@@ -25,14 +27,14 @@
         $file_name = time() . '.' . $file_extension;
         $path_file = $folder . $file_name;
         move_uploaded_file($anh["tmp_name"],$path_file);
-        $sub_query = " anh = '$file_name'";
+        $sub_query = ", anh = '$file_name'";
 
     }else $sub_query = "";
 
     $query = "update san_pham set 
                 ten = '$ten',
                 gia = '$gia',
-                ma_nha_san_xuat = '$ma_nha_san_xuat',
+                ma_nha_san_xuat = '$ma_nha_san_xuat'
                 $sub_query
               where ma = '$ma'";
     require '../../database/connect.php';
