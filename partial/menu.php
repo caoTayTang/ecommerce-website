@@ -12,7 +12,7 @@ $result = mysqli_query($connect,$query);
     <div id="cancel_button"></div>
 	<div id="category">
 		<ul>
-			<p style="font-family: sans-serif;font-size: 20px;color: dimgray;">Sắp xếp các sản phẩm theo</p>
+			<p style="font-family: sans-serif;font-size: 18px;color: dimgray;">Sắp xếp các sản phẩm theo</p>
 			<li>
 				<button onclick="location.href='?sort=0'">Hot</button>
 			</li>
