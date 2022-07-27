@@ -18,7 +18,7 @@
 	  echo "<script>alert('Kích thước ảnh quá lớn (>5MB)')</script>";
 	  die();
 	}
-	if ($anh_dai_dien['type'] != "image/png") {
+	if ($anh_dai_dien['type'] != "image/png" && $anh_dai_dien['type'] != "image/jpeg" ) {
 	  echo "<script>alert('Chỉ chấp nhận ảnh jpg/png')</script>";
 	  die();
 	}

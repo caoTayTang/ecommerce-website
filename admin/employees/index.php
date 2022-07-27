@@ -100,20 +100,28 @@
                                     <?php echo $each['ma']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $each['ten'] ?>
+                                    <span style="color: #3f4549;font-weight: bold;">
+                                            <?php echo $each['ten'] ?>        
+                                    </span >
                                 </td>
                                 <td>
                                    <?php switch ($each['cap_do']) {
                                        case 0:
-                                            echo "admin";
+                                            $color = "#0770cf";
+                                            $level =  "admin";
                                             break;
                                        case 1:
-                                            echo "super admin";
+                                            $color = "#ed5153";
+                                            $level =  "super admin";
                                             break;
                                        default:
-                                            echo "Lỗi, hãy đăng kí lại tài khoản admin!";
+                                           $color = "red";
+                                            $level =  "Lỗi, hãy đăng kí lại tài khoản admin!";
                                             break;
                                    } ?>
+                                   <span style="color: <?=$color?>">
+                                        <?=$level?>
+                                    </span>
                                 </td>
                                 <td>
                                     <?php echo $each['so_dien_thoai'] ?>
