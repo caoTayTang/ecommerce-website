@@ -1,16 +1,9 @@
 <?php
 $href ="/index.php";
 // session already started at another files
-if(isset($_SESSION['cap_do']) ) {
-    $href = "/admin/index.php";
-    if (!isset($_SESSION['anh_dai_dien'])) {
-        $anh_dai_dien = '../../admin/employees/photos/default.png';
-    }else {
-        $anh_dai_dien = '../../admin/employees/photos/' . $_SESSION['anh_dai_dien'];
-    }
-} else if (!isset($_SESSION['anh_dai_dien'])) {
+if (!isset($_SESSION['anh_dai_dien'])) {
     $anh_dai_dien = 'default.png';
-}else $anh_dai_dien = $_SESSION['anh_dai_dien'];
+} else $anh_dai_dien = $_SESSION['anh_dai_dien'];
 ?>
 <div id="overlay"></div>
 <div id="header">
@@ -32,7 +25,7 @@ if(isset($_SESSION['cap_do']) ) {
 $search = "";
 // Prevent undefine when include header file in other index.php
 ?>
-            <input type="text" placeholder="Tìm kiếm" name="query" value="<?php echo stripslashes($search) ?>">
+    <input type="text" placeholder="Tìm kiếm" name="query" value="<?php echo stripslashes($search) ?>">
         </form>
     </div>
     <div id="user" onclick="location.href='/signing/form_sign_in.php'" style="
