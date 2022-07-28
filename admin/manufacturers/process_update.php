@@ -2,6 +2,7 @@
     $ma = $_POST['ma'];
     $ten = $_POST['ten'];
     require '../../database/connect.php';
+
     $sql = "update nha_san_xuat
             set ten = '$ten'
             where ma = '$ma'";
