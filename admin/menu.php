@@ -1,6 +1,16 @@
 <div id="menu">
     <div id="cancel_button"></div>
 
+	<div class="dropdown">
+        <button class="dropbtn" onclick="location.href='/admin/overview/index.php'">Tổng quan</button>
+        <div class="dropdown-content">
+            <a href="/admin/overview/index.php">Thống kê doanh thu</a>
+            <a href="/admin/overview/orders.php">Thống kê hoá đơn</a>
+            <a href="/admin/overview/products.php">Thống kê sản phẩm</a>
+            <a href="/admin/overview/customers.php">Thống kê khách hàng</a>
+        </div>
+    </div>
+
     <div class="dropdown">
         <button class="dropbtn" onclick="location.href='../orders'">Quản lý đơn hàng</button>
         <div class="dropdown-content">
@@ -11,7 +21,8 @@
 
     </div>
 
-	<div class="dropdown">
+
+    <div class="dropdown">
         <button class="dropbtn" onclick="location.href='/admin/products/index.php'">Quản lý sản phẩm</button>
         <div class="dropdown-content">
             <a href="/admin/products/form_insert.php">Thêm sản phẩm</a>
