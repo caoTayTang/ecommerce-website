@@ -10,7 +10,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Thêm sản phẩm</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
 	<link rel="stylesheet" type="text/css" href="../../styles.css">
 	<link rel="icon" href="../../resource/logo.png">
@@ -141,7 +141,8 @@
 		const the_loai = document.querySelector("[name='ma_the_loai[]']");
 		// Error span
 		const error_span = document.getElementsByClassName('error_span');
-		
+			
+
 		let isValid = true;
 
 		if( !check_not_empty(ten) )

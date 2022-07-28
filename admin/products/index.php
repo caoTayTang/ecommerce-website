@@ -10,7 +10,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Nhà sản xuất</title>
+	<title>Quản lý sản phẩm</title>
 	<link rel="stylesheet" type="text/css" href="../../styles.css">
     <style type="text/css">
         
@@ -23,6 +23,10 @@
 			border-radius: 3px;
 			outline: none;
 		}
+
+        tr {
+            cursor: default !important;
+        }
     </style>
 	<link rel="icon" href="../../resource/logo.png">
 </head>

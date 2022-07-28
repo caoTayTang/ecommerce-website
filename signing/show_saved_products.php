@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        Kaios
+        Xem sản phẫm đã lưu
     </title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
     <link rel="stylesheet" type="text/css" href="../styles.css">

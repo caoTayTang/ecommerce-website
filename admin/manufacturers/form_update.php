@@ -4,7 +4,7 @@
         header('location: ../index.php');
         exit;
     }
-    if (!isset($_GET['ma'])) {
+    if (!isset($_GET['ma']) || empty($_GET['ma'] )) {
     	echo("<script>alert('Link không hợp lệ!')</script>");
     	echo("<a href='./index.php'>Quay lại trang chủ</a>");
     	die();
@@ -15,7 +15,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Cập nhật nhà sản xuất</title>
 	<?php include '../form.php'?>
 </head>
 <body>
@@ -25,8 +25,14 @@
         <?php 
             $ma = $_GET['ma'];
             require '../../database/connect.php';
-            $sql = "select ten from nha_san_xuat where ma = $ma";
-            $result = mysqli_fetch_array(mysqli_query($connect,$sql));
+            $sql = "select ten from nha_san_xuat where ma = '$ma'";
+            $result = mysqli_query($connect,$sql);
+            if (mysqli_num_rows($result) != 1) {
+        	 	echo("<script>alert('Link không hợp lệ!')</script>");
+		    	echo("<a href='./index.php'>Quay lại trang chủ</a>");
+		    	die();
+            }
+            $result = mysqli_fetch_array($result);
         ?>
     
 	 	<div id="middle_div">

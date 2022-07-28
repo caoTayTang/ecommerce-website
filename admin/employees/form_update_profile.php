@@ -10,7 +10,7 @@ if (!isset($_SESSION['ten']) || empty($_SESSION['ten'])) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Cập nhật hồ sơ</title>
 	<?php include '../../admin/form.php'?>
 	<link rel="stylesheet" type="text/css" href="../../styles.css">
 	<link rel="icon" href="../../resource/logo.png">
@@ -72,6 +72,11 @@ if (!isset($_SESSION['ten']) || empty($_SESSION['ten'])) {
 						Số điện thoại<input type="text" name="so_dien_thoai" required value="<?php echo $result['so_dien_thoai'] ?>">
 					</div>
 					<span class="error_span"></span>
+
+					<div class="user-box">
+						Địa chỉ<input type="text" name="dia_chi" required value="<?php echo $result['dia_chi'] ?>">
+					</div>
+					<span class="error_span"></span>
 					
 					<div class="user-box">
 		                Ảnh đại diện<input type="file" name="anh_dai_dien">
@@ -97,7 +102,8 @@ if (!isset($_SESSION['ten']) || empty($_SESSION['ten'])) {
 			const ten = document.querySelector("[name='ten']");
 			const mat_khau = document.querySelector("[name='mat_khau']");
 			const so_dien_thoai = document.querySelector("[name='so_dien_thoai']");
-			// Error span
+			const dia_chi = document.querySelector("[name='dia_chi']");
+			// Error spand
 			const error_span = document.getElementsByClassName('error_span');
 
 			let isValid = true;
@@ -124,6 +130,12 @@ if (!isset($_SESSION['ten']) || empty($_SESSION['ten'])) {
 			if( !check_phone_number(so_dien_thoai) )
 			{
 				error_span[3].innerHTML = "Số điện thoại không hợp lệ!";
+				isValid = false;
+			} else error_span[3].innerHTML = "";
+
+			if( !check_not_empty(dia_chi) )
+			{
+				error_span[4].innerHTML = "Địa chỉ không hợp lệ!";
 				isValid = false;
 			} else error_span[3].innerHTML = "";
 
@@ -160,6 +172,13 @@ if (!isset($_SESSION['ten']) || empty($_SESSION['ten'])) {
 		{
 			const regexPassword = /0?[1-9]+[0-9]{7,}/
 			return regexPassword.test(phone_number.value);
+		}
+
+		function check_not_empty(element)
+		{
+			if(element.value == "" || typeof(element.value) == "undefined") {
+				return false;
+			} else return true;
 		}		
 
 

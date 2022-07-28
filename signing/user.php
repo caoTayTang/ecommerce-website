@@ -10,7 +10,7 @@ if (!isset($_SESSION['ma']) || empty($_SESSION['ma'])) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Thông tin cá nhân</title>
 	<?php include '../admin/form.php'?>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
 	<link rel="stylesheet" type="text/css" href="../styles.css">

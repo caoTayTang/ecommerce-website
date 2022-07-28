@@ -10,7 +10,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Thêm thể loại</title>
 	<link rel="stylesheet" type="text/css" href="../../styles.css">
 	<link rel="icon" href="../../resource/logo.png">
 	<?php include '../form.php'?>
@@ -48,7 +48,7 @@
 	 	<div id="middle_div">
 	 		<div class="login-box">
 				<h2>Thêm thể loại	</h2>
-				<form action="process_insert_type.php" method="post" id="my_form">
+				<form action="process_insert.php" method="post" id="my_form">
 					<div class="user-box">
 						Tên thể loại<input type="text" name="ten_the_loai" required>
 					</div>	
@@ -61,7 +61,7 @@
 			</div>
 	 	</div>
 	 	
-	<?php include '../../Partial/footer.php'; ?>
+	<?php include '../../partial/footer.php'; ?>
 	</div>
 	<?php mysqli_close($connect); ?>
 </body>

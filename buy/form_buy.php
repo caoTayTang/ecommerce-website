@@ -16,7 +16,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Mua hàng</title>
 	<link rel="stylesheet" type="text/css" href="../styles.css">
 	<link rel="icon" href="../resource/logo.png">
 	<?php include './form.php'?>
