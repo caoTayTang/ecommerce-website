@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 26, 2022 at 10:07 AM
+-- Generation Time: Jul 28, 2022 at 03:09 PM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -51,8 +51,10 @@ INSERT INTO `hoa_don` (`ma`, `ma_khach_hang`, `trang_thai`, `dia_chi_nguoi_nhan`
 (24, 11, 1, 'time city', '2022-07-25 04:14:19', 'Không biết ghi tên gì', '01010101', '123', 2090907),
 (25, 11, 2, 'time city', '2022-07-25 04:15:05', 'Không biết ghi tên gì', '01010101', 'ghi chu nay', 24690),
 (26, 11, 1, 'time city', '2022-07-25 05:05:48', 'Không biết ghi tên gì', '01010101', 'lai mua thu', 696969),
-(27, 18, 0, 'Dia chi trong tim em', '2022-07-25 08:09:53', 'Đại đẹp trai', '0363259454', 'đây là mua 3 cái kính nè', 1500),
-(28, 11, 0, 'time city', '2022-07-26 01:02:40', 'Không biết ghi tên gì', '01010101', '', 27036);
+(27, 18, 2, 'Dia chi trong tim em', '2022-07-25 08:09:53', 'Đại đẹp trai', '0363259454', 'đây là mua 3 cái kính nè', 1500),
+(28, 11, 1, 'time city', '2022-07-26 01:02:40', 'Không biết ghi tên gì', '01010101', '', 27036),
+(29, 18, 1, 'Dia chi trong tim em', '2022-07-27 10:57:45', 'Đại đẹp trai', '0363259454', 'Ghi chú nè\r\n', 9012),
+(30, 11, 1, 'time city', '2022-07-28 10:19:15', 'Không biết ghi tên gì', '0101010123232', '23erf', 9012);
 
 -- --------------------------------------------------------
 
@@ -82,7 +84,9 @@ INSERT INTO `hoa_don_chi_tiet` (`ma_hoa_don`, `ma_san_pham`, `so_luong`, `gia`) 
 (25, 13, 2, 24690),
 (26, 9, 1, 696969),
 (27, 42, 3, 1500),
-(28, 36, 3, 27036);
+(28, 36, 3, 27036),
+(29, 36, 1, 9012),
+(30, 36, 1, 9012);
 
 -- --------------------------------------------------------
 
@@ -106,8 +110,8 @@ CREATE TABLE `khach_hang` (
 --
 
 INSERT INTO `khach_hang` (`ma`, `anh_dai_dien`, `ten`, `so_dien_thoai`, `dia_chi`, `email`, `mat_khau`, `token`) VALUES
-(11, '1658367769.png', 'Không biết ghi tên gì', '01010101', 'time city', 'abc@abc.abc', '12345678ABCdai#', 'user_62dfb9c0368f01.01239417'),
-(18, '1658377884.jpg', 'Đại đẹp trai', '0363259454', 'Dia chi trong tim em', 'ledai3062005@gmail.com', '123', NULL);
+(11, '1658367769.png', 'Không biết ghi tên gì', '01010101', 'time city', 'abc@abc.abc', '12345678ABCdai#', 'user_62e25a2c6f64b9.25214166'),
+(18, '1658377884.jpg', 'Đại đẹp trai', '0363259454', 'Dia chi trong tim em', 'ledai3062005@gmail.com', 'DAYLAMK123#kaka', NULL);
 
 -- --------------------------------------------------------
 
@@ -133,10 +137,13 @@ CREATE TABLE `nhan_vien` (
 
 INSERT INTO `nhan_vien` (`ma`, `anh_dai_dien`, `ten`, `so_dien_thoai`, `dia_chi`, `ngay_sinh`, `email`, `mat_khau`, `cap_do`) VALUES
 (1, 'default.png', 'admin', '010101010101', 'HCM', '2022-07-03', 'admin@gmail.com', '123', b'0'),
-(2, 'default.png', 'super Admin', '111', 'Ha Noi', '2022-07-03', 'superadmin@gmail.com', '123', b'1'),
+(2, 'default.png', 'Super Admin', '0909289340', 'Hà Nội', '2022-07-03', 'superadmin@gmail.com', '123', b'1'),
 (5, '1658732434.jpg', 'Admin 2', '0920298103', 'Hồ Chí Minh city', '2022-07-18', 'admin2@gmail.com', '123', b'0'),
 (6, '1658732619.jpg', 'Admin 3', '0908070605', 'Day la dia chi', '2022-07-17', 'admin3@gmail.com', '123', b'0'),
-(7, '1658732699.png', 'Super admin 2', '8923890238', 'day la dia chi cua superadmin2', '2022-02-10', 'superadmin2@gmail.com', '123', b'1');
+(7, '1658732699.png', 'Super admin hai', '8923890238', 'admin 2 không có địa chỉ : ((', '2022-02-10', 'superadmin2@gmail.com', 'MKTHATLADAIhehee123', b'1'),
+(8, '1658926427.jpg', 'Nhân viên mới', '023029032832', 'dia  chi trong tim em', '2022-07-26', 'nhanvienmoi@gmail.com', '4fwho4iO@#IO#I@JR#@FOWFWFa', b'0'),
+(10, '1658986019.jpg', 'Nhảy đương đại do ngây dại', '88403030', 'Dia chi', '2022-06-27', 'lechidaitp@gmail.com', '123ohIF)$*$OWEIjoiewffojoif23', b'0'),
+(11, '1658986087.png', 'Thats ki la', '42094080380', '&lt;script&gt;document.write(&#039;Hello&#039;)&lt;/script&gt;', '2022-07-03', 'asff@aa.ca', 'jfiFoN#@HnjNFIu24', b'0');
 
 -- --------------------------------------------------------
 
@@ -179,16 +186,16 @@ CREATE TABLE `san_pham` (
 --
 
 INSERT INTO `san_pham` (`ma`, `ten`, `mo_ta`, `anh`, `gia`, `ma_nha_san_xuat`, `so_luot_truy_cap`) VALUES
-(2, 'Áo dài óng ánh', 'Áo Dài Eo Việt từ lâu đã trở thành thương hiệu áo dài đẳng cấp mà người Việt tin dùng.', '1657785713.jpg', 250000, 2, 215),
+(2, 'Áo dài óng ánh', 'Áo Dài Eo Việt từ lâu đã trở thành thương hiệu áo dài đẳng cấp mà người Việt tin dùng.', '1657785713.jpg', 250000, 2, 222),
 (8, 'Áo đỏ nhưng không có được em', 'anamnesis33-6IfIKXJ_bx8-unsplashanamnesis33-6IfIKXJ_bx8-unsplashanamnesis33-6IfIKXJ_bx8-unsplashanamnesis33-6IfIKXJ_bx8-unsplashanamnesis33-6IfIKXJ_bx8-unsplashanamnesis33-6IfIKXJ_bx8-unsplashanamnesis33-6IfIKXJ_bx8-unsplashanamnesis33-6IfIKXJ_bx8-unsplash', '1658148045.jpg', 340, 2, 20),
-(9, 'Ma mị nhưng vẫn luỵ', 'abhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplash', '1658302526.jpg', 696969, 1, 15),
+(9, 'Ma mị nhưng vẫn luỵ', 'abhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplashabhijeet-gourav-6hXOKaeYw-o-unsplash', '1658302526.jpg', 696969, 1, 16),
 (10, 'Đồng hồ', 'clay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplash', '1658148114.jpg', 99999, 1, 14),
 (11, 'Túi xách', 'kakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\n', '1658148137.jpg', 0, 2, 3),
 (12, 'Áo vàng áo xanh làm chứng cho anh', 'kakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\n', '1658302751.jpg', 1000, 2, 6),
-(13, 'Miệng cười banh mà lòng như chó rách', ':(', '1658148278.jpg', 12345, 3, 4),
-(14, 'Tone xanh vì nhớ anh', ':(', '1658148313.jpg', 192489, 2, 27),
-(36, 'Nhảy đương đại do ngây dại', ':(', '1658149866.jpg', 9012, 2, 2),
-(42, 'Website SEO dở thật ', 'Con cá đối nằm trên cối đá', '1658210221.jpg', 500, 2, 24);
+(13, 'Miệng cười banh mà lòng như chó rách', ':(', '1658148278.jpg', 12345, 3, 5),
+(14, 'Tone xanh vì nhớ anh', ':(', '1658148313.jpg', 192489, 2, 38),
+(36, 'Nhảy đương đại do ngây dại', ':(', '1658149866.jpg', 9012, 2, 7),
+(42, 'Ten ne', 'Con cá đối nằm trên cối đá', '1658917610.jpg', 100000, 1, 27);
 
 -- --------------------------------------------------------
 
@@ -208,13 +215,11 @@ CREATE TABLE `san_pham_da_luu` (
 
 INSERT INTO `san_pham_da_luu` (`ma_khach_hang`, `ma_san_pham`, `thoi_gian`) VALUES
 (11, 1, '2022-07-16 12:01:56'),
-(11, 2, '2022-07-16 12:01:53'),
-(11, 8, '2022-07-26 17:00:24'),
 (11, 9, '2022-07-21 08:34:27'),
 (11, 10, '2022-07-26 16:58:23'),
 (11, 11, '2022-07-26 17:00:44'),
 (11, 14, '2022-07-26 16:56:54'),
-(11, 42, '2022-07-26 14:27:41');
+(18, 14, '2022-07-27 17:56:12');
 
 -- --------------------------------------------------------
 
@@ -239,7 +244,7 @@ INSERT INTO `the_loai` (`ma`, `ten`) VALUES
 (5, 'Đồ ngủ'),
 (6, 'Đồ cưới'),
 (7, 'ABC'),
-(8, 'DEF');
+(8, 'Đại đẹp trai');
 
 -- --------------------------------------------------------
 
@@ -262,9 +267,11 @@ INSERT INTO `the_loai_chi_tiet` (`ma_san_pham`, `ma_the_loai`) VALUES
 (8, 1),
 (13, 1),
 (42, 1),
+(45, 1),
 (7, 2),
 (9, 3),
 (42, 3),
+(44, 3),
 (10, 4),
 (42, 4),
 (57, 4),
@@ -295,7 +302,8 @@ INSERT INTO `the_loai_chi_tiet` (`ma_san_pham`, `ma_the_loai`) VALUES
 (38, 5),
 (39, 5),
 (11, 6),
-(12, 6);
+(12, 6),
+(47, 6);
 
 --
 -- Indexes for dumped tables
@@ -369,7 +377,7 @@ ALTER TABLE `the_loai_chi_tiet`
 -- AUTO_INCREMENT for table `hoa_don`
 --
 ALTER TABLE `hoa_don`
-  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `khach_hang`
@@ -381,25 +389,25 @@ ALTER TABLE `khach_hang`
 -- AUTO_INCREMENT for table `nhan_vien`
 --
 ALTER TABLE `nhan_vien`
-  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `nha_san_xuat`
 --
 ALTER TABLE `nha_san_xuat`
-  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `san_pham`
 --
 ALTER TABLE `san_pham`
-  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `the_loai`
 --
 ALTER TABLE `the_loai`
-  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
