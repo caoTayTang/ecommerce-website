@@ -4,10 +4,11 @@
         die();
 	}
 
-	$ten = addslashes($_POST['ten']);
-	$mo_ta = addslashes($_POST['mo_ta']);
-	$anh = addslashes($_FILES['anh']);
-	$gia = addslashes($_POST['gia']);
+	$ten = htmlspecialchars($_POST['ten'], ENT_QUOTES);
+
+	$mo_ta = htmlspecialchars($_POST['mo_ta'], ENT_QUOTES);
+	$anh = $_FILES['anh'];
+	$gia = htmlspecialchars($_POST['gia'], ENT_QUOTES);
 	$ma_nha_san_xuat = $_POST['ma_nha_san_xuat'];
 	$ma_the_loai = $_POST['ma_the_loai'];
 
@@ -16,7 +17,7 @@
 	  echo "<script>alert('Kích thước ảnh quá lớn (>5MB)')</script>";
 	  die();
 	}
-	if ($anh['type'] != "image/png") {
+	if ($anh['type'] != "image/png" && $anh['type'] != "image/jpeg") {
 	  echo "<script>alert('Chỉ chấp nhận ảnh jpg/png')</script>";
 	  die();
 	}
@@ -54,3 +55,4 @@
 	mysqli_query($connect,$query_the_loai);
 
 	mysqli_close($connect);
+	header('location: ./index.php');

@@ -9,7 +9,7 @@
 	$anh_dai_dien = $_FILES['anh_dai_dien'];
 	$mat_khau = $_POST['mat_khau'];
 	$so_dien_thoai = $_POST['so_dien_thoai'];
-	$dia_chi = $_POST['dia_chi'];
+	$dia_chi = htmlspecialchars($_POST['dia_chi'], ENT_QUOTES);
 	$ngay_sinh = $_POST['ngay_sinh'];
 	$cap_do = $_POST['cap_do'];
 
@@ -34,6 +34,12 @@
 	move_uploaded_file($anh_dai_dien["tmp_name"],$path_file);
 
 	require '../../database/connect.php';
+	$sql = "select * from nhan_vien where email = '$email'";
+	$result = mysqli_query($sql);
+	if (mysqli_num_rows($result) != 0) {
+		echo "<script>alert('Email đã tồn tại')</script>";
+		die();
+	}
 
 	$query = "insert into nhan_vien(ten,email,anh_dai_dien,mat_khau,so_dien_thoai,dia_chi,ngay_sinh,cap_do)
 			values('$ten','$email','$file_name','$mat_khau','$so_dien_thoai','$dia_chi','$ngay_sinh',$cap_do)";

@@ -4,7 +4,8 @@
         die();
 	}
 
-	$ten = addslashes($_POST['ten']);
+	$ten = htmlspecialchars($_POST['ten'], ENT_QUOTES);
+
 	require '../../database/connect.php';
 
 	$query = "insert into nha_san_xuat(ten)
@@ -12,5 +13,5 @@
 
 	mysqli_query($connect,$query);
 	mysqli_close($connect);
-    header('location: ../index.php');
+    header('location: ./index.php');
     exit;

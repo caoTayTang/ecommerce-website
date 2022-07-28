@@ -5,7 +5,7 @@
 
 	require '../../database/connect.php';
 
-	$ten_the_loai = addslashes($_POST['ten_the_loai']);
+	$ten_the_loai = htmlspecialchars($_POST['ten_the_loai'], ENT_QUOTES);
 
 	$query = "insert into the_loai(ten) values('$ten_the_loai')";
 	mysqli_query($connect,$query);

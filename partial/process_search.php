@@ -12,6 +12,6 @@
     }
 
     // If the count(*) is 0
-    if ($total_products == 0) {
-        echo "<script>alert('Không có kết quả phù hợp!')</script>";
-    }
+    // if ($total_products == 0) {
+    //     echo "<script>alert('Không có kết quả phù hợp!')</script>";
+    // }

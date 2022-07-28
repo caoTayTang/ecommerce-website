@@ -1,17 +1,20 @@
 <?php 
 	session_start();
-    if (empty($_POST['ma']) || empty($_POST['email']) || empty($_POST['so_dien_thoai']) || empty($_POST['mat_khau']) ) {
+    if (empty($_POST['ma']) || empty($_POST['email']) || empty($_POST['so_dien_thoai']) || empty($_POST['mat_khau']) || empty($_POST['dia_chi'])) {
         echo "<script>alert('Xin điền đầy đủ thông tin')</script>";
         die();
     }
 
     $ma = addslashes($_POST['ma']);
-	$email = addslashes($_POST['email']);
+    $email = htmlspecialchars($_POST['email'], ENT_QUOTES);
 	$ten = addslashes($_POST['ten']);
 	$so_dien_thoai = addslashes($_POST['so_dien_thoai']);
     $mat_khau = addslashes($_POST['mat_khau']);
+    $dia_chi = htmlspecialchars($_POST['dia_chi'], ENT_QUOTES);
 
+    // default is the current avatar
     $file_name = $_SESSION['anh_dai_dien'];
+    // if user input avatar
     if (!($_FILES['anh_dai_dien']['size'] == 0 || $_FILES['anh_dai_dien']['error'] == 4)) {
         $anh_dai_dien = $_FILES['anh_dai_dien'];
 
@@ -39,7 +42,8 @@
                 ten = '$ten',
                 so_dien_thoai = '$so_dien_thoai',
                 anh_dai_dien = '$file_name',
-                mat_khau = '$mat_khau'
+                mat_khau = '$mat_khau',
+                dia_chi = '$dia_chi'
               where ma = '$ma'";
 
 	require '../../database/connect.php';
