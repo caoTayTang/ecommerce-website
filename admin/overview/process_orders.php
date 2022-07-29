@@ -4,6 +4,12 @@ require '../../database/connect.php';
 $array = array('date','week','month','year');
 $value = "not a valid time";
 $type = "-1";
+
+	if ( empty($_POST[$array[0]]) && empty($_POST[$array[1]]) && empty($_POST[$array[2]]) &&empty($_POST[$array[3]]) ) {
+		echo "<script>alert('Hãy điền đầy đủ thông tin')</script>";
+		echo "<a href='./orders.php'>Quay lại trang chủ</a>";
+		die();
+	}
 for ($i=0; $i < 4; $i++) { 
 	if (!empty($_POST[$array[$i]])) {
 		$value = $_POST[$array[$i]];
@@ -119,7 +125,7 @@ switch ($type) {
     			if ($_SESSION['cap_do'] == 1)
     				include '../menu.php';
     			else 
-    				include './menu.php';
+    				include '../products/menu.php';
     			?>
 
     			<div id="middle_div" style="z-index: 9999">
