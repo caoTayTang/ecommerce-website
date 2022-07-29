@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 28, 2022 at 03:09 PM
+-- Generation Time: Jul 29, 2022 at 04:53 AM
 -- Server version: 5.7.33
 -- PHP Version: 7.4.19
 
@@ -192,9 +192,9 @@ INSERT INTO `san_pham` (`ma`, `ten`, `mo_ta`, `anh`, `gia`, `ma_nha_san_xuat`, `
 (10, 'Đồng hồ', 'clay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplashclay-banks-kAOL6GOJDPE-unsplash', '1658148114.jpg', 99999, 1, 14),
 (11, 'Túi xách', 'kakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\n', '1658148137.jpg', 0, 2, 3),
 (12, 'Áo vàng áo xanh làm chứng cho anh', 'kakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\nkakaman vai\r\n', '1658302751.jpg', 1000, 2, 6),
-(13, 'Miệng cười banh mà lòng như chó rách', ':(', '1658148278.jpg', 12345, 3, 5),
+(13, 'Miệng cười banh mà lòng như chó rách', ':(', '1658148278.jpg', 12345, 3, 6),
 (14, 'Tone xanh vì nhớ anh', ':(', '1658148313.jpg', 192489, 2, 38),
-(36, 'Nhảy đương đại do ngây dại', ':(', '1658149866.jpg', 9012, 2, 7),
+(36, 'Nhảy đương đại do ngây dại', ':(', '1658149866.jpg', 9012, 2, 9),
 (42, 'Ten ne', 'Con cá đối nằm trên cối đá', '1658917610.jpg', 100000, 1, 27);
 
 -- --------------------------------------------------------
@@ -242,7 +242,7 @@ INSERT INTO `the_loai` (`ma`, `ten`) VALUES
 (3, 'Đồ thể thao'),
 (4, 'Phụ kiện'),
 (5, 'Đồ ngủ'),
-(6, 'Đồ cưới'),
+(6, 'Đồ cưới1'),
 (7, 'ABC'),
 (8, 'Đại đẹp trai');
 
@@ -395,19 +395,19 @@ ALTER TABLE `nhan_vien`
 -- AUTO_INCREMENT for table `nha_san_xuat`
 --
 ALTER TABLE `nha_san_xuat`
-  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `san_pham`
 --
 ALTER TABLE `san_pham`
-  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `the_loai`
 --
 ALTER TABLE `the_loai`
-  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
