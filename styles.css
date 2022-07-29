@@ -462,10 +462,10 @@ h2 {
 	height: 60%;
 	width: 100%;
 	border-radius: 4px 4px 0 0;
-	background-size:100% 95%;
+	background-size: cover;
+	background-position: center center;
 	background-repeat: no-repeat;
 	padding: 0px !important;
-	object-fit: cover;
 	cursor: pointer;
 }
 
@@ -609,7 +609,8 @@ h2 {
 		width: 95%;
 		height: 95%;
 		background-repeat: no-repeat;
-		background-size: 100%;
+		background-size: cover;
+		background-position: center center;
 	}
 
 	#show_right {
