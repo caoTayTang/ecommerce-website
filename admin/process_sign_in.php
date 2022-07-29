@@ -16,7 +16,7 @@
 		$_SESSION['anh_dai_dien'] = $each['anh_dai_dien'];
         $_SESSION['cap_do'] = $each['cap_do'];
 
-		header('location: ./products/index.php');
+		header('location: ./overview/index.php');
 		exit;
 	}else {
 		echo "<script>alert('Thất bại')</script>";

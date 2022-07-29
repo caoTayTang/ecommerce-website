@@ -87,7 +87,7 @@ if (!isset($_SESSION['cap_do'])) {
         if ($_SESSION['cap_do'] == 1)
             include '../menu.php';
         else 
-            include './menu.php';
+            include '../products/menu.php';
         ?>
 
         <div id="middle_div" style="z-index: 9999">

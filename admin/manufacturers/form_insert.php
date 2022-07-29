@@ -1,6 +1,6 @@
 <?php 
 session_start();
- if (empty($_SESSION['cap_do'])) { //empty = !isset && !0
+ if (!isset($_SESSION['cap_do'])) {
 	header('location: ../index.php');
 	exit;
 } 
