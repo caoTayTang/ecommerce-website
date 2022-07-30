@@ -15,6 +15,7 @@ if (!isset($_SESSION['cap_do'])) {
     <link rel="stylesheet" type="text/css" href="./overview.css">
     <link rel="icon" href="../../resource/logo.png">
     <style type="text/css">
+
         .highcharts-figure,
         .highcharts-data-table table {
           min-width: 360px;
@@ -56,6 +57,9 @@ if (!isset($_SESSION['cap_do'])) {
 
       .highcharts-data-table tr:hover {
           background: #f1f7ff;
+      }
+      h1 {
+        font-weight: bold;
       }
   </style>
 </head>
@@ -104,11 +108,15 @@ if (!isset($_SESSION['cap_do'])) {
      <div id="content">
         <p>
 
-            <figure class="highcharts-figure">
-              <div id="container"></div>
-          </figure>
 
-          <div id="alert">
+        <div class="alert">
+
+            <figure class="highcharts-figure">
+                <div id="container"></div>
+            </figure>
+        </div>
+        <br>
+        <div class="alert" id="alert">
             <span style="font-size:20px;display: block;">
                 <h2>Thống kê doanh thu</h2>
             </span>
@@ -171,7 +179,7 @@ if (!isset($_SESSION['cap_do'])) {
                     type: 'line'
                 },
                 title: {
-                    text: 'Thống kê doanh thu theo tháng'
+                    text: '<b>Thống kê doanh thu theo tháng</b>'
                 },
                 xAxis: {
                     title: {
