@@ -40,8 +40,9 @@ body {
 	height: 80px;
 	background-color: black;
 	position: sticky;
-    top: 0;
+  top: 0;
 	float: left;
+	z-index: 999;
 }
 
 #footer {
