@@ -8,14 +8,14 @@ It costs me around ``120 hours`` (or 3 weeks) to finish.
 # Member:
 [Kaios](https://github.com/caoTayTang)
 # Technology that I use [^1]:
-|Language|Details|
-|-----|------|
-| HTML 5 | ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) |
-|CSS 3| ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)| 
-|JavaScript|![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)|
-|JQuery|![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)|
-|PHP|![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)|
-|MySQL|![MySQL](https://img.shields.io/badge/mysql-f2f2f2.svg?style=for-the-badge&logo=mysql)|
+||Language|Details|
+|-----|-----|------|
+|Front-end| HTML 5 | ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) |
+|Front-end|CSS 3| ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)| 
+|Front-end|JavaScript|![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)|
+|Front-end|JQuery|![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)|
+|Back-end|PHP|![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)|
+|Database|MySQL|![MySQL](https://img.shields.io/badge/mysql-f2f2f2.svg?style=for-the-badge&logo=mysql)|
 
 # Describe more
 ## User: 
@@ -27,9 +27,10 @@ It costs me around ``120 hours`` (or 3 weeks) to finish.
 ## Admin: 
 |Feature|Details|
 |--- |--- |
-|Login|Using session|
-|Analyse business situation |SQL query (not have chart yet!) |
-|Manage products, manufacturrer, employees, orders|CRUD database|
+|Login|Session|
+|Analyse business situation |MySQL & PHP & JQuery|
+|Chart|[Highcharts library](https://www.highcharts.com/)|
+|Manage products, manufacturrer, employees, orders|MySQL & PHP|
 
 # Document
 Permission required:
