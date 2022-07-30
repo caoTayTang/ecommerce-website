@@ -37,5 +37,5 @@ Permission required:
 [Tài-liệu-đồ-án](https://docs.google.com/document/d/13PA4IHpF2zNDiqhT22BtzrU-UoPr6WEl/edit?usp=sharing&ouid=102930655594417882294&rtpof=true&sd=true)
 
 ## [Contact for more infomation](https://www.messenger.com/t/kaiosthefox)
-[^1]: Note that this project do not include any framework.
+[^1]: Keep in mind that this project do not include any framework.
 [^2]: You should store it at local storage or database for sustainability and better user experience
