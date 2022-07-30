@@ -29,10 +29,27 @@ table {
 }
 
 
+.alert {
+    background-color: blanchedalmond;
+    width: 70%;
+    max-height: 30em;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #f1f3fa;
+    border-radius: 7px;
+    color: #6c757d;
+    box-shadow: 2px 8px 8px 2px rgba(0,0,0,0.15);
+    position: relative;
+    z-index: 0;
+}
+
 #alert {
     background-color: blanchedalmond;
     width: 70%;
-    height: 13em;
+    height: 12em;
     padding-top: 10px;
     margin-left: auto;
     margin-right: auto;
