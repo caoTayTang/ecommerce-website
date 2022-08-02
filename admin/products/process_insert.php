@@ -1,5 +1,5 @@
 <?php 
-	if (empty($_POST['ten']) ||empty($_POST['mo_ta']) ||empty($_FILES['anh']) ||empty($_POST['gia'])||empty($_POST['ma_nha_san_xuat']) || empty($_POST['ma_the_loai'])) {
+	if (empty($_POST['ten']) ||empty($_POST['mo_ta']) ||empty($_FILES['anh']) ||empty($_POST['gia'])||empty($_POST['ma_nha_san_xuat']) || empty($_POST['ma_the_loai']) ) {
 		echo "<script>alert('Xin điền đầy đủ thông tin!')</script>";
         die();
 	}
@@ -10,7 +10,8 @@
 	$anh = $_FILES['anh'];
 	$gia = htmlspecialchars($_POST['gia'], ENT_QUOTES);
 	$ma_nha_san_xuat = $_POST['ma_nha_san_xuat'];
-	$ma_the_loai = $_POST['ma_the_loai'];
+
+	$ma_the_loai = explode(',',$_POST['ma_the_loai']);
 
 	// validate image
 	if ($anh['size'] > 5000000) {
@@ -41,18 +42,23 @@
 	$ma_san_pham = mysqli_insert_id($connect);
 
 
-    
-	$query_the_loai = "insert into the_loai_chi_tiet(ma_san_pham, ma_the_loai) values";
-    $temp_array = array();
-    $index = 0;
+	foreach ($ma_the_loai as $each) {
+		$sql = "select * from the_loai where ten = '$each'";
+		$return = mysqli_query($connect,$sql);
+		$type = mysqli_fetch_array($return);
 
-    foreach($ma_the_loai as $each) {
-        $temp_array[$index] = "('$ma_san_pham','$each')";
-        $index++;
-    }
+		if (empty($type)) {
+			$sql = "insert into the_loai(ten) values('$each')";
+			mysqli_query($connect,$sql);
+			$type_id = mysqli_insert_id($connect);
+		} else {
+			$type_id = $type['ma'];
+		}
 
-    $query_the_loai .= join(",",$temp_array);
-	mysqli_query($connect,$query_the_loai);
+		$query = "insert into the_loai_chi_tiet(ma_san_pham,ma_the_loai)
+		values('$ma_san_pham','$type_id')";
+		mysqli_query($connect,$query);
+	}
 
 	mysqli_close($connect);
 	header('location: ./index.php');
