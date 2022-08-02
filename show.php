@@ -25,12 +25,14 @@
 		require './partial/process_pagination.php'; //still include process_pagination for the variable (otherwise undeclared variable)
 		require './partial/process_search.php';
 
-		$id = $_GET['id'];
-		if (!isset($id) || empty($id)) 
+		if ( !isset($_GET['id']) || empty($_GET['id']) ) 
 		{
 			//header('Location: /ecommerce-website');
 			echo("<script>alert('Link không hợp lệ, vui lòng về trang chủ!')</script>");
+			exit;
+			die();
 		}
+		$id = $_GET['id'];
 
 		$sql =  "select 
                     san_pham.ma as ma,
@@ -55,7 +57,8 @@
                 where san_pham.ma = '$id'
                 limit 1";
         $return = mysqli_query($connect,$sql);
-
+        
+        
         if (mysqli_num_rows($return) !== 1) {
 				echo("<script>alert('Link không hợp lệ, vui lòng về trang chủ!')</script>");
 				die();
