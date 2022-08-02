@@ -35,15 +35,20 @@ if (!isset($_SESSION['cap_do'])) {
         SELECT 
         hoa_don.ma as ma,
         hoa_don.tong_tien as tong_tien,
-        hoa_don.thoi_gian_dat as thoi_gian_dat
+        hoa_don.thoi_gian_dat as thoi_gian_dat,
+        hoa_don.trang_thai as trang_thai
         FROM hoa_don
         WHERE 
         (hoa_don.thoi_gian_dat >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 10 DAY) 
             AND
-            (hoa_don.thoi_gian_dat <= CURRENT_TIMESTAMP))
+        (hoa_don.thoi_gian_dat <= CURRENT_TIMESTAMP)
+            AND
+        trang_thai != 2)
     ";
     $result_order = mysqli_query($connect,$query_order);
     $num_rows = mysqli_num_rows($result_order);
+    $temp_num_rows = $num_rows; //this is for total orders
+
     ?>
     <div id="main_div">
 
@@ -94,13 +99,13 @@ if (!isset($_SESSION['cap_do'])) {
             <p>
                 <table id="main_table">
                     <tr>
-                        <th colspan="3">
+                        <th colspan="4">
                             Số hoá đơn trong 10 ngày vừa qua
                         </th>
                     </tr>
                     <tr style="background-color: #95c5ff;">
                         <th>
-                            Mã
+                            Mã hoá đơn
                         </th>
                         <th>
                             Tổng tiền
@@ -108,8 +113,11 @@ if (!isset($_SESSION['cap_do'])) {
                         <th>
                             Thời gian đặt
                         </th>
+                        <th>
+                            Trạng thái hoá đơn
+                        </th>
                     </tr>
-
+                    <?php $total_revenue = 0; ?>
                     <?php foreach($result_order as $each) { ?>
                         <?php 
                     // the rows color is alternating bewtween #ffffff and #f3f3f3 
@@ -124,6 +132,7 @@ if (!isset($_SESSION['cap_do'])) {
                             <td>
                                 <?php echo number_format($each['tong_tien'],0, '', ','). ' ₫
                                 ' ?>
+                                <?php $total_revenue += $each['tong_tien'] ?>
                             </td>
                             <td>
                                <b>
@@ -138,8 +147,37 @@ if (!isset($_SESSION['cap_do'])) {
                                 ?>
                             </em>
                         </td>
+                        <?php 
+                        $trang_thai = $each['trang_thai'];
+                        switch ($trang_thai) {
+                            case "0":
+                                $msg = "Mới đặt";
+                                $color = '#e9bc03';
+                                break;
+                            case "1":
+                                $msg = "Đã duyệt";
+                                $color = 'blue';
+                                break;
+                            case "2":
+                                $msg = "Đã huỷ";
+                                $color = 'red';
+                                break;
+                        }
+                        ?>
+                        <td style="color:<?=$color?> ;">
+                            <?=$msg ?>
+                        </td>
                     </tr>
                 <?php } ?>
+                <tr>
+                    <th colspan="1">
+                        Số đơn: <?=$temp_num_rows?>
+                    </th>
+                    <th colspan="3">
+                        Tổng tiền thu được: <?=number_format($total_revenue,0, '', ','). ' ₫
+                        '?>
+                    </th>
+                </tr>
             </table>
         </p>
     </div>

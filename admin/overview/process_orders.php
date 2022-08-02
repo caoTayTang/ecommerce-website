@@ -18,52 +18,51 @@ for ($i=0; $i < 4; $i++) {
 	}
 }
     // the return value
-    // date 2022-07-18
-    // week 2022-W28
-    // month 2022-06
-    // year 2022
+    // date: 2022-07-18
+    // week: 2022-W28
+    // month: 2022-06
+    // year: 2022
 
 switch ($type) {
 	// date
 	case $array[0]:
-	$time = $value;
-	$sub_query = "
-	cast(hoa_don.thoi_gian_dat AS DATE)= '$time'
-	";
-	$heading = "Số hoá đơn theo ngày";
+		$time = $value;
+		$sub_query = "
+			cast(hoa_don.thoi_gian_dat AS DATE)= '$time'
+		";
+		$heading = "Số hoá đơn theo ngày";
 	break;
 
-    	// week
+	// week
 	case $array[1]:
-    		// return the first day of that week (+7 to the weekend)
-	$time = date("Y-m-d", strtotime("$value")); 
-	$sub_query = "
-	( cast(hoa_don.thoi_gian_dat AS DATE) >= '$time') 
-	AND
-	(cast(hoa_don.thoi_gian_dat AS DATE) <= DATE_ADD('$time', INTERVAL 7 DAY) )
-	";
-	$heading = "Số hoá đơn theo tuần";
-
+		// return the first day of that week (+7 to the weekend)
+		$time = date("Y-m-d", strtotime("$value")); 
+		$sub_query = "
+			(cast(hoa_don.thoi_gian_dat AS DATE) >= '$time') 
+			AND
+			(cast(hoa_don.thoi_gian_dat AS DATE) <= DATE_ADD('$time', INTERVAL 7 DAY))
+		";
+		$heading = "Số hoá đơn theo tuần";
 	break;
 
-    	// month
+	// month
 	case $array[2]:
-	$time = date("Y-m-d", strtotime("$value")); 
-	$sub_query = "
-	( cast(hoa_don.thoi_gian_dat AS DATE) >= '$time') 
-	AND
-	(cast(hoa_don.thoi_gian_dat AS DATE) <= DATE_ADD('$time', INTERVAL 30 DAY) )
-	";
-	$heading = "Số hoá đơn theo tháng";
+		$time = date("Y-m-d", strtotime("$value")); 
+		$sub_query = "
+			(cast(hoa_don.thoi_gian_dat AS DATE) >= '$time') 
+			AND
+			(cast(hoa_don.thoi_gian_dat AS DATE) <= DATE_ADD('$time', INTERVAL 30 DAY))
+		";
+		$heading = "Số hoá đơn theo tháng";
 	break;
 
-    	// year
+	// year
 	case $array[3]:
     		$time = $value.'-01-01'; // the beginning of the year
     		$sub_query = "
-    		( cast(hoa_don.thoi_gian_dat AS DATE) >= '$time') 
-    		AND
-    		(cast(hoa_don.thoi_gian_dat AS DATE) <= DATE_ADD('$time', INTERVAL 365 DAY) )
+	    		( cast(hoa_don.thoi_gian_dat AS DATE) >= '$time') 
+	    		AND
+	    		(cast(hoa_don.thoi_gian_dat AS DATE) <= DATE_ADD('$time', INTERVAL 365 DAY) )
     		";
     		$heading = "Số hoá đơn theo năm";
     		break;
@@ -75,13 +74,15 @@ switch ($type) {
     	}
 
     	$query_order = "
-    	SELECT 
-    	hoa_don.ma as ma,
-    	hoa_don.tong_tien as tong_tien,
-    	hoa_don.thoi_gian_dat as thoi_gian_dat
-    	FROM hoa_don
-    	WHERE $sub_query
+	    	SELECT 
+	    	hoa_don.ma as ma,
+	    	hoa_don.tong_tien as tong_tien,
+	    	hoa_don.thoi_gian_dat as thoi_gian_dat,
+	    	hoa_don.trang_thai as trang_thai
+	    	FROM hoa_don
+	    	WHERE (trang_thai != 2 AND $sub_query)
     	";
+
     	$result_order = mysqli_query($connect,$query_order);
 
     	$num_rows = mysqli_num_rows($result_order);
@@ -167,19 +168,22 @@ switch ($type) {
     					<p>
     						<table id="main_table">
     							<tr>
-    								<th colspan="3">
+    								<th colspan="4">
     									<?php echo $heading ?>
     								</th>
     							</tr>
     							<tr style="background-color: #95c5ff;">
     								<th>
-    									Mã
+    									Mã hoá đơn
     								</th>
     								<th>
     									Tổng tiền
     								</th>
     								<th>
     									Thời gian đặt
+    								</th>
+    								<th>
+    									Trạng thái hoá đơn
     								</th>
     							</tr>
     							<?php $total_revenue = 0; ?>
@@ -212,13 +216,34 @@ switch ($type) {
     											?>
     										</em>
     									</td>
+    									
+										<?php 
+                                        $trang_thai = $each['trang_thai'];
+                                        switch ($trang_thai) {
+                                            case "0":
+                                                $msg = "Mới đặt";
+                                                $color = '#e9bc03';
+                                                break;
+                                            case "1":
+                                                $msg = "Đã duyệt";
+                                                $color = 'blue';
+                                                break;
+                                            case "2":
+                                                $msg = "Đã huỷ";
+                                                $color = 'red';
+                                                break;
+                                        }
+                                    	?>
+		                                <td style="color:<?=$color?> ;">
+		                                    <?=$msg ?>
+										</td>
     								</tr>
     							<?php } ?>
     							<tr>
     								<th colspan="1">
     									Số đơn: <?=$temp_num_rows?>
     								</th>
-    								<th colspan="2">
+    								<th colspan="3">
     									Tổng tiền thu được: <?=number_format($total_revenue,0, '', ','). ' ₫
     									'?>
     								</th>
