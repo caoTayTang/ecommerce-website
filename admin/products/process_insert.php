@@ -59,6 +59,5 @@
 		values('$ma_san_pham','$type_id')";
 		mysqli_query($connect,$query);
 	}
-
 	mysqli_close($connect);
 	header('location: ./index.php');
