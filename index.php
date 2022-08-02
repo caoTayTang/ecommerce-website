@@ -9,6 +9,11 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack-subset.css">
     <link rel="stylesheet" type="text/css" href="./styles.css">
     <link rel="icon" href="./resource/logo.png">
+    <style type="text/css">
+        h2 {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>  
     <?php
@@ -31,7 +36,7 @@
                             <div class="product_image" onclick="location.href='/show.php?id=<?php echo $each['ma'] ?>'" style="background-image: url(./admin/products/photos/<?php echo $each['anh'] ?>);">
                             </div>
                             <div class="product_name">
-                                <h2>
+                                <h2 onclick="location.href='/show.php?id=<?php echo $each['ma'] ?>'">
                                     <?php echo $each['ten'] ?>
                                 </h2>
                             </div>
