@@ -20,7 +20,7 @@ It costs me around ``120 hours`` (or 3 weeks) to finish.
 ## Library
 |Name|Detail|Logo|
 |---|---|---|
-|JQuery|For AJAX and convinience|![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)|
+|JQuery|For AJAX and convenience|![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)|
 |HighCharts|Chart for analysting|<img src="https://wp-assets.highcharts.com/svg/logo2021.svg" height="30px"></img>|
 |Tags input|For inserting products type |[Github](https://github.com/bootstrap-tagsinput/bootstrap-tagsinput)
 |PHPMailer|Send new users mails to notify them|<img src="https://camo.githubusercontent.com/e6af60518d5340b495cb281096e017e5a735d75e5b63012caed6cb185406a30f/68747470733a2f2f7261772e6769746875622e636f6d2f5048504d61696c65722f5048504d61696c65722f6d61737465722f6578616d706c65732f696d616765732f7068706d61696c65722e706e67" height="30px"></img>|
