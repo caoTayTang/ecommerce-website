@@ -19,6 +19,10 @@ if (!isset($_SESSION['ma'])) {
             padding: 10px;
             padding-left: 20px;
         }
+
+        td {
+            cursor: default;
+        }
     </style>
 	<link rel="icon" href="../../resource/logo.png">
 </head>
@@ -84,10 +88,10 @@ if (!isset($_SESSION['ma'])) {
                                 $ma = $each['ma'];
                                 ?>
                             <tr name="each_row" style="background-color: <?php echo $row_color ?>;">
-                                <td onclick="location.href='./show.php?id=<?=$ma?>'">
+                                <td>
                                     <?php echo $each['ma']; ?>
                                 </td>
-                                <td onclick="location.href='./show.php?id=<?=$ma?>'">
+                                <td>
                                     <b>
                                     <?php 
                                         echo date('H:i',strtotime($each['thoi_gian_dat'])) 
@@ -99,7 +103,7 @@ if (!isset($_SESSION['ma'])) {
                                     ?>
                                     </em>
                                 </td>
-                                <td onclick="location.href='./show.php?id=<?=$ma?>'" class="info">
+                                <td class="info">
                                     <b>Tên: </b>
                                      <em>
                                          <?php echo $each['ten_nguoi_nhan']; ?>
@@ -115,7 +119,7 @@ if (!isset($_SESSION['ma'])) {
                                         <?php echo $each['dia_chi_nguoi_nhan']; ?>
                                     </em>
                                 </td>
-                                <td onclick="location.href='./show.php?id=<?=$ma?>'" class="info">
+                                <td class="info">
                                     <b>Tên: </b>
                                      <em>
                                          <?php echo $each['ten_nguoi_dat']; ?>
@@ -148,11 +152,11 @@ if (!isset($_SESSION['ma'])) {
                                                 break;
                                         }
                                     ?>
-                                <td onclick="location.href='./show.php?id=<?=$ma?>'" style="color:<?=$color?> ;">
+                                <td style="color:<?=$color?> ;">
                                     <?=$msg ?>
                                 </td>
                                 <td>
-                                    <b style="color: black;"><?php echo number_format($each['tong_tien'],0, '', ',') ?></b>
+                                    <b style="color: black;"><?php echo number_format($each['tong_tien'],0, '', ',') . '₫' ?></b>
                                 </td>
                             </tr>
                             <?php } ?>
