@@ -35,6 +35,8 @@
                 mysqli_query($connect,$sql);
             } while(mysqli_error($connect));
             setcookie('remember',$token,time() + 60*60*24*30); // set cookies if user checked remember me, expired after 1 month
+        } else {
+            setcookie('remember','',time() + 60*60*24*30); 
         }
 
 		header('location: ../index.php');
