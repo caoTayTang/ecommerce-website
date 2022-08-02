@@ -105,6 +105,9 @@
                                 Ảnh
                             </th>
                             <th>
+                                Thể loại
+                            </th>
+                            <th>
                                 Tên nhà sản xuất
                             </th>
                             <th>
@@ -134,6 +137,9 @@
                                 </td>
                                 <td>
                                     <img src="./photos/<?php echo $each['anh'] ?>" height="100px" />
+                                </td>
+                                <td>
+                                    <?php echo $each['the_loai']; ?>
                                 </td>
                                 <td>
                                     <?php echo $each['ten_nha_san_xuat']; ?>

@@ -33,7 +33,7 @@
          $query .= " right join the_loai_chi_tiet 
                     on the_loai_chi_tiet.ma_san_pham =    san_pham.ma
                     right join the_loai on the_loai.ma = the_loai_chi_tiet.ma_the_loai 
-                    where (san_pham.ten like '%$search%' or mo_ta like '%$search%')
+                    where (san_pham.ten like '%$search%')
                     $order $order_0";
     }else {
         $order_0 = "order by san_pham.ma desc"; //default to order by time the products got added
@@ -60,11 +60,16 @@
                 san_pham.ten as ten,
                 san_pham.anh as anh,
                 san_pham.gia as gia,
-                nha_san_xuat.ten as ten_nha_san_xuat
+                nha_san_xuat.ten as ten_nha_san_xuat,
+                group_concat(the_loai.ten) as the_loai
             from san_pham 
 
             left join nha_san_xuat 
             on nha_san_xuat.ma = san_pham.ma_nha_san_xuat
+            left join the_loai_chi_tiet 
+            on san_pham.ma = the_loai_chi_tiet.ma_san_pham 
+            left join the_loai 
+            on the_loai_chi_tiet.ma_the_loai = the_loai.ma 
 
             where (san_pham.ten like '%$search%' or mo_ta like '%$search%')
             $order
